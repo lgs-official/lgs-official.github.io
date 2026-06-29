@@ -261,24 +261,22 @@
     <div class="sec-head reveal">
       <span class="num">01 / SHOWREEL</span>
       <h2 class="display">The <em>reel</em>.</h2>
-      <p>Two minutes of the last two years — fragrance hero films, founder storytelling, FOOH, and AI-built sequences cut to camera.</p>
+      <p>The last two years, cut to camera — fragrance hero films, founder storytelling, FOOH, and AI-built sequences.</p>
     </div>
-    <!-- REEL VIDEO: replace the poster onclick + add your <video> or <iframe> src -->
+    <!-- REEL VIDEO -->
     <div class="reel-frame frame-corners reveal" id="reelFrame">
       <div class="reel-poster" id="reelPoster" onclick="playReel()">
         <div class="ring"><div class="big-play"></div></div>
-        <div class="ptxt">Press play — 02:00</div>
+        <div class="ptxt">Press play</div>
       </div>
-      <!-- ▼▼ PASTE YOUR REEL HERE ▼▼  (Vimeo/YouTube embed OR self-hosted mp4)
-      <iframe id="reelEmbed" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
-         -- or --
-      <video id="reelVideo" controls playsinline poster="reel-poster.jpg">
-        <source src="showreel.mp4" type="video/mp4" />
-      </video>
-      ▲▲ ------------------------------- ▲▲ -->
+      <iframe id="reelEmbed"
+        src="https://www.youtube-nocookie.com/embed/kpxP4lrV_yM?rel=0&modestbranding=1&playsinline=1"
+        title="LGS — Showreel"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
     <div class="reel-meta reveal">
-      <span>RUNTIME <b>02:00</b></span>
+      <span>RUNTIME <b>0:31</b></span>
       <span>FORMAT <b>16:9 · 4K</b></span>
       <span>CUT <b>2026 REEL</b></span>
       <span>SOUND <b>ON</b></span>
@@ -486,19 +484,21 @@
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // reel play — wires up whichever embed you uncomment
+  // reel play — reveals the YouTube embed with autoplay
   function playReel(){
     const poster=document.getElementById('reelPoster');
     const emb=document.getElementById('reelEmbed');
-    const vid=document.getElementById('reelVideo');
-    if(emb){
+    if(emb && poster){
       const base=emb.getAttribute('src');
-      if(base){emb.setAttribute('src',base+(base.includes('?')?'&':'?')+'autoplay=1');poster.style.opacity='0';setTimeout(()=>poster.style.display='none',300);return;}
+      emb.setAttribute('src', base + (base.includes('?')?'&':'?') + 'autoplay=1');
+      poster.style.opacity='0';
+      setTimeout(()=>poster.style.display='none',300);
     }
-    if(vid){poster.style.opacity='0';setTimeout(()=>poster.style.display='none',300);vid.play();return;}
-    // no source yet → gentle hint
-    poster.querySelector('.ptxt').textContent='Add your reel embed in the HTML →';
   }
+  // hero "Watch the reel" → scroll to reel then play
+  document.querySelectorAll('a[href="#reel"]').forEach(a=>{
+    a.addEventListener('click',()=>{ setTimeout(playReel, 700); });
+  });
 </script>
 </body>
 </html>
