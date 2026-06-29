@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LGS — Creative Producer & Director</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --crimson:#C0202C;
+    --crimson-bright:#E63540;
+    --gold:#C9A24B;
+    --gold-soft:#D9BC7C;
+    --black:#0A0A0B;
+    --black-2:#111113;
+    --black-3:#17171A;
+    --bone:#EDE8DF;
+    --bone-dim:#9A958C;
+    --line:rgba(201,162,75,.22);
+    --maxw:1280px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--black);
+    color:var(--bone);
+    font-family:'Space Grotesk',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--crimson);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;max-width:100%}
+
+  /* ---------- type ---------- */
+  .display{font-family:'Fraunces',serif;font-weight:900;line-height:.92;letter-spacing:-.02em}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);display:inline-flex;align-items:center;gap:.7rem;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem)}
+  section{position:relative}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem clamp(1.25rem,5vw,4rem);
+    background:linear-gradient(to bottom,rgba(10,10,11,.9),rgba(10,10,11,0));
+    backdrop-filter:blur(2px);
+    transition:background .3s;
+  }
+  .topbar.solid{background:rgba(10,10,11,.96);border-bottom:1px solid var(--line)}
+  .brandmark{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;letter-spacing:-.01em}
+  .brandmark .dot{width:9px;height:9px;background:var(--crimson);border-radius:50%;box-shadow:0 0 12px var(--crimson)}
+  .navlinks{display:flex;gap:2rem}
+  .navlinks a{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);transition:color .2s;position:relative}
+  .navlinks a:hover{color:var(--gold)}
+  .navcta{padding:.5rem 1.1rem;border:1px solid var(--gold);color:var(--gold)!important;border-radius:2px;transition:all .25s}
+  .navcta:hover{background:var(--gold);color:var(--black)!important}
+  @media(max-width:760px){.navlinks{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:6rem;padding-bottom:3rem;position:relative;overflow:hidden}
+  .hero-grain{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;
+    background:radial-gradient(120% 80% at 70% 0%,rgba(192,32,44,.18),transparent 55%),
+               radial-gradient(90% 70% at 0% 100%,rgba(201,162,75,.10),transparent 50%);}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-slate{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem}
+  .slate-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--bone-dim);padding:.35rem .7rem;border:1px solid var(--line);border-radius:2px}
+  .slate-tag b{color:var(--gold);font-weight:500}
+  .hero h1{font-size:clamp(3.2rem,11vw,9rem);margin:.2rem 0 .1rem;color:var(--bone)}
+  .hero h1 .red{color:var(--crimson-bright);font-style:italic;font-weight:400}
+  .hero-sub{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.4rem;margin-top:1.6rem;max-width:760px}
+  .hero-sub .role{font-size:clamp(1rem,2.4vw,1.5rem);font-weight:500;color:var(--bone)}
+  .hero-sub .sep{color:var(--crimson)}
+  .hero-line{margin-top:2rem;max-width:620px;font-size:1.05rem;color:var(--bone-dim);line-height:1.7}
+  .hero-line b{color:var(--bone);font-weight:500}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.6rem}
+  .btn{display:inline-flex;align-items:center;gap:.7rem;padding:.95rem 1.6rem;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;transition:all .25s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--crimson);color:#fff}
+  .btn-primary:hover{background:var(--crimson-bright);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--gold);color:var(--gold)}
+  .btn-ghost:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}
+  .play-ic{width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent currentColor}
+  .scrollcue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.3em;color:var(--bone-dim);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.6rem;animation:bob 2.4s ease-in-out infinite}
+  .scrollcue .ln{width:1px;height:36px;background:linear-gradient(var(--gold),transparent)}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" id="topbar">
+  <a href="#top" class="brandmark"><span class="dot"></span>LGS</a>
+  <nav class="navlinks">
+    <a href="#reel">Reel</a>
+    <a href="#work">Work</a>
+    <a href="#approach">Approach</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="navcta">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grain"></div>
+  <div class="wrap">
+    <div class="hero-slate">
+      <span class="slate-tag">ROLL <b>A001</b></span>
+      <span class="slate-tag">SCENE <b>CREATIVE&nbsp;DIR.</b></span>
+      <span class="slate-tag">TAKE <b>2026</b></span>
+    </div>
+    <h1 class="display">Lingeshwaran<br><span class="red">Gopal Shankar</span></h1>
+    <div class="hero-sub">
+      <span class="role">Creative Producer</span><span class="sep">&amp;</span>
+      <span class="role">Director</span><span class="sep">/</span>
+      <span class="role">Cinematographer</span>
+    </div>
+    <p class="hero-line">10+ years directing cinematic commercials — <b>100+ a year</b> across fragrance, automotive &amp; luxury. I build the <b>AI-native production pipelines</b> that ship them faster, without losing the craft.</p>
+    <div class="hero-actions">
+      <a href="#reel" class="btn btn-primary"><span class="play-ic"></span>Watch the reel</a>
+      <a href="#work" class="btn btn-ghost">Selected work</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<style>
+  /* ---------- section header ---------- */
+  .sec-head{padding:6rem 0 2.5rem}
+  .sec-head .num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--crimson);letter-spacing:.2em;display:block;margin-bottom:1.1rem}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,5.5vw,3.6rem);line-height:1;letter-spacing:-.02em;color:var(--bone)}
+  .sec-head h2 em{color:var(--gold);font-style:italic;font-weight:400}
+  .sec-head p{margin-top:1.1rem;max-width:560px;color:var(--bone-dim);font-size:1rem}
+
+  /* ---------- reel ---------- */
+  .reel{padding-bottom:4rem}
+  .reel-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:
+    linear-gradient(135deg,#141416,#0c0c0e);
+    box-shadow:0 40px 120px -40px rgba(192,32,44,.35);}
+  .reel-frame video,.reel-frame iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .reel-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;cursor:pointer;z-index:3;transition:opacity .3s;background:
+    radial-gradient(circle at center,rgba(192,32,44,.10),transparent 60%);}
+  .reel-poster .ring{width:84px;height:84px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:all .3s;position:relative}
+  .reel-poster .ring::after{content:"";position:absolute;inset:-8px;border:1px solid var(--gold);border-radius:50%;opacity:.3;animation:pulse 2.5s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.5);opacity:0}}
+  .reel-poster:hover .ring{background:var(--crimson);border-color:var(--crimson);transform:scale(1.05)}
+  .reel-poster .ptxt{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bone-dim)}
+  .reel-poster .big-play{width:0;height:0;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent var(--bone);margin-left:5px}
+  .frame-corners::before,.frame-corners::after{content:"";position:absolute;width:22px;height:22px;z-index:4;pointer-events:none}
+  .frame-corners::before{top:14px;left:14px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold)}
+  .frame-corners::after{bottom:14px;right:14px;border-bottom:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
+  .reel-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1.2rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:var(--bone-dim)}
+  .reel-meta b{color:var(--gold);font-weight:500}
+
+  /* ---------- work grid ---------- */
+  .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem;padding-bottom:3rem}
+  .proj{position:relative;overflow:hidden;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:var(--black-2);cursor:pointer;transition:border-color .3s,transform .3s}
+  .proj:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .proj-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#16161a,#0d0d0f)}
+  .proj-media img,.proj-media video{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;opacity:.92}
+  .proj:hover .proj-media img,.proj:hover .proj-media video{transform:scale(1.06);opacity:1}
+  .proj-media .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(237,232,223,.18);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:1rem}
+  .proj-tag{position:absolute;top:.8rem;left:.8rem;z-index:3;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .6rem;background:rgba(10,10,11,.8);border:1px solid var(--line);border-radius:2px;color:var(--gold)}
+  .proj-vidtag{position:absolute;top:.8rem;right:.8rem;z-index:3;width:30px;height:30px;border-radius:50%;background:rgba(192,32,44,.9);display:flex;align-items:center;justify-content:center}
+  .proj-vidtag .pl{width:0;height:0;border-style:solid;border-width:4px 0 4px 7px;border-color:transparent transparent transparent #fff;margin-left:2px}
+  .proj-body{padding:1.1rem 1.2rem 1.3rem}
+  .proj-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;color:var(--bone);line-height:1.15}
+  .proj-body .meta{margin-top:.4rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:var(--bone-dim);text-transform:uppercase}
+  .proj-body p{margin-top:.7rem;font-size:.9rem;color:var(--bone-dim);line-height:1.55}
+  /* spans */
+  .col-7{grid-column:span 7}.col-5{grid-column:span 5}.col-6{grid-column:span 6}.col-4{grid-column:span 4}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
+  @media(max-width:860px){.work-grid{gap:1rem}.col-7,.col-5,.col-6,.col-4,.col-8{grid-column:span 12}}
+
+  /* ---------- approach ---------- */
+  .approach{background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:4rem}
+  .appr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding-bottom:5rem}
+  .appr-card{padding:2.4rem 1.8rem 0;border-left:1px solid rgba(255,255,255,.06)}
+  .appr-card:first-child{border-left:0;padding-left:0}
+  .appr-card .ci{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--crimson);letter-spacing:.2em;margin-bottom:1rem}
+  .appr-card h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--bone);margin-bottom:.7rem;line-height:1.1}
+  .appr-card p{font-size:.92rem;color:var(--bone-dim);line-height:1.6}
+  @media(max-width:760px){.appr-grid{grid-template-columns:1fr}.appr-card{border-left:0;padding-left:0;padding-top:2rem}.appr-card:first-child{padding-top:2.4rem}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.25fr 0.95fr;gap:2.6rem;align-items:start;padding-bottom:5rem}
+  .about-lead{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.25rem,2.3vw,1.7rem);line-height:1.4;color:var(--bone)}
+  .about-lead b{font-weight:600;color:var(--gold-soft)}
+  /* on-set photo */
+  .onset{position:relative}
+  .onset-frame{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 30px 70px -30px rgba(192,32,44,.4)}
+  .onset-frame img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
+  .onset-frame::before,.onset-frame::after{content:"";position:absolute;width:20px;height:20px;z-index:3;pointer-events:none}
+  .onset-frame::before{top:12px;left:12px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold)}
+  .onset-frame::after{bottom:12px;right:12px;border-bottom:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
+  .onset-cap{margin-top:.9rem;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim)}
+  .onset-cap b{color:var(--gold);font-weight:500}
+  @media(max-width:980px){.about-grid{grid-template-columns:1fr 1fr;gap:2.2rem}.onset{grid-column:span 2;max-width:340px}}
+  .about-body{margin-top:1.6rem;color:var(--bone-dim);font-size:.98rem;line-height:1.7}
+  .about-body p+p{margin-top:1rem}
+  .facts{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--black-2)}
+  .fact{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.05);font-size:.85rem}
+  .fact:last-child{border-bottom:0}
+  .fact .k{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim)}
+  .fact .v{color:var(--bone);text-align:right;font-weight:500}
+  .facts-head{padding:1rem 1.3rem;background:var(--crimson);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:2.2rem}}
+
+  /* ---------- tools strip ---------- */
+  .tools{padding:0 0 5rem}
+  .tools-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.06em;padding:.5rem .9rem;border:1px solid var(--line);border-radius:2px;color:var(--bone-dim);transition:all .2s}
+  .chip:hover{border-color:var(--gold);color:var(--gold)}
+  .chip.lab{color:var(--crimson-bright);border-color:rgba(230,53,64,.4)}
+
+  /* ---------- contact ---------- */
+  .contact{background:
+    radial-gradient(100% 100% at 50% 0%,rgba(192,32,44,.16),transparent 55%),var(--black);
+    border-top:1px solid var(--line);text-align:center;padding:6rem 0 5rem}
+  .contact .eyebrow{justify-content:center}
+  .contact h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.4rem,7vw,5rem);line-height:1;letter-spacing:-.02em;margin:1.4rem 0 .4rem;color:var(--bone)}
+  .contact h2 em{font-style:italic;font-weight:400;color:var(--crimson-bright)}
+  .contact .csub{color:var(--bone-dim);max-width:480px;margin:0 auto 2.4rem;font-size:1.02rem}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+  .links-row{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:3rem;font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase}
+  .links-row a{color:var(--bone-dim);transition:color .2s;display:inline-flex;gap:.5rem;align-items:center}
+  .links-row a:hover{color:var(--gold)}
+  .links-row a::before{content:"↗";color:var(--crimson)}
+
+  /* ---------- footer ---------- */
+  footer{padding:2.2rem 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+  footer .ft{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
+  footer .ft b{color:var(--crimson)}
+
+  /* ---------- reveal anim ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scrollcue,.reel-poster .ring::after{animation:none}}
+</style>
+
+<!-- ============ REEL ============ -->
+<section class="reel" id="reel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">01 / SHOWREEL</span>
+      <h2 class="display">The <em>reel</em>.</h2>
+      <p>Two minutes of the last two years — fragrance hero films, founder storytelling, FOOH, and AI-built sequences cut to camera.</p>
+    </div>
+    <!-- REEL VIDEO: replace the poster onclick + add your <video> or <iframe> src -->
+    <div class="reel-frame frame-corners reveal" id="reelFrame">
+      <div class="reel-poster" id="reelPoster" onclick="playReel()">
+        <div class="ring"><div class="big-play"></div></div>
+        <div class="ptxt">Press play — 02:00</div>
+      </div>
+      <!-- ▼▼ PASTE YOUR REEL HERE ▼▼  (Vimeo/YouTube embed OR self-hosted mp4)
+      <iframe id="reelEmbed" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+         -- or --
+      <video id="reelVideo" controls playsinline poster="reel-poster.jpg">
+        <source src="showreel.mp4" type="video/mp4" />
+      </video>
+      ▲▲ ------------------------------- ▲▲ -->
+    </div>
+    <div class="reel-meta reveal">
+      <span>RUNTIME <b>02:00</b></span>
+      <span>FORMAT <b>16:9 · 4K</b></span>
+      <span>CUT <b>2026 REEL</b></span>
+      <span>SOUND <b>ON</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">02 / SELECTED WORK</span>
+      <h2 class="display">Campaigns &amp; <em>films</em>.</h2>
+      <p>Hero films, launch campaigns, and out-of-home — across the Fragrance World group and beyond. Drop a clip or a frame into any slot.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- PROJECT 1 — French Avenue brand film (FEATURE, video) -->
+      <article class="proj col-7 reveal">
+        <div class="proj-media">
+          <span class="proj-tag">French Avenue · Brand Film</span>
+          <span class="proj-vidtag"><span class="pl"></span></span>
+          <!-- <video src="fa-brandfilm.mp4" muted loop playsinline></video> -->
+          <div class="ph">[ 16:9 · DROP BRAND-FILM CLIP ]</div>
+        </div>
+        <div class="proj-body">
+          <h3>French Avenue — Brand Films</h3>
+          <div class="meta">Lead Director · Cinematography · Edit</div>
+          <p>Recurring tentpole storytelling for French Avenue, including the founder-led flagship film — emotion-first, shot and cut for multi-platform rollout.</p>
+        </div>
+      </article>
+
+      <!-- PROJECT 2 — Eid campaign (video) -->
+      <article class="proj col-5 reveal">
+        <div class="proj-media">
+          <span class="proj-tag">Eid · Annual Campaign</span>
+          <span class="proj-vidtag"><span class="pl"></span></span>
+          <div class="ph">[ 16:9 · DROP EID FILM FRAME ]</div>
+        </div>
+        <div class="proj-body">
+          <h3>Eid Campaigns</h3>
+          <div class="meta">Director · Year-on-Year</div>
+          <p>The brand's biggest cultural moment, delivered annually across YouTube, Snapchat, Instagram &amp; LinkedIn with platform-specific cuts.</p>
+        </div>
+      </article>
+
+      <!-- PROJECT 3 — FOOH (video) -->
+      <article class="proj col-5 reveal">
+        <div class="proj-media">
+          <span class="proj-tag">FOOH · CGI</span>
+          <span class="proj-vidtag"><span class="pl"></span></span>
+          <div class="ph">[ 16:9 · DROP FOOH CLIP ]</div>
+        </div>
+        <div class="proj-body">
+          <h3>FOOH — Fake Out-of-Home</h3>
+          <div class="meta">Concept · AI Video · Compositing</div>
+          <p>A magic-realism hero spot built on real Dubai billboards — AI video generation fused with motion-graphics compositing in post.</p>
+        </div>
+      </article>
+
+      <!-- PROJECT 4 — Fragrance hero stills (image) -->
+      <article class="proj col-7 reveal">
+        <div class="proj-media">
+          <span class="proj-tag">Fragrance · Hero Stills</span>
+          <!-- <img src="hero-still.jpg" alt="Fragrance hero still" /> -->
+          <div class="ph">[ 16:9 · DROP HERO STILL / 3×3 GRID ]</div>
+        </div>
+        <div class="proj-body">
+          <h3>Fragrance Hero Campaigns</h3>
+          <div class="meta">Art Direction · CGI · Grade</div>
+          <p>Editorial, shot-through-glass hero imagery — 35mm film texture, grain, and light built to sit on billboards and in the feed alike.</p>
+        </div>
+      </article>
+
+      <!-- PROJECT 5 — full-width AI pipeline showcase -->
+      <article class="proj col-12 reveal">
+        <div class="proj-media" style="aspect-ratio:21/9">
+          <span class="proj-tag">Pipeline · AI-Native</span>
+          <div class="ph">[ 21:9 · DROP PIPELINE / BTS REEL — generative video · image · 3D ]</div>
+        </div>
+        <div class="proj-body">
+          <h3>The AI-Native Production Pipeline</h3>
+          <div class="meta">System Design · Generative Video · Image · 3D · LLM Orchestration</div>
+          <p>The system behind the volume — generative video, image, and 3D, paired with LLM-orchestrated workflows and fused with real commercial-filmmaking discipline. Faster timelines, lower cost-per-asset, no compromise on craft.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">03 / APPROACH</span>
+      <h2 class="display">Craft, at <em>scale</em>.</h2>
+    </div>
+    <div class="appr-grid">
+      <div class="appr-card reveal">
+        <div class="ci">/ 01</div>
+        <h4>Direct it like film</h4>
+        <p>Every frame carries commercial-filmmaking logic — lens language, lighting continuity, product accuracy, pacing. AI doesn't relax the standard; it has to clear it.</p>
+      </div>
+      <div class="appr-card reveal">
+        <div class="ci">/ 02</div>
+        <h4>Build the system</h4>
+        <p>Style bibles, reusable reference packs, versioned prompts and nodes. The pipeline is what lets a brand ship 100+ a year and still look intentional.</p>
+      </div>
+      <div class="appr-card reveal">
+        <div class="ci">/ 03</div>
+        <h4>Protect each brand</h4>
+        <p>Multi-brand by default — distinct visual signatures, strict separation, zero dilution. A parent and its sister lines should never blur into one another.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">04 / ABOUT</span>
+      <h2 class="display">Who's <em>behind</em> the camera.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="onset reveal">
+        <div class="onset-frame">
+          <img src="onset.jpg" alt="LGS on location — director on set" />
+        </div>
+        <div class="onset-cap"><span>On location</span><span><b>DIR.</b> LGS</span></div>
+      </div>
+      <div class="reveal">
+        <p class="about-lead">A self-taught cinematographer grown into a commercial filmmaker — now running <b>end-to-end production</b> for a multi-brand fragrance house, and building the <b>AI pipeline</b> that powers it.</p>
+        <div class="about-body">
+          <p>Ten-plus years across fragrance, automotive, and luxury — owning the full chain from concept and direction through edit, colour, sound, and delivery, and leading the multidisciplinary teams behind it.</p>
+          <p>There's an engineer underneath the director: an M.E. degree that means I read high-performance product at a technical level — which shows in the energy of the work, especially on anything that moves.</p>
+          <p>Founder of Think RED Studios. Sony professional camera shooter and licensed DJI drone pilot. Based in Dubai, open to global relocation.</p>
+        </div>
+      </div>
+      <div class="facts reveal">
+        <div class="facts-head">Production Sheet</div>
+        <div class="fact"><span class="k">Experience</span><span class="v">10+ years</span></div>
+        <div class="fact"><span class="k">Output</span><span class="v">100+ commercials / yr</span></div>
+        <div class="fact"><span class="k">Verticals</span><span class="v">Fragrance · Auto · Luxury</span></div>
+        <div class="fact"><span class="k">Base</span><span class="v">Dubai · Global</span></div>
+        <div class="fact"><span class="k">Credentials</span><span class="v">Sony Shooter · DJI Pilot</span></div>
+        <div class="fact"><span class="k">Founder</span><span class="v">Think RED Studios</span></div>
+      </div>
+    </div>
+
+    <!-- tools -->
+    <div class="tools reveal">
+      <span class="eyebrow">Toolkit</span>
+      <div class="tools-row">
+        <span class="chip">DaVinci Resolve</span>
+        <span class="chip">After Effects</span>
+        <span class="chip">Premiere Pro</span>
+        <span class="chip">Unreal Engine 5</span>
+        <span class="chip">Blender</span>
+        <span class="chip lab">Kling 3.0</span>
+        <span class="chip lab">Seedance 2.0</span>
+        <span class="chip lab">Veo</span>
+        <span class="chip lab">Nano Banana Pro</span>
+        <span class="chip lab">Runway</span>
+        <span class="chip lab">Firefly</span>
+        <span class="chip">LLM Orchestration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Let's build something</span>
+    <h2 class="display">Got an <em>ambitious</em><br>commercial?</h2>
+    <p class="csub">If you need someone who can set the bar, lead the team, and tell your brand's story — let's talk.</p>
+    <div class="contact-actions">
+      <a href="mailto:[email]" class="btn btn-primary">[ Email me ]</a>
+      <a href="[linkedin-url]" class="btn btn-ghost">LinkedIn</a>
+    </div>
+    <div class="links-row">
+      <a href="[showreel-url]">Showreel</a>
+      <a href="[instagram-url]">Instagram</a>
+      <a href="[vimeo-url]">Vimeo</a>
+      <a href="[think-red-url]">Think RED Studios</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="ft">LGS — Creative Producer &amp; Director <b>·</b> Dubai, open globally <b>·</b> © 2026</span>
+  </div>
+</footer>
+
+<script>
+  // sticky bar
+  const tb=document.getElementById('topbar');
+  addEventListener('scroll',()=>{tb.classList.toggle('solid',scrollY>40)});
+
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // reel play — wires up whichever embed you uncomment
+  function playReel(){
+    const poster=document.getElementById('reelPoster');
+    const emb=document.getElementById('reelEmbed');
+    const vid=document.getElementById('reelVideo');
+    if(emb){
+      const base=emb.getAttribute('src');
+      if(base){emb.setAttribute('src',base+(base.includes('?')?'&':'?')+'autoplay=1');poster.style.opacity='0';setTimeout(()=>poster.style.display='none',300);return;}
+    }
+    if(vid){poster.style.opacity='0';setTimeout(()=>poster.style.display='none',300);vid.play();return;}
+    // no source yet → gentle hint
+    poster.querySelector('.ptxt').textContent='Add your reel embed in the HTML →';
+  }
+</script>
+</body>
+</html>
