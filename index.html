@@ -74,6 +74,12 @@
     background:radial-gradient(120% 80% at 70% 0%,rgba(192,32,44,.18),transparent 55%),
                radial-gradient(90% 70% at 0% 100%,rgba(201,162,75,.10),transparent 50%);}
   .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-fig{position:absolute;top:0;right:0;height:100%;width:46%;z-index:1;pointer-events:none;
+    display:flex;align-items:center;justify-content:flex-end;overflow:hidden}
+  .hero-fig img{height:100%;width:100%;object-fit:cover;object-position:center right;opacity:.85;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 40%,#000 100%);
+    mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 40%,#000 100%)}
+  @media(max-width:900px){.hero-fig{opacity:.35;width:75%}}
   .hero-slate{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem}
   .slate-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--bone-dim);padding:.35rem .7rem;border:1px solid var(--line);border-radius:2px}
   .slate-tag b{color:var(--gold);font-weight:500}
@@ -113,6 +119,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-grain"></div>
+  <div class="hero-fig"><img src="herofig.png" alt="LGS on set" /></div>
   <div class="wrap">
     <div class="hero-slate">
       <span class="slate-tag">ROLL <b>A001</b></span>
