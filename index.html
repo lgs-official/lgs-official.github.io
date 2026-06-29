@@ -110,6 +110,7 @@
   <nav class="navlinks">
     <a href="#reel">Reel</a>
     <a href="#work">Work</a>
+    <a href="#aigen">Pipeline</a>
     <a href="#approach">Approach</a>
     <a href="#about">About</a>
     <a href="#contact" class="navcta">Contact</a>
@@ -226,7 +227,52 @@
   /* ---------- tools strip ---------- */
   .tools{padding:0 0 5rem}
   .tools-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
-  .chip{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;letter-spacing:.06em;padding:.5rem .9rem;border:1px solid var(--line);border-radius:2px;color:var(--bone-dim);transition:all .2s}
+  /* ============ AI GEN PIPELINE ============ */
+  .aigen{background:linear-gradient(180deg,var(--ink) 0%,#0d0908 100%);border-top:1px solid var(--line);position:relative;overflow:hidden}
+  .aigen::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(230,53,64,.5),transparent)}
+  .pipe-intro{display:grid;grid-template-columns:1fr;gap:1.4rem;max-width:680px;margin-bottom:3.5rem}
+  .pipe-intro .lead{font-family:'Space Grotesk',sans-serif;font-size:1.18rem;line-height:1.6;color:var(--bone);font-weight:400}
+  .pipe-intro .lead b{color:var(--crimson-bright);font-weight:600}
+  .pipe-intro .sub{color:var(--bone-dim);font-size:.98rem;line-height:1.6}
+
+  /* node graph */
+  .nodegraph{position:relative;margin:0 -1rem}
+  .pipe-flow{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding:1rem;scrollbar-width:thin;scrollbar-color:var(--crimson) transparent}
+  .pipe-flow::-webkit-scrollbar{height:6px}
+  .pipe-flow::-webkit-scrollbar-thumb{background:rgba(230,53,64,.4);border-radius:3px}
+  .stage{flex:1 0 200px;min-width:200px;position:relative;display:flex;flex-direction:column}
+  .stage:not(:last-child){padding-right:38px}
+  /* connector arrow between stages */
+  .stage:not(:last-child)::after{content:"";position:absolute;top:54px;right:14px;width:24px;height:1px;
+    background:linear-gradient(90deg,rgba(201,162,75,.55),rgba(201,162,75,.15))}
+  .stage:not(:last-child)::before{content:"";position:absolute;top:50px;right:12px;z-index:2;
+    width:0;height:0;border-left:7px solid var(--gold);border-top:4px solid transparent;border-bottom:4px solid transparent;opacity:.7}
+  .node{border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.015);height:100%;
+    display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+  .node:hover{border-color:rgba(201,162,75,.45);transform:translateY(-3px)}
+  .node-top{display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+  .node-idx{font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;color:var(--crimson);
+    border:1px solid rgba(230,53,64,.35);border-radius:2px;padding:.12rem .4rem;letter-spacing:.05em}
+  .node-name{font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;font-weight:700;
+    color:var(--bone);letter-spacing:.04em;text-transform:uppercase}
+  .node-body{padding:.9rem 1rem 1.1rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
+  .node-desc{font-size:.82rem;line-height:1.5;color:var(--bone-dim)}
+  .node-tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+  .tool-chip{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.03em;
+    padding:.28rem .55rem;border-radius:2px;border:1px solid var(--line);color:var(--bone-dim);white-space:nowrap}
+  .tool-chip.ai{color:var(--crimson-bright);border-color:rgba(230,53,64,.4);background:rgba(230,53,64,.04)}
+  .tool-chip.craft{color:var(--gold);border-color:rgba(201,162,75,.35)}
+
+  /* orchestration rail under the flow */
+  .pipe-rail{margin-top:2.2rem;border:1px dashed rgba(201,162,75,.28);border-radius:4px;
+    padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:rgba(201,162,75,.02)}
+  .pipe-rail .rail-label{font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;
+    color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .pipe-rail .rail-desc{font-size:.84rem;color:var(--bone-dim);line-height:1.5}
+  .pipe-rail .rail-desc b{color:var(--bone);font-weight:600}
+  @media(max-width:760px){.stage{flex:1 0 78%;min-width:78%}}
+
+
   .chip:hover{border-color:var(--gold);color:var(--gold)}
   .chip.lab{color:var(--crimson-bright);border-color:rgba(230,53,64,.4)}
 
@@ -366,11 +412,120 @@
   </div>
 </section>
 
-<!-- ============ APPROACH ============ -->
+<!-- ============ AI GEN PIPELINE ============ -->
+<section class="aigen" id="aigen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">03 / AI-NATIVE PIPELINE</span>
+      <h2 class="display">Generative <em>production</em>.</h2>
+    </div>
+
+    <div class="pipe-intro reveal">
+      <p class="lead">A working pipeline that fuses <b>generative AI</b> with real commercial-filmmaking discipline — not prompts for their own sake, but a controlled system where lens logic, lighting continuity, product accuracy, and grade survive end to end.</p>
+      <p class="sub">Orchestrated across three in-house systems — CONDUCTOR for the workstation layer, CLAUDIUS for UE5 cinematic automation, and a Blender-MCP product pipeline — with LLM routing deciding what each stage needs. Built to hit broadcast quality at the speed of 100+ commercials a year.</p>
+    </div>
+
+    <div class="nodegraph reveal">
+      <div class="pipe-flow">
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">01</span><span class="node-name">Concept &amp; Brief</span></div>
+            <div class="node-body">
+              <p class="node-desc">Brand brief broken into shot logic, references, and a style bible. The creative direction is locked before a single frame is generated.</p>
+              <div class="node-tools">
+                <span class="tool-chip ai">LLM Orchestration</span>
+                <span class="tool-chip craft">Style Bible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">02</span><span class="node-name">Image Gen</span></div>
+            <div class="node-body">
+              <p class="node-desc">Hero frames, product stills, and keyframes generated to spec — product accuracy and texture held to a photo-real standard.</p>
+              <div class="node-tools">
+                <span class="tool-chip ai">Nano Banana Pro</span>
+                <span class="tool-chip ai">Firefly</span>
+                <span class="tool-chip ai">Midjourney</span>
+                <span class="tool-chip ai">Seedream</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">03</span><span class="node-name">Video Gen</span></div>
+            <div class="node-body">
+              <p class="node-desc">Keyframes driven into motion with deliberate camera language — lens, move, and pacing chosen like a real shoot, not left to chance.</p>
+              <div class="node-tools">
+                <span class="tool-chip ai">Kling 3.0</span>
+                <span class="tool-chip ai">Seedance 2.0</span>
+                <span class="tool-chip ai">Veo</span>
+                <span class="tool-chip ai">Runway</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">04</span><span class="node-name">3D &amp; CGI</span></div>
+            <div class="node-body">
+              <p class="node-desc">Product-accurate 3D, label wraps, and cinematic camera moves via the Blender-MCP pipeline and CLAUDIUS UE5 automation.</p>
+              <div class="node-tools">
+                <span class="tool-chip">Blender · MCP</span>
+                <span class="tool-chip">Unreal Engine 5</span>
+                <span class="tool-chip craft">CLAUDIUS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">05</span><span class="node-name">Edit &amp; Grade</span></div>
+            <div class="node-body">
+              <p class="node-desc">Assembled, sound-designed, and graded for continuity — the AI origin disappears into a finished commercial that holds on a broadcast screen.</p>
+              <div class="node-tools">
+                <span class="tool-chip">DaVinci Resolve</span>
+                <span class="tool-chip">After Effects</span>
+                <span class="tool-chip">Premiere Pro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node">
+            <div class="node-top"><span class="node-idx">06</span><span class="node-name">Deliver</span></div>
+            <div class="node-body">
+              <p class="node-desc">Platform-specific cuts and aspect ratios mastered to spec — one hero film fanning out to every channel.</p>
+              <div class="node-tools">
+                <span class="tool-chip craft">16:9 · 9:16 · 1:1</span>
+                <span class="tool-chip craft">4K Master</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pipe-rail reveal">
+        <span class="rail-label">Orchestration Layer</span>
+        <p class="rail-desc"><b>CONDUCTOR</b> drives the workstation · <b>LLM routing</b> assigns each stage its model · versioned prompts &amp; reusable nodes keep output consistent at scale. The craft logic — not the tool — runs the show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="approach" id="approach">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">03 / APPROACH</span>
+      <span class="num">04 / APPROACH</span>
       <h2 class="display">Craft, at <em>scale</em>.</h2>
     </div>
     <div class="appr-grid">
@@ -397,7 +552,7 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">04 / ABOUT</span>
+      <span class="num">05 / ABOUT</span>
       <h2 class="display">Who's <em>behind</em> the camera.</h2>
     </div>
     <div class="about-grid">
@@ -423,25 +578,6 @@
         <div class="fact"><span class="k">Base</span><span class="v">Dubai · Global</span></div>
         <div class="fact"><span class="k">Credentials</span><span class="v">Sony Shooter · DJI Pilot</span></div>
         <div class="fact"><span class="k">Founder</span><span class="v">Think RED Studios</span></div>
-      </div>
-    </div>
-
-    <!-- tools -->
-    <div class="tools reveal">
-      <span class="eyebrow">Toolkit</span>
-      <div class="tools-row">
-        <span class="chip">DaVinci Resolve</span>
-        <span class="chip">After Effects</span>
-        <span class="chip">Premiere Pro</span>
-        <span class="chip">Unreal Engine 5</span>
-        <span class="chip">Blender</span>
-        <span class="chip lab">Kling 3.0</span>
-        <span class="chip lab">Seedance 2.0</span>
-        <span class="chip lab">Veo</span>
-        <span class="chip lab">Nano Banana Pro</span>
-        <span class="chip lab">Runway</span>
-        <span class="chip lab">Firefly</span>
-        <span class="chip">LLM Orchestration</span>
       </div>
     </div>
   </div>
