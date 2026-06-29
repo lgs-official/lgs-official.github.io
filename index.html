@@ -6,7 +6,7 @@
 <title>LGS — Creative Producer & Director</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --crimson:#C0202C;
@@ -59,8 +59,8 @@
     transition:background .3s;
   }
   .topbar.solid{background:rgba(10,10,11,.96);border-bottom:1px solid var(--line)}
-  .brandmark{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;letter-spacing:-.01em}
-  .brandmark .dot{width:9px;height:9px;background:var(--crimson);border-radius:50%;box-shadow:0 0 12px var(--crimson)}
+  .brandmark{display:flex;align-items:center;gap:.55rem;font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;letter-spacing:-.01em;color:var(--bone)}
+  .brandmark img{height:26px;width:auto;display:block}
   .navlinks{display:flex;gap:2rem}
   .navlinks a{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);transition:color .2s;position:relative}
   .navlinks a:hover{color:var(--gold)}
@@ -74,6 +74,18 @@
     background:radial-gradient(120% 80% at 70% 0%,rgba(192,32,44,.18),transparent 55%),
                radial-gradient(90% 70% at 0% 100%,rgba(201,162,75,.10),transparent 50%);}
   .hero .wrap{position:relative;z-index:2;width:100%}
+  /* film-leader identity spine — left edge of hero */
+  .hero-spine{position:absolute;top:0;left:0;height:100%;width:64px;z-index:3;
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    padding:1.4rem 0;border-right:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(192,32,44,.04),transparent 30%,transparent 70%,rgba(192,32,44,.04))}
+  .hero-spine .spine-logo{width:22px;height:auto;opacity:.95}
+  .hero-spine .spine-id{writing-mode:vertical-rl;text-orientation:upright;
+    font-family:'Courier Prime','Courier New',monospace;font-size:.82rem;font-weight:700;letter-spacing:.45em;
+    color:var(--gold);text-transform:uppercase}
+  .hero-spine .spine-perf{display:flex;flex-direction:column;gap:9px}
+  .hero-spine .spine-perf i{width:13px;height:9px;border:1px solid rgba(201,162,75,.32);border-radius:1.5px;display:block}
+  @media(max-width:760px){.hero-spine{display:none}}
   .hero-fig{position:absolute;top:0;right:0;height:100%;width:46%;z-index:1;pointer-events:none;
     display:flex;align-items:center;justify-content:flex-end;overflow:hidden}
   .hero-fig img{height:100%;width:100%;object-fit:cover;object-position:center right;opacity:.85;
@@ -81,7 +93,7 @@
     mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 40%,#000 100%)}
   @media(max-width:900px){.hero-fig{opacity:.35;width:75%}}
   .hero-slate{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem}
-  .slate-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--bone-dim);padding:.35rem .7rem;border:1px solid var(--line);border-radius:2px}
+  .slate-tag{font-family:'Courier Prime','Courier New',monospace;font-weight:700;font-size:.74rem;letter-spacing:.16em;color:var(--bone-dim);padding:.35rem .7rem;border:1px solid var(--line);border-radius:2px}
   .slate-tag b{color:var(--gold);font-weight:500}
   .hero h1{font-size:clamp(3.2rem,11vw,9rem);margin:.2rem 0 .1rem;color:var(--bone)}
   .hero h1 .red{color:var(--crimson-bright);font-style:italic;font-weight:400}
@@ -106,7 +118,7 @@
 
 <!-- ============ TOP BAR ============ -->
 <header class="topbar" id="topbar">
-  <a href="#top" class="brandmark"><span class="dot"></span>LGS</a>
+  <a href="#top" class="brandmark"><img src="logo.png" alt="LGS logo" />LGS</a>
   <nav class="navlinks">
     <a href="#reel">Reel</a>
     <a href="#work">Work</a>
@@ -120,6 +132,11 @@
 <section class="hero" id="top">
   <div class="hero-grain"></div>
   <div class="hero-fig"><img src="herofig.png" alt="LGS on set" /></div>
+  <div class="hero-spine" aria-hidden="true">
+    <img class="spine-logo" src="logo.png" alt="" />
+    <span class="spine-id">L&middot;G&middot;S</span>
+    <span class="spine-perf"><i></i><i></i><i></i></span>
+  </div>
   <div class="wrap">
     <div class="hero-slate">
       <span class="slate-tag">ROLL <b>A001</b></span>
@@ -132,7 +149,7 @@
       <span class="role">Director</span><span class="sep">/</span>
       <span class="role">Cinematographer</span>
     </div>
-    <p class="hero-line">10+ years directing cinematic commercials — <b>100+ a year</b> across fragrance, automotive &amp; luxury. I build the <b>AI-native production pipelines</b> that ship them faster, without losing the craft.</p>
+    <p class="hero-line"><b>11+ years</b> directing cinematic commercials. <b>100+ produced</b> across fragrance, automotive &amp; luxury. Actively building <b>AI-native production pipelines</b> for video, image, and 3D-model generation — paired with LLM-orchestrated workflows and integrated with real commercial-filmmaking discipline.</p>
     <div class="hero-actions">
       <a href="#reel" class="btn btn-primary"><span class="play-ic"></span>Watch the reel</a>
       <a href="#work" class="btn btn-ghost">Selected work</a>
@@ -265,10 +282,6 @@
     </div>
     <!-- REEL VIDEO -->
     <div class="reel-frame frame-corners reveal" id="reelFrame">
-      <div class="reel-poster" id="reelPoster" onclick="playReel()">
-        <div class="ring"><div class="big-play"></div></div>
-        <div class="ptxt">Press play</div>
-      </div>
       <iframe id="reelEmbed"
         src="https://www.youtube-nocookie.com/embed/kpxP4lrV_yM?rel=0&modestbranding=1&playsinline=1"
         title="LGS — Showreel"
@@ -457,14 +470,12 @@
     <h2 class="display">Got an <em>ambitious</em><br>commercial?</h2>
     <p class="csub">If you need someone who can set the bar, lead the team, and tell your brand's story — let's talk.</p>
     <div class="contact-actions">
-      <a href="mailto:[email]" class="btn btn-primary">[ Email me ]</a>
-      <a href="[linkedin-url]" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:inbox.lgsofficial@gmail.com" class="btn btn-primary">[ Email me ]</a>
+      <a href="https://www.linkedin.com/in/lingeshwaran-gs-59249616" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
     </div>
     <div class="links-row">
-      <a href="[showreel-url]">Showreel</a>
-      <a href="[instagram-url]">Instagram</a>
-      <a href="[vimeo-url]">Vimeo</a>
-      <a href="[think-red-url]">Think RED Studios</a>
+      <a href="https://youtu.be/kpxP4lrV_yM" target="_blank" rel="noopener">Showreel</a>
+      <a href="mailto:inbox.lgsofficial@gmail.com">inbox.lgsofficial@gmail.com</a>
     </div>
   </div>
 </section>
@@ -484,21 +495,8 @@
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // reel play — reveals the YouTube embed with autoplay
-  function playReel(){
-    const poster=document.getElementById('reelPoster');
-    const emb=document.getElementById('reelEmbed');
-    if(emb && poster){
-      const base=emb.getAttribute('src');
-      emb.setAttribute('src', base + (base.includes('?')?'&':'?') + 'autoplay=1');
-      poster.style.opacity='0';
-      setTimeout(()=>poster.style.display='none',300);
-    }
-  }
-  // hero "Watch the reel" → scroll to reel then play
-  document.querySelectorAll('a[href="#reel"]').forEach(a=>{
-    a.addEventListener('click',()=>{ setTimeout(playReel, 700); });
-  });
+  // hero "Watch the reel" → smooth-scrolls to the reel via the #reel anchor (native).
+  // The YouTube player handles its own playback — no custom overlay.
 </script>
 </body>
 </html>
