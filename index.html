@@ -187,6 +187,22 @@
   .proj-body p{margin-top:.7rem;font-size:.9rem;color:var(--bone-dim);line-height:1.55}
   /* spans */
   .col-7{grid-column:span 7}.col-5{grid-column:span 5}.col-6{grid-column:span 6}.col-4{grid-column:span 4}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
+  /* featured film card — FA AI brand film */
+  .proj-feat{grid-column:span 12;display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid rgba(201,162,75,.28);background:linear-gradient(135deg,rgba(192,32,44,.05),var(--black-2) 55%);border-radius:5px;overflow:hidden}
+  .proj-feat .feat-video{position:relative;aspect-ratio:16/9;background:#000;min-height:100%}
+  .proj-feat .feat-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .proj-feat .feat-body{padding:2rem 2.1rem;display:flex;flex-direction:column;justify-content:center;gap:.55rem}
+  .feat-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.32rem .7rem;border-radius:2px;font-weight:700;margin-bottom:.4rem}
+  .feat-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink)}
+  .proj-feat .feat-tag{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-bright)}
+  .proj-feat h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.65rem;color:var(--bone);line-height:1.12;margin-top:.15rem}
+  .proj-feat .feat-desc{font-size:.94rem;color:var(--bone);line-height:1.6;margin-top:.5rem}
+  .proj-feat .feat-desc b{color:var(--crimson-bright);font-weight:600}
+  .proj-feat .feat-credits{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+  .feat-cr{font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--bone-dim);padding:.28rem .55rem;border:1px solid var(--line);border-radius:2px}
+  .feat-cr b{color:var(--gold);font-weight:700}
+  @media(max-width:860px){.proj-feat{grid-template-columns:1fr}}
+
   @media(max-width:860px){.work-grid{gap:1rem}.col-7,.col-5,.col-6,.col-4,.col-8{grid-column:span 12}}
 
   /* ---------- approach ---------- */
@@ -338,18 +354,26 @@
 
     <div class="work-grid">
 
-      <!-- PROJECT 1 — French Avenue brand film (FEATURE, video) -->
-      <article class="proj col-7 reveal">
-        <div class="proj-media">
-          <span class="proj-tag">French Avenue · Brand Film</span>
-          <span class="proj-vidtag"><span class="pl"></span></span>
-          <!-- <video src="fa-brandfilm.mp4" muted loop playsinline></video> -->
-          <div class="ph">[ 16:9 · DROP BRAND-FILM CLIP ]</div>
+      <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
+      <article class="proj-feat reveal">
+        <div class="feat-video">
+          <iframe
+            src="https://player.vimeo.com/video/1206088488?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="French Avenue — AI Brand Film"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
-        <div class="proj-body">
-          <h3>French Avenue — Brand Films</h3>
-          <div class="meta">Lead Director · Cinematography · Edit</div>
-          <p>Recurring tentpole storytelling for French Avenue, including the founder-led flagship film — emotion-first, shot and cut for multi-platform rollout.</p>
+        <div class="feat-body">
+          <span class="feat-badge">Pioneer · 2024</span>
+          <span class="feat-tag">French Avenue · AI Brand Film</span>
+          <h3>The fragrance film, generated frame by frame.</h3>
+          <p class="feat-desc">A fully <b>AI-generated brand film</b> for French Avenue, produced in the first wave of the medium — hand-directed shot by shot across a transatlantic collaboration, bending early AI to a commercial standard it wasn't built to reach.</p>
+          <div class="feat-credits">
+            <span class="feat-cr"><b>Role</b> Creative Producer</span>
+            <span class="feat-cr"><b>Artist</b> Blair Vermette</span>
+            <span class="feat-cr"><b>Agency</b> Rabbithole</span>
+          </div>
         </div>
       </article>
 
@@ -422,7 +446,7 @@
 
     <div class="pipe-intro reveal">
       <p class="lead">A working pipeline that fuses <b>generative AI</b> with real commercial-filmmaking discipline — not prompts for their own sake, but a controlled system where lens logic, lighting continuity, product accuracy, and grade survive end to end.</p>
-      <p class="sub">Orchestrated across three in-house systems — CONDUCTOR for the workstation layer, CLAUDIUS for UE5 cinematic automation, and a Blender-MCP product pipeline — with LLM routing deciding what each stage needs. Built to hit broadcast quality at the speed of 100+ commercials a year.</p>
+      <p class="sub">Driven by a custom layer of <b>specialised skills and purpose-built agents</b> — a library of 340+ task-specific skills and defined-role agents, with LLM routing assigning each stage to the right model. Reusable, versioned, and orchestrated to hit broadcast quality at the speed of 100+ commercials a year.</p>
     </div>
 
     <div class="nodegraph reveal">
@@ -475,11 +499,11 @@
           <div class="node">
             <div class="node-top"><span class="node-idx">04</span><span class="node-name">3D &amp; CGI</span></div>
             <div class="node-body">
-              <p class="node-desc">Product-accurate 3D, label wraps, and cinematic camera moves via the Blender-MCP pipeline and CLAUDIUS UE5 automation.</p>
+              <p class="node-desc">Product-accurate 3D, label wraps, and cinematic camera moves — driven by dedicated agents over an MCP-connected Blender and Unreal Engine setup.</p>
               <div class="node-tools">
                 <span class="tool-chip">Blender · MCP</span>
                 <span class="tool-chip">Unreal Engine 5</span>
-                <span class="tool-chip craft">CLAUDIUS</span>
+                <span class="tool-chip craft">Agent-Driven</span>
               </div>
             </div>
           </div>
@@ -515,8 +539,8 @@
       </div>
 
       <div class="pipe-rail reveal">
-        <span class="rail-label">Orchestration Layer</span>
-        <p class="rail-desc"><b>CONDUCTOR</b> drives the workstation · <b>LLM routing</b> assigns each stage its model · versioned prompts &amp; reusable nodes keep output consistent at scale. The craft logic — not the tool — runs the show.</p>
+        <span class="rail-label">Skills &amp; Agents Layer</span>
+        <p class="rail-desc"><b>340+ specialised skills</b> and <b>purpose-built agents</b> — each with a defined role — sit under the whole pipeline. <b>LLM routing</b> assigns every task to the right model; versioned prompts and reusable nodes keep output consistent across hundreds of deliverables. The craft logic — not the tool — runs the show.</p>
       </div>
     </div>
   </div>
