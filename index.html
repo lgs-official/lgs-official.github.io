@@ -59,8 +59,8 @@
     transition:background .3s;
   }
   .topbar.solid{background:rgba(10,10,11,.96);border-bottom:1px solid var(--line)}
-  .brandmark{display:flex;align-items:center;gap:.55rem;font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;letter-spacing:-.01em;color:var(--bone)}
-  .brandmark img{height:26px;width:auto;display:block}
+  .brandmark{display:flex;align-items:center}
+  .brandmark img{height:44px;width:auto;display:block}
   .navlinks{display:flex;gap:2rem}
   .navlinks a{font-family:'Courier Prime','Courier New',monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);transition:color .2s;position:relative}
   .navlinks a:hover{color:var(--gold)}
@@ -106,7 +106,7 @@
 
 <!-- ============ TOP BAR ============ -->
 <header class="topbar" id="topbar">
-  <a href="#top" class="brandmark"><img src="logo.png" alt="LGS logo" />LGS</a>
+  <a href="#top" class="brandmark"><img src="logo.png" alt="LGS" /></a>
   <nav class="navlinks">
     <a href="#reel">Reel</a>
     <a href="#work">Work</a>
@@ -188,8 +188,9 @@
   /* spans */
   .col-7{grid-column:span 7}.col-5{grid-column:span 5}.col-6{grid-column:span 6}.col-4{grid-column:span 4}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
   /* featured film card — FA AI brand film */
-  .proj-feat{grid-column:span 12;display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid rgba(201,162,75,.28);background:linear-gradient(135deg,rgba(192,32,44,.05),var(--black-2) 55%);border-radius:5px;overflow:hidden}
-  .proj-feat .feat-video{position:relative;aspect-ratio:16/9;background:#000;min-height:100%}
+  .proj-feat{grid-column:span 12;display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid rgba(201,162,75,.28);background:linear-gradient(135deg,rgba(192,32,44,.05),var(--black-2) 55%);border-radius:5px;overflow:hidden;align-items:stretch}
+  .proj-feat .feat-video{position:relative;background:#000;overflow:hidden;min-height:100%}
+  .proj-feat .feat-video::before{content:"";display:block;padding-top:56.25%}
   .proj-feat .feat-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .proj-feat .feat-body{padding:2rem 2.1rem;display:flex;flex-direction:column;justify-content:center;gap:.55rem}
   .feat-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.32rem .7rem;border-radius:2px;font-weight:700;margin-bottom:.4rem}
