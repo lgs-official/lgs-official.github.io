@@ -188,18 +188,17 @@
   /* spans */
   .col-7{grid-column:span 7}.col-5{grid-column:span 5}.col-6{grid-column:span 6}.col-4{grid-column:span 4}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
   /* featured film card — FA AI brand film */
-  .proj-feat{grid-column:span 12;display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid rgba(201,162,75,.28);background:linear-gradient(135deg,rgba(192,32,44,.05),var(--black-2) 55%);border-radius:5px;overflow:hidden;align-items:stretch}
-  .proj-feat .feat-video{position:relative;background:#000;overflow:hidden;min-height:100%}
-  .proj-feat .feat-video::before{content:"";display:block;padding-top:56.25%}
+  .proj-feat{grid-column:span 12;display:grid;grid-template-columns:1.5fr 1fr;gap:0;border:1px solid rgba(201,162,75,.28);background:linear-gradient(135deg,rgba(192,32,44,.05),var(--black-2) 55%);border-radius:5px;overflow:hidden;align-items:stretch}
+  .proj-feat .feat-video{position:relative;background:#000;overflow:hidden;aspect-ratio:16/9;align-self:start}
   .proj-feat .feat-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .proj-feat .feat-body{padding:2rem 2.1rem;display:flex;flex-direction:column;justify-content:center;gap:.55rem}
+  .proj-feat .feat-body{padding:1.5rem 1.8rem;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
   .feat-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.32rem .7rem;border-radius:2px;font-weight:700;margin-bottom:.4rem}
   .feat-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink)}
   .proj-feat .feat-tag{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-bright)}
-  .proj-feat h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.65rem;color:var(--bone);line-height:1.12;margin-top:.15rem}
-  .proj-feat .feat-desc{font-size:.94rem;color:var(--bone);line-height:1.6;margin-top:.5rem}
+  .proj-feat h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--bone);line-height:1.1;margin-top:.15rem}
+  .proj-feat .feat-desc{font-size:.88rem;color:var(--bone);line-height:1.5;margin-top:.45rem}
   .proj-feat .feat-desc b{color:var(--crimson-bright);font-weight:600}
-  .proj-feat .feat-credits{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+  .proj-feat .feat-credits{margin-top:.8rem;padding-top:.75rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.35rem .5rem}
   .feat-cr{font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--bone-dim);padding:.28rem .55rem;border:1px solid var(--line);border-radius:2px}
   .feat-cr b{color:var(--gold);font-weight:700}
   @media(max-width:860px){.proj-feat{grid-template-columns:1fr}}
