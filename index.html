@@ -371,6 +371,18 @@
   @media(max-width:560px){.tri-grid{grid-template-columns:1fr}}
   .feat-half.vert .fh-video{aspect-ratio:9/16}
 
+  /* ---------- work section banner — the instrument ---------- */
+  #work{position:relative}
+  .work-banner{position:absolute;top:0;left:0;right:0;height:520px;overflow:hidden;z-index:0;pointer-events:none}
+  .work-banner img{width:100%;height:140%;object-fit:cover;object-position:center 32%;
+    filter:brightness(.5) saturate(.92);opacity:.55}
+  .work-banner::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.25) 38%,rgba(10,10,11,.92) 78%,var(--black) 100%),
+               linear-gradient(90deg,rgba(10,10,11,.85) 0%,rgba(10,10,11,.25) 45%,rgba(10,10,11,.35) 100%)}
+  #work .wrap{position:relative;z-index:1}
+  .sec-head-banner{padding:7rem 0 3.2rem;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end}
+  @media(max-width:760px){.work-banner{height:400px}.sec-head-banner{min-height:260px;padding-top:5rem}}
+
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
   .cat-head:first-child{margin-top:0}
@@ -460,8 +472,11 @@
 
 <!-- ============ WORK ============ -->
 <section id="work">
+  <div class="work-banner" aria-hidden="true">
+    <img src="keybg.jpg" alt="" loading="lazy" />
+  </div>
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head sec-head-banner reveal">
       <span class="num">02 / SELECTED WORK</span>
       <h2 class="display">Campaigns &amp; <em>films</em>.</h2>
       <p>Hero films, launch campaigns, and out-of-home — across the Fragrance World group and beyond.</p>
