@@ -382,16 +382,16 @@
 
   /* ---------- work section banner — the instrument (right-anchored panel) ---------- */
   #work{position:relative}
-  .work-banner{position:absolute;top:0;right:0;width:48%;aspect-ratio:1500/1380;overflow:hidden;z-index:0;pointer-events:none}
+  .work-banner{position:absolute;top:0;left:0;width:48%;aspect-ratio:1500/1380;overflow:hidden;z-index:0;pointer-events:none}
   .work-banner img{width:100%;height:100%;object-fit:cover;object-position:center center;
     filter:brightness(.72) saturate(.98);opacity:.92}
   .work-banner::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.4) 16%,rgba(10,10,11,0) 42%,rgba(10,10,11,.18) 100%),
+    background:linear-gradient(270deg,var(--black) 0%,rgba(10,10,11,.4) 16%,rgba(10,10,11,0) 42%,rgba(10,10,11,.18) 100%),
                linear-gradient(180deg,rgba(10,10,11,.25) 0%,rgba(10,10,11,0) 20%,rgba(10,10,11,0) 58%,rgba(10,10,11,.8) 84%,var(--black) 98%)}
   #work .wrap{position:relative;z-index:1}
-  .sec-head-banner{padding:7rem 0 3.6rem;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end}
-  .sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:46%}
-  @media(max-width:900px){.sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:100%}
+  .sec-head-banner{padding:7rem 0 3.6rem;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end}
+  .sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:46%;width:46%}
+  @media(max-width:900px){.sec-head-banner{align-items:flex-start}.sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:100%;width:100%}
     .work-banner{width:100%;aspect-ratio:auto;height:400px}
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
