@@ -400,7 +400,6 @@
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
   .cat-head:first-child{margin-top:0}
-  .cat-num{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;color:var(--crimson);letter-spacing:.2em;transform:translateY(-3px)}
   .cat-title{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:800;color:var(--bone);letter-spacing:-.01em;white-space:nowrap;line-height:1}
   .cat-rule{flex:1;height:1px;background:var(--line);align-self:center}
   .cat-note{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.1em;color:var(--bone-dim);text-transform:uppercase;white-space:nowrap}
@@ -410,21 +409,47 @@
   @media(max-width:860px){.proj-feat,.proj-feat.flip{grid-template-columns:1fr;gap:1.2rem;padding:.6rem 0}.proj-feat.flip .feat-video{order:0}}
   .cat-hidden{display:none}
 
-  /* ---------- lifestyle & category duo grid — key-project treatment, two-up ---------- */
-  .duo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.8rem 1.8rem;margin:.4rem 0 2rem}
-  @media(max-width:860px){.duo-grid{grid-template-columns:1fr;gap:1rem}}
-  .feat-half{display:flex;flex-direction:column}
-  .feat-half .fh-video{position:relative;aspect-ratio:16/9;background:#000;
-    border:1px solid rgba(201,162,75,.22);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
-  .feat-half .fh-video::before,.feat-half .fh-video::after{content:"";position:absolute;width:18px;height:18px;z-index:4;pointer-events:none}
-  .feat-half .fh-video::before{top:8px;left:8px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold)}
-  .feat-half .fh-video::after{bottom:8px;right:8px;border-bottom:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
-  .feat-half:hover .fh-video{transform:translateY(-4px);border-color:rgba(201,162,75,.55);box-shadow:0 16px 36px rgba(0,0,0,.5)}
-  .feat-half .fh-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .feat-half .fh-body{padding:1rem .2rem 0;display:flex;flex-direction:column;gap:.35rem}
-  .feat-half .feat-tag{font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-bright)}
-  .feat-half h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;color:var(--bone);line-height:1.12;margin-top:.1rem}
-  .feat-half .feat-desc{font-size:.85rem;color:var(--bone-dim);line-height:1.55;margin-top:.3rem}
+  /* ---------- screening-room modules: monitor + rail ---------- */
+  .cine-module{margin:.4rem 0 3.4rem}
+  .player-row{display:grid;grid-template-columns:1.6fr 1fr;gap:2.4rem;align-items:center}
+  .main-player{position:relative;aspect-ratio:16/9;background:#000;border:1px solid rgba(201,162,75,.22)}
+  .main-player::before,.main-player::after{content:"";position:absolute;width:22px;height:22px;z-index:4;pointer-events:none}
+  .main-player::before{top:10px;left:10px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold)}
+  .main-player::after{bottom:10px;right:10px;border-bottom:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
+  .main-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .player-info{display:flex;flex-direction:column;gap:.4rem}
+  .pi-tag{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-bright)}
+  .pi-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--bone);line-height:1.12;margin-top:.1rem}
+  .pi-desc{font-size:.9rem;color:var(--bone-dim);line-height:1.6;margin-top:.35rem}
+  .pi-credits{margin-top:.8rem;padding-top:.75rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+  .rail-wrap{margin-top:1.2rem}
+  .rail-count{display:block;text-align:right;font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--bone-dim);margin-bottom:.5rem}
+  .rail{display:flex;gap:.7rem;overflow-x:auto;padding:.2rem .2rem .7rem;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:rgba(201,162,75,.4) transparent}
+  .rail::-webkit-scrollbar{height:4px}
+  .rail::-webkit-scrollbar-track{background:transparent}
+  .rail::-webkit-scrollbar-thumb{background:rgba(201,162,75,.4);border-radius:2px}
+  .thumb{flex:0 0 auto;width:172px;background:none;border:0;padding:0;cursor:pointer;text-align:left;scroll-snap-align:start;font:inherit}
+  .th-img{position:relative;display:block;aspect-ratio:16/9;background:#141416;border:1px solid rgba(201,162,75,.18);overflow:hidden;transition:border-color .25s,transform .25s}
+  .th-img img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .25s,transform .4s ease}
+  .th-play{position:absolute;right:6px;bottom:6px;width:20px;height:20px;border-radius:50%;background:rgba(10,10,11,.75);border:1px solid rgba(201,162,75,.4)}
+  .th-play::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-40%,-50%);border-style:solid;border-width:3.5px 0 3.5px 6px;border-color:transparent transparent transparent var(--gold)}
+  .thumb:hover .th-img{border-color:rgba(201,162,75,.55)}
+  .thumb:hover .th-img img{opacity:1;transform:scale(1.05)}
+  .thumb.active .th-img{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+  .th-t{display:block;margin-top:.45rem;font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--bone-dim);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:172px}
+  .thumb.active .th-t{color:var(--gold)}
+  .thumb:focus-visible .th-img{outline:2px solid var(--gold);outline-offset:2px}
+  /* vertical (9:16) variant */
+  .cine-module.vert .player-row{grid-template-columns:minmax(240px,300px) 1fr;justify-content:start}
+  .cine-module.vert .main-player{aspect-ratio:9/16}
+  .cine-module.vert .thumb{width:96px}
+  .cine-module.vert .th-img{aspect-ratio:9/16}
+  .cine-module.vert .th-t{max-width:96px}
+  @media(max-width:860px){
+    .player-row{grid-template-columns:1fr;gap:1.2rem}
+    .cine-module.vert .player-row{grid-template-columns:1fr}
+    .cine-module.vert .main-player{max-width:320px;margin:0 auto;width:100%}
+  }
 
 
   /* ---------- contact ---------- */
@@ -503,7 +528,7 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="cat-head reveal"><span class="cat-num">02.1</span><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+      <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
@@ -572,871 +597,354 @@
     </div>
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
-    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.2</span><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
-    <div class="duo-grid">
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Champion — three ideals, one bottle."
-            loading="lazy"
+    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+    <div class="cine-module reveal" data-cat="lifestyle">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="Lifestyle — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div class="fh-body">
-          <span class="feat-tag">Fragrance World · Champion</span>
-          <h3>Champion — three ideals, one bottle.</h3>
-          <p class="feat-desc">A fragrance trilogy on a single bottle design — three scents, three ideals of the sport, three worlds art-directed around identical product geometry.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:48 · 4K</span></div>
+        <div class="player-info">
+          <span class="pi-tag">Fragrance World · Champion</span>
+          <h3 class="pi-title">Champion — three ideals, one bottle.</h3>
+          <p class="pi-desc">A fragrance trilogy on a single bottle design — three scents, three ideals of the sport, three worlds art-directed around identical product geometry.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:48 · 4K</span></div>
         </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206837605?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Eclair Affair &amp; Chocolate Addict."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+      </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 16</span>
+        <div class="rail" aria-label="Lifestyle — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Champion — three ideals, one bottle">
+          <span class="th-img"><img src="https://vumbnail.com/1206458771.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Champion — three ideals,…</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Eclair Affair & Chocolate Addict">
+          <span class="th-img"><img src="https://vumbnail.com/1206837605.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Eclair Affair & Chocolat…</span>
+        </button>
+        <button class="thumb" data-i="2" aria-label="Play Veneno Family">
+          <span class="th-img"><img src="https://vumbnail.com/1206850372.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Veneno Family</span>
+        </button>
+        <button class="thumb" data-i="3" aria-label="Play Vulcan Lifestyle">
+          <span class="th-img"><img src="https://vumbnail.com/1206851399.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Vulcan Lifestyle</span>
+        </button>
+        <button class="thumb" data-i="4" aria-label="Play Sh'Mallow Fluff">
+          <span class="th-img"><img src="https://vumbnail.com/1206852580.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Sh'Mallow Fluff</span>
+        </button>
+        <button class="thumb" data-i="5" aria-label="Play Royal Blend">
+          <span class="th-img"><img src="https://vumbnail.com/1206853438.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Royal Blend</span>
+        </button>
+        <button class="thumb" data-i="6" aria-label="Play Aromatix — the hero film">
+          <span class="th-img"><img src="https://vumbnail.com/1206848764.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Aromatix — the hero film</span>
+        </button>
+        <button class="thumb" data-i="7" aria-label="Play Chaos & Atlantis">
+          <span class="th-img"><img src="https://vumbnail.com/1206855931.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Chaos & Atlantis</span>
+        </button>
+        <button class="thumb" data-i="8" aria-label="Play Allure Cotture">
+          <span class="th-img"><img src="https://vumbnail.com/1206872641.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Allure Cotture</span>
+        </button>
+        <button class="thumb" data-i="9" aria-label="Play Signature">
+          <span class="th-img"><img src="https://vumbnail.com/1206872940.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Signature</span>
+        </button>
+        <button class="thumb" data-i="10" aria-label="Play Affogato & Double Espresso">
+          <span class="th-img"><img src="https://vumbnail.com/1206873092.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Affogato & Double Espresso</span>
+        </button>
+        <button class="thumb" data-i="11" aria-label="Play Obsidian — Lifestyle">
+          <span class="th-img"><img src="https://vumbnail.com/1206873598.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Obsidian — Lifestyle</span>
+        </button>
+        <button class="thumb" data-i="12" aria-label="Play El Dorado">
+          <span class="th-img"><img src="https://vumbnail.com/1206874886.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">El Dorado</span>
+        </button>
+        <button class="thumb" data-i="13" aria-label="Play Tropical Kiss & Sultry Woods">
+          <span class="th-img"><img src="https://vumbnail.com/1206875442.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Tropical Kiss & Sultry W…</span>
+        </button>
+        <button class="thumb" data-i="14" aria-label="Play Aromatix II">
+          <span class="th-img"><img src="https://vumbnail.com/1206875207.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Aromatix II</span>
+        </button>
+        <button class="thumb" data-i="15" aria-label="Play Lumière Elle & Garçon">
+          <span class="th-img"><img src="https://vumbnail.com/1206876410.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Lumière Elle & Garçon</span>
+        </button>
         </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Lifestyle</span>
-          <h3>Eclair Affair &amp; Chocolate Addict.</h3>
-          <p class="feat-desc">A lifestyle film for two gourmand fragrances — the scents carried out of the studio and into the world they're worn in.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:05 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206850372?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Veneno Family."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Veneno</span>
-          <h3>Veneno Family.</h3>
-          <p class="feat-desc">The Veneno line shot as a family portrait — one dark signature held across the full range.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:45 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206851399?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Vulcan Lifestyle."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Vulcan</span>
-          <h3>Vulcan Lifestyle.</h3>
-          <p class="feat-desc">A lifestyle cut with charge — masculine energy, movement, and product presence built for the feed.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Master</b> 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206852580?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Sh'Mallow Fluff."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Sh'Mallow</span>
-          <h3>Sh'Mallow Fluff.</h3>
-          <p class="feat-desc">The gourmand line at its most playful — sweetness translated to texture, light, and pace.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Master</b> 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206853438?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Royal Blend."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">Fragrance World · Royal Blend</span>
-          <h3>Royal Blend.</h3>
-          <p class="feat-desc">An oud-forward hero piece — heritage codes and royal styling cut into a 4K launch film.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:11 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206848764?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Aromatix — the hero film."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Aromatix</span>
-          <h3>Aromatix — the hero film.</h3>
-          <p class="feat-desc">A product hero film — scent translated to screen with product-first framing, cut for launch.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:48 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206855931?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Chaos &amp; Atlantis."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Chaos &amp; Atlantis</span>
-          <h3>Chaos &amp; Atlantis.</h3>
-          <p class="feat-desc">A two-fragrance pairing built on contrast — turbulence against depth, one film holding both worlds.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:47 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206872641?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Allure Cotture."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Allure Cotture</span>
-          <h3>Allure Cotture.</h3>
-          <p class="feat-desc">A 31-second cut with couture instincts — fabric, finish, and fragrance styled as one wardrobe.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:31 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206872940?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Signature."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Signature</span>
-          <h3>Signature.</h3>
-          <p class="feat-desc">The house signature given its own film — one scent carried as an identity piece, not a product spot.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:09 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206873092?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Affogato &amp; Double Espresso."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Coffee Collection</span>
-          <h3>Affogato &amp; Double Espresso.</h3>
-          <p class="feat-desc">The Coffee Collection as a double shot — two gourmand espressos poured into one film, warmth against intensity.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:03 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206873598?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Obsidian — Lifestyle."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Obsidian</span>
-          <h3>Obsidian — Lifestyle.</h3>
-          <p class="feat-desc">The dark signature worn out in the world — night-coded styling and volcanic-glass mood, cut for the feed.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:47 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206874886?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="El Dorado."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · El Dorado</span>
-          <h3>El Dorado.</h3>
-          <p class="feat-desc">The gilded one — a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:52 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206875442?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Tropical Kiss &amp; Sultry Woods."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Duo</span>
-          <h3>Tropical Kiss &amp; Sultry Woods.</h3>
-          <p class="feat-desc">A two-scent pairing across climates — coastline brightness against deep-timber warmth in one film.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:50 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206875207?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Aromatix II."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Aromatix</span>
-          <h3>Aromatix II.</h3>
-          <p class="feat-desc">The second Aromatix film — the line extended with a new movement, same product-first discipline.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:43 · 4K</span></div>
-        </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206876410?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Lumière Elle &amp; Garçon."
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Lumière</span>
-          <h3>Lumière Elle &amp; Garçon.</h3>
-          <p class="feat-desc">The his-and-hers pairing — two characters, one light, a French-coded duet for the Lumière line.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:37 · 4K</span></div>
-        </div>
-      </article>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206458771", "tag": "Fragrance World \u00b7 Champion", "ttl": "Champion \u2014 three ideals, one bottle.", "desc": "A fragrance trilogy on a single bottle design \u2014 three scents, three ideals of the sport, three worlds art-directed around identical product geometry.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206837605", "tag": "French Avenue \u00b7 Lifestyle", "ttl": "Eclair Affair &amp; Chocolate Addict.", "desc": "A lifestyle film for two gourmand fragrances \u2014 the scents carried out of the studio and into the world they're worn in.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:05 \u00b7 4K<\/span>"}, {"vid": "1206850372", "tag": "French Avenue \u00b7 Veneno", "ttl": "Veneno Family.", "desc": "The Veneno line shot as a family portrait \u2014 one dark signature held across the full range.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206851399", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Lifestyle.", "desc": "A lifestyle cut with charge \u2014 masculine energy, movement, and product presence built for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206852580", "tag": "French Avenue \u00b7 Sh'Mallow", "ttl": "Sh'Mallow Fluff.", "desc": "The gourmand line at its most playful \u2014 sweetness translated to texture, light, and pace.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206853438", "tag": "Fragrance World \u00b7 Royal Blend", "ttl": "Royal Blend.", "desc": "An oud-forward hero piece \u2014 heritage codes and royal styling cut into a 4K launch film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:11 \u00b7 4K<\/span>"}, {"vid": "1206848764", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 the hero film.", "desc": "A product hero film \u2014 scent translated to screen with product-first framing, cut for launch.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206855931", "tag": "French Avenue \u00b7 Chaos &amp; Atlantis", "ttl": "Chaos &amp; Atlantis.", "desc": "A two-fragrance pairing built on contrast \u2014 turbulence against depth, one film holding both worlds.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206872641", "tag": "French Avenue \u00b7 Allure Cotture", "ttl": "Allure Cotture.", "desc": "A 31-second cut with couture instincts \u2014 fabric, finish, and fragrance styled as one wardrobe.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206872940", "tag": "French Avenue \u00b7 Signature", "ttl": "Signature.", "desc": "The house signature given its own film \u2014 one scent carried as an identity piece, not a product spot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206873092", "tag": "French Avenue \u00b7 Coffee Collection", "ttl": "Affogato &amp; Double Espresso.", "desc": "The Coffee Collection as a double shot \u2014 two gourmand espressos poured into one film, warmth against intensity.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:03 \u00b7 4K<\/span>"}, {"vid": "1206873598", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 Lifestyle.", "desc": "The dark signature worn out in the world \u2014 night-coded styling and volcanic-glass mood, cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206874886", "tag": "French Avenue \u00b7 El Dorado", "ttl": "El Dorado.", "desc": "The gilded one \u2014 a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:52 \u00b7 4K<\/span>"}, {"vid": "1206875442", "tag": "French Avenue \u00b7 Duo", "ttl": "Tropical Kiss &amp; Sultry Woods.", "desc": "A two-scent pairing across climates \u2014 coastline brightness against deep-timber warmth in one film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:50 \u00b7 4K<\/span>"}, {"vid": "1206875207", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix II.", "desc": "The second Aromatix film \u2014 the line extended with a new movement, same product-first discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:43 \u00b7 4K<\/span>"}, {"vid": "1206876410", "tag": "French Avenue \u00b7 Lumi\u00e8re", "ttl": "Lumi\u00e8re Elle &amp; Gar\u00e7on.", "desc": "The his-and-hers pairing \u2014 two characters, one light, a French-coded duet for the Lumi\u00e8re line.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:37 \u00b7 4K<\/span>"}]</script>
     </div>
 
-    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.3</span><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
-    <div class="duo-grid">
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206874064?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Amber Saffron &amp; Iris Patchouli"
-            loading="lazy"
+    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
+    <div class="cine-module reveal" data-cat="product">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206874064?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="Product films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Note Pairing</span>
-          <h3>Amber Saffron &amp; Iris Patchouli.</h3>
-          <p class="feat-desc">A pure product film built on the notes themselves — amber warmth against iris cool, ingredient-led framing with the bottle as hero throughout.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:41 · 4K</span></div>
+        <div class="player-info">
+          <span class="pi-tag">French Avenue · Note Pairing</span>
+          <h3 class="pi-title">Amber Saffron &amp; Iris Patchouli.</h3>
+          <p class="pi-desc">A pure product film built on the notes themselves — amber warmth against iris cool, ingredient-led framing with the bottle as hero throughout.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:41 · 4K</span></div>
         </div>
-      </article>
-      <article class="feat-half reveal">
-        <div class="fh-video">
-          <iframe
-            src="https://player.vimeo.com/video/1206873519?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Obsidian — Product Film"
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+      </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 02</span>
+        <div class="rail" aria-label="Product films — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Amber Saffron & Iris Patchouli">
+          <span class="th-img"><img src="https://vumbnail.com/1206874064.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Amber Saffron & Iris Pat…</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Obsidian — the product cut">
+          <span class="th-img"><img src="https://vumbnail.com/1206873519.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Obsidian — the product cut</span>
+        </button>
         </div>
-        <div class="fh-body">
-          <span class="feat-tag">French Avenue · Obsidian</span>
-          <h3>Obsidian — the product cut.</h3>
-          <p class="feat-desc">The companion to the Obsidian lifestyle film — bottle-first this time: glass, edge, and darkness treated as a hero object study.</p>
-          <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:39 · 4K</span></div>
-        </div>
-      </article>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206874064", "tag": "French Avenue \u00b7 Note Pairing", "ttl": "Amber Saffron &amp; Iris Patchouli.", "desc": "A pure product film built on the notes themselves \u2014 amber warmth against iris cool, ingredient-led framing with the bottle as hero throughout.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206873519", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 the product cut.", "desc": "The companion to the Obsidian lifestyle film \u2014 bottle-first this time: glass, edge, and darkness treated as a hero object study.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:39 \u00b7 4K<\/span>"}]</script>
     </div>
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-3dcgi">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.4</span><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
-      <div class="duo-grid">
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875151?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Aromatix — full CGI."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Aromatix</span>
-            <h3>Aromatix — full CGI.</h3>
-            <p class="feat-desc">The Aromatix hero rebuilt entirely in 3D — product-accurate glass, liquid, and label under studio-grade CGI lighting.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:41 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875152?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Royal Taboo."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Aromatix</span>
-            <h3>Royal Taboo.</h3>
-            <p class="feat-desc">An Aromatix-line scent in full 3D — regal materials, dark opulence, and a camera no physical rig could fly.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:34 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875153?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Carnal Desire."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Aromatix</span>
-            <h3>Carnal Desire.</h3>
-            <p class="feat-desc">The line's most charged scent, treated in CGI — heat, texture, and slow-motion sim work built around the bottle.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:35 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206874549?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Vulcan — 3D."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Vulcan</span>
-            <h3>Vulcan — 3D.</h3>
-            <p class="feat-desc">The Vulcan bottle as pure object study — volcanic materials, ember light, and CGI physics doing the heavy lifting.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:46 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206874550?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Vulcan Baie."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Vulcan</span>
-            <h3>Vulcan Baie.</h3>
-            <p class="feat-desc">The Vulcan flanker rendered in 3D — the line's dark DNA shifted toward berry-coded warmth.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:34 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206874820?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Arsh — 3D."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Arsh</span>
-            <h3>Arsh — 3D.</h3>
-            <p class="feat-desc">A full-3D throne piece — elevation and majesty coded into geometry, cut to a modern score.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:36 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875618?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Azzure Aoud."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Azzure Aoud</span>
-            <h3>Azzure Aoud.</h3>
-            <p class="feat-desc">Oud gone oceanic in CGI — deep-blue materials and eastern richness in one rendered world.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:45 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206873974?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Safari Breeze."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Safari Breeze</span>
-            <h3>Safari Breeze.</h3>
-            <p class="feat-desc">A CGI environment build — open-air savanna atmosphere wrapped around the bottle.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:41 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206876106?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Jasmere."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Jasmere</span>
-            <h3>Jasmere.</h3>
-            <p class="feat-desc">A floral CGI study — jasmine-coded softness in materials, light, and particle work.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:45 · HD</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206873794?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Grow."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Grow</span>
-            <h3>Grow.</h3>
-            <p class="feat-desc">A growth-sim concept film — botanicals built and bloomed procedurally around the product.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:46 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875837?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Ather &amp; Irida."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Duo</span>
-            <h3>Ather &amp; Irida.</h3>
-            <p class="feat-desc">A two-scent 3D pairing — air against iridescence, both worlds fully rendered.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:47 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875040?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Cocoa Morado."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Cocoa Morado</span>
-            <h3>Cocoa Morado.</h3>
-            <p class="feat-desc">Gourmand CGI — cocoa and violet as simulated materials, poured, dusted, and lit like dessert.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:38 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875683?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Luscious."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Luscious</span>
-            <h3>Luscious.</h3>
-            <p class="feat-desc">An 18-second CGI bite — dense gourmand texture work at snackable length.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:18 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875744?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Meringue."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Meringue</span>
-            <h3>Meringue.</h3>
-            <p class="feat-desc">Whipped, cracked, and rendered — the meringue scent as a CGI dessert study.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:31 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875710?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Sweet Paradise."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Sweet Paradise</span>
-            <h3>Sweet Paradise.</h3>
-            <p class="feat-desc">A 20-second CGI confection — paradise coded in sugar-bright materials.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:20 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206874551?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Black Friday."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Retail Campaign</span>
-            <h3>Black Friday.</h3>
-            <p class="feat-desc">A 21-second full-CGI retail hit — one campaign message, maximum object energy, built for paid placement.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:21 · 4K</span></div>
-          </div>
-        </article>
+      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
+      <div class="cine-module reveal" data-cat="cgi">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206875151?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="3D & CGI films — player" loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="player-info">
+          <span class="pi-tag">French Avenue · Aromatix</span>
+          <h3 class="pi-title">Aromatix — full CGI.</h3>
+          <p class="pi-desc">The Aromatix hero rebuilt entirely in 3D — product-accurate glass, liquid, and label under studio-grade CGI lighting.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:41 · 4K</span></div>
+        </div>
       </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 16</span>
+        <div class="rail" aria-label="3D & CGI films — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Aromatix — full CGI">
+          <span class="th-img"><img src="https://vumbnail.com/1206875151.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Aromatix — full CGI</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Royal Taboo">
+          <span class="th-img"><img src="https://vumbnail.com/1206875152.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Royal Taboo</span>
+        </button>
+        <button class="thumb" data-i="2" aria-label="Play Carnal Desire">
+          <span class="th-img"><img src="https://vumbnail.com/1206875153.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Carnal Desire</span>
+        </button>
+        <button class="thumb" data-i="3" aria-label="Play Vulcan — 3D">
+          <span class="th-img"><img src="https://vumbnail.com/1206874549.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Vulcan — 3D</span>
+        </button>
+        <button class="thumb" data-i="4" aria-label="Play Vulcan Baie">
+          <span class="th-img"><img src="https://vumbnail.com/1206874550.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Vulcan Baie</span>
+        </button>
+        <button class="thumb" data-i="5" aria-label="Play Arsh — 3D">
+          <span class="th-img"><img src="https://vumbnail.com/1206874820.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Arsh — 3D</span>
+        </button>
+        <button class="thumb" data-i="6" aria-label="Play Azzure Aoud">
+          <span class="th-img"><img src="https://vumbnail.com/1206875618.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Azzure Aoud</span>
+        </button>
+        <button class="thumb" data-i="7" aria-label="Play Safari Breeze">
+          <span class="th-img"><img src="https://vumbnail.com/1206873974.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Safari Breeze</span>
+        </button>
+        <button class="thumb" data-i="8" aria-label="Play Jasmere">
+          <span class="th-img"><img src="https://vumbnail.com/1206876106.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Jasmere</span>
+        </button>
+        <button class="thumb" data-i="9" aria-label="Play Grow">
+          <span class="th-img"><img src="https://vumbnail.com/1206873794.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Grow</span>
+        </button>
+        <button class="thumb" data-i="10" aria-label="Play Ather & Irida">
+          <span class="th-img"><img src="https://vumbnail.com/1206875837.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Ather & Irida</span>
+        </button>
+        <button class="thumb" data-i="11" aria-label="Play Cocoa Morado">
+          <span class="th-img"><img src="https://vumbnail.com/1206875040.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Cocoa Morado</span>
+        </button>
+        <button class="thumb" data-i="12" aria-label="Play Luscious">
+          <span class="th-img"><img src="https://vumbnail.com/1206875683.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Luscious</span>
+        </button>
+        <button class="thumb" data-i="13" aria-label="Play Meringue">
+          <span class="th-img"><img src="https://vumbnail.com/1206875744.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Meringue</span>
+        </button>
+        <button class="thumb" data-i="14" aria-label="Play Sweet Paradise">
+          <span class="th-img"><img src="https://vumbnail.com/1206875710.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Sweet Paradise</span>
+        </button>
+        <button class="thumb" data-i="15" aria-label="Play Black Friday">
+          <span class="th-img"><img src="https://vumbnail.com/1206874551.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Black Friday</span>
+        </button>
+        </div>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206875151", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 full CGI.", "desc": "The Aromatix hero rebuilt entirely in 3D \u2014 product-accurate glass, liquid, and label under studio-grade CGI lighting.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206875152", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Royal Taboo.", "desc": "An Aromatix-line scent in full 3D \u2014 regal materials, dark opulence, and a camera no physical rig could fly.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:34 \u00b7 4K<\/span>"}, {"vid": "1206875153", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Carnal Desire.", "desc": "The line's most charged scent, treated in CGI \u2014 heat, texture, and slow-motion sim work built around the bottle.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:35 \u00b7 4K<\/span>"}, {"vid": "1206874549", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan \u2014 3D.", "desc": "The Vulcan bottle as pure object study \u2014 volcanic materials, ember light, and CGI physics doing the heavy lifting.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:46 \u00b7 4K<\/span>"}, {"vid": "1206874550", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Baie.", "desc": "The Vulcan flanker rendered in 3D \u2014 the line's dark DNA shifted toward berry-coded warmth.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:34 \u00b7 4K<\/span>"}, {"vid": "1206874820", "tag": "French Avenue \u00b7 Arsh", "ttl": "Arsh \u2014 3D.", "desc": "A full-3D throne piece \u2014 elevation and majesty coded into geometry, cut to a modern score.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:36 \u00b7 4K<\/span>"}, {"vid": "1206875618", "tag": "French Avenue \u00b7 Azzure Aoud", "ttl": "Azzure Aoud.", "desc": "Oud gone oceanic in CGI \u2014 deep-blue materials and eastern richness in one rendered world.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206873974", "tag": "French Avenue \u00b7 Safari Breeze", "ttl": "Safari Breeze.", "desc": "A CGI environment build \u2014 open-air savanna atmosphere wrapped around the bottle.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206876106", "tag": "French Avenue \u00b7 Jasmere", "ttl": "Jasmere.", "desc": "A floral CGI study \u2014 jasmine-coded softness in materials, light, and particle work.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 HD<\/span>"}, {"vid": "1206873794", "tag": "French Avenue \u00b7 Grow", "ttl": "Grow.", "desc": "A growth-sim concept film \u2014 botanicals built and bloomed procedurally around the product.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:46 \u00b7 4K<\/span>"}, {"vid": "1206875837", "tag": "French Avenue \u00b7 Duo", "ttl": "Ather &amp; Irida.", "desc": "A two-scent 3D pairing \u2014 air against iridescence, both worlds fully rendered.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206875040", "tag": "French Avenue \u00b7 Cocoa Morado", "ttl": "Cocoa Morado.", "desc": "Gourmand CGI \u2014 cocoa and violet as simulated materials, poured, dusted, and lit like dessert.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:38 \u00b7 4K<\/span>"}, {"vid": "1206875683", "tag": "French Avenue \u00b7 Luscious", "ttl": "Luscious.", "desc": "An 18-second CGI bite \u2014 dense gourmand texture work at snackable length.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:18 \u00b7 4K<\/span>"}, {"vid": "1206875744", "tag": "French Avenue \u00b7 Meringue", "ttl": "Meringue.", "desc": "Whipped, cracked, and rendered \u2014 the meringue scent as a CGI dessert study.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206875710", "tag": "French Avenue \u00b7 Sweet Paradise", "ttl": "Sweet Paradise.", "desc": "A 20-second CGI confection \u2014 paradise coded in sugar-bright materials.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:20 \u00b7 4K<\/span>"}, {"vid": "1206874551", "tag": "French Avenue \u00b7 Retail Campaign", "ttl": "Black Friday.", "desc": "A 21-second full-CGI retail hit \u2014 one campaign message, maximum object energy, built for paid placement.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:21 \u00b7 4K<\/span>"}]</script>
+    </div>
     </div>
 
     <!-- 02.5 — AI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-aifilms">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.5</span><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
-      <div class="duo-grid">
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206873711?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Jade &amp; Jade Giallo."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Jade</span>
-            <h3>Jade &amp; Jade Giallo.</h3>
-            <p class="feat-desc">A two-scent AI film — twin worlds generated for the Jade pair, hand-directed for lens and lighting continuity shot to shot.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:45 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206875979?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Genesis."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Genesis</span>
-            <h3>Genesis.</h3>
-            <p class="feat-desc">A generative origin film — a world built from nothing around the scent, every frame prompted, graded, and cut to commercial discipline.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:56 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206876214?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Colosseum."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Colosseum</span>
-            <h3>Colosseum.</h3>
-            <p class="feat-desc">An AI-built epic in 42 seconds — monumental scale no location budget touches, held to product-accurate framing.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:42 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206877776?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Love in Every Note."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Nectar Extradose</span>
-            <h3>Love in Every Note.</h3>
-            <p class="feat-desc">An AI romance film for Nectar Extradose — generated performances directed like cast, emotion carried across a 73-second narrative.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:13 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206877818?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Love in Every Note — II."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Nectar Extradose</span>
-            <h3>Love in Every Note — II.</h3>
-            <p class="feat-desc">The sequel movement — the same generated world extended to 90 seconds, consistency held across both films like a real franchise.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:30 · 4K</span></div>
-          </div>
-        </article>
+      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
+      <div class="cine-module reveal" data-cat="ai">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206873711?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="AI films — player" loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="player-info">
+          <span class="pi-tag">French Avenue · Jade</span>
+          <h3 class="pi-title">Jade &amp; Jade Giallo.</h3>
+          <p class="pi-desc">A two-scent AI film — twin worlds generated for the Jade pair, hand-directed for lens and lighting continuity shot to shot.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:45 · 4K</span></div>
+        </div>
       </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 05</span>
+        <div class="rail" aria-label="AI films — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Jade & Jade Giallo">
+          <span class="th-img"><img src="https://vumbnail.com/1206873711.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Jade & Jade Giallo</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Genesis">
+          <span class="th-img"><img src="https://vumbnail.com/1206875979.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Genesis</span>
+        </button>
+        <button class="thumb" data-i="2" aria-label="Play Colosseum">
+          <span class="th-img"><img src="https://vumbnail.com/1206876214.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Colosseum</span>
+        </button>
+        <button class="thumb" data-i="3" aria-label="Play Love in Every Note">
+          <span class="th-img"><img src="https://vumbnail.com/1206877776.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Love in Every Note</span>
+        </button>
+        <button class="thumb" data-i="4" aria-label="Play Love in Every Note — II">
+          <span class="th-img"><img src="https://vumbnail.com/1206877818.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Love in Every Note — II</span>
+        </button>
+        </div>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206873711", "tag": "French Avenue \u00b7 Jade", "ttl": "Jade &amp; Jade Giallo.", "desc": "A two-scent AI film \u2014 twin worlds generated for the Jade pair, hand-directed for lens and lighting continuity shot to shot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206875979", "tag": "French Avenue \u00b7 Genesis", "ttl": "Genesis.", "desc": "A generative origin film \u2014 a world built from nothing around the scent, every frame prompted, graded, and cut to commercial discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:56 \u00b7 4K<\/span>"}, {"vid": "1206876214", "tag": "French Avenue \u00b7 Colosseum", "ttl": "Colosseum.", "desc": "An AI-built epic in 42 seconds \u2014 monumental scale no location budget touches, held to product-accurate framing.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:42 \u00b7 4K<\/span>"}, {"vid": "1206877776", "tag": "French Avenue \u00b7 Nectar Extradose", "ttl": "Love in Every Note.", "desc": "An AI romance film for Nectar Extradose \u2014 generated performances directed like cast, emotion carried across a 73-second narrative.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:13 \u00b7 4K<\/span>"}, {"vid": "1206877818", "tag": "French Avenue \u00b7 Nectar Extradose", "ttl": "Love in Every Note \u2014 II.", "desc": "The sequel movement \u2014 the same generated world extended to 90 seconds, consistency held across both films like a real franchise.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:30 \u00b7 4K<\/span>"}]</script>
+    </div>
     </div>
 
     <div id="cat-campaigns">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.6</span><span class="cat-title">Campaign films</span><span class="cat-rule"></span></div>
-      <div class="duo-grid">
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206877907?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Ramadan Kareem."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Fragrance World · Ramadan</span>
-            <h3>Ramadan Kareem.</h3>
-            <p class="feat-desc">The holy month opened at flagship scale — a 74-second cultural film leading the brand's biggest seasonal moment.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:14 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878823?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Ramadan Kareem — FA."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Ramadan</span>
-            <h3>Ramadan Kareem — FA.</h3>
-            <p class="feat-desc">The same moment in French Avenue's voice — one occasion, a second brand world, delivered in parallel.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:38 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206877978?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Eid Al Fitr."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">French Avenue · Eid</span>
-            <h3>Eid Al Fitr.</h3>
-            <p class="feat-desc">The celebration film — Eid's warmth and gathering cut into a 69-second brand piece for the season's peak.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:09 · 4K</span></div>
-          </div>
-        </article>
-        <article class="feat-half reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878853?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Eid Al Fitr — FW."
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Fragrance World · Eid</span>
-            <h3>Eid Al Fitr — FW.</h3>
-            <p class="feat-desc">Fragrance World's Eid edition — the parent brand's take on the same festive brief, platform-cut for the feed.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:00 · HD</span></div>
-          </div>
-        </article>
+      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Campaign films</span><span class="cat-rule"></span></div>
+      <div class="cine-module reveal" data-cat="campaign">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206877907?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="Campaign films — player" loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="player-info">
+          <span class="pi-tag">Fragrance World · Ramadan</span>
+          <h3 class="pi-title">Ramadan Kareem.</h3>
+          <p class="pi-desc">The holy month opened at flagship scale — a 74-second cultural film leading the brand's biggest seasonal moment.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 1:14 · 4K</span></div>
+        </div>
       </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 04</span>
+        <div class="rail" aria-label="Campaign films — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Ramadan Kareem">
+          <span class="th-img"><img src="https://vumbnail.com/1206877907.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Ramadan Kareem</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Ramadan Kareem — FA">
+          <span class="th-img"><img src="https://vumbnail.com/1206878823.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Ramadan Kareem — FA</span>
+        </button>
+        <button class="thumb" data-i="2" aria-label="Play Eid Al Fitr">
+          <span class="th-img"><img src="https://vumbnail.com/1206877978.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Eid Al Fitr</span>
+        </button>
+        <button class="thumb" data-i="3" aria-label="Play Eid Al Fitr — FW">
+          <span class="th-img"><img src="https://vumbnail.com/1206878853.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Eid Al Fitr — FW</span>
+        </button>
+        </div>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206877907", "tag": "Fragrance World \u00b7 Ramadan", "ttl": "Ramadan Kareem.", "desc": "The holy month opened at flagship scale \u2014 a 74-second cultural film leading the brand's biggest seasonal moment.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:14 \u00b7 4K<\/span>"}, {"vid": "1206878823", "tag": "French Avenue \u00b7 Ramadan", "ttl": "Ramadan Kareem \u2014 FA.", "desc": "The same moment in French Avenue's voice \u2014 one occasion, a second brand world, delivered in parallel.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:38 \u00b7 4K<\/span>"}, {"vid": "1206877978", "tag": "French Avenue \u00b7 Eid", "ttl": "Eid Al Fitr.", "desc": "The celebration film \u2014 Eid's warmth and gathering cut into a 69-second brand piece for the season's peak.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206878853", "tag": "Fragrance World \u00b7 Eid", "ttl": "Eid Al Fitr \u2014 FW.", "desc": "Fragrance World's Eid edition \u2014 the parent brand's take on the same festive brief, platform-cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:00 \u00b7 HD<\/span>"}]</script>
+    </div>
     </div>
 
     <div id="cat-platform">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-num">02.7</span><span class="cat-title">Platform films</span><span class="cat-rule"></span><span class="cat-note">Vertical · social-native</span></div>
-      <div class="tri-grid">
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878157?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — Black"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — Black.</h3>
-            <p class="feat-desc">The series opener — the Black edition sets the template: one bottle, one color world, cut vertical-first.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:38</span></div>
-          </div>
-        </article>
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878154?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — Blue"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — Blue.</h3>
-            <p class="feat-desc">Blue runs the system — same skeleton, new palette, platform-paced.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:26</span></div>
-          </div>
-        </article>
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878095?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — Yellow"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — Yellow.</h3>
-            <p class="feat-desc">Yellow's turn — the template holds while the energy shifts.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:28</span></div>
-          </div>
-        </article>
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878096?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — Orange"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — Orange.</h3>
-            <p class="feat-desc">Orange — the warmest cut in the set, same disciplined structure.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:33</span></div>
-          </div>
-        </article>
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878097?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — Cyan"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — Cyan.</h3>
-            <p class="feat-desc">Cyan closes the color run — five palettes, zero template drift.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:26</span></div>
-          </div>
-        </article>
-        <article class="feat-half vert reveal">
-          <div class="fh-video">
-            <iframe
-              src="https://player.vimeo.com/video/1206878094?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-              title="Street Origins — All"
-              loading="lazy"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fh-body">
-            <span class="feat-tag">Street Origins · 9:16</span>
-            <h3>Street Origins — All.</h3>
-            <p class="feat-desc">The compilation — the full color system in one vertical edit.</p>
-            <div class="feat-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:30</span></div>
-          </div>
-        </article>
+      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Platform films</span><span class="cat-rule"></span><span class="cat-note">Vertical · social-native</span></div>
+      <div class="cine-module vert reveal" data-cat="platform">
+      <div class="player-row">
+        <div class="main-player">
+          <iframe src="https://player.vimeo.com/video/1206878157?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="Platform films — player" loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="player-info">
+          <span class="pi-tag">Street Origins · 9:16</span>
+          <h3 class="pi-title">Street Origins — Black.</h3>
+          <p class="pi-desc">The series opener — the Black edition sets the template: one bottle, one color world, cut vertical-first.</p>
+          <div class="pi-credits"><span class="feat-cr"><b>Role</b> Producer · Director · Editor</span><span class="feat-cr"><b>Runtime</b> 0:38</span></div>
+        </div>
       </div>
+      <div class="rail-wrap">
+        <span class="rail-count">01 / 06</span>
+        <div class="rail" aria-label="Platform films — all films">
+        <button class="thumb active" data-i="0" aria-label="Play Street Origins — Black">
+          <span class="th-img"><img src="https://vumbnail.com/1206878157.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — Black</span>
+        </button>
+        <button class="thumb" data-i="1" aria-label="Play Street Origins — Blue">
+          <span class="th-img"><img src="https://vumbnail.com/1206878154.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — Blue</span>
+        </button>
+        <button class="thumb" data-i="2" aria-label="Play Street Origins — Yellow">
+          <span class="th-img"><img src="https://vumbnail.com/1206878095.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — Yellow</span>
+        </button>
+        <button class="thumb" data-i="3" aria-label="Play Street Origins — Orange">
+          <span class="th-img"><img src="https://vumbnail.com/1206878096.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — Orange</span>
+        </button>
+        <button class="thumb" data-i="4" aria-label="Play Street Origins — Cyan">
+          <span class="th-img"><img src="https://vumbnail.com/1206878097.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — Cyan</span>
+        </button>
+        <button class="thumb" data-i="5" aria-label="Play Street Origins — All">
+          <span class="th-img"><img src="https://vumbnail.com/1206878094.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-t">Street Origins — All</span>
+        </button>
+        </div>
+      </div>
+      <script type="application/json" class="mod-data">[{"vid": "1206878157", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 Black.", "desc": "The series opener \u2014 the Black edition sets the template: one bottle, one color world, cut vertical-first.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:38<\/span>"}, {"vid": "1206878154", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 Blue.", "desc": "Blue runs the system \u2014 same skeleton, new palette, platform-paced.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:26<\/span>"}, {"vid": "1206878095", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 Yellow.", "desc": "Yellow's turn \u2014 the template holds while the energy shifts.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:28<\/span>"}, {"vid": "1206878096", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 Orange.", "desc": "Orange \u2014 the warmest cut in the set, same disciplined structure.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:33<\/span>"}, {"vid": "1206878097", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 Cyan.", "desc": "Cyan closes the color run \u2014 five palettes, zero template drift.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:26<\/span>"}, {"vid": "1206878094", "tag": "Street Origins \u00b7 9:16", "ttl": "Street Origins \u2014 All.", "desc": "The compilation \u2014 the full color system in one vertical edit.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:30<\/span>"}]</script>
+    </div>
     </div>
   </div>
 </section>
@@ -1682,6 +1190,24 @@
 
 
   // The Vimeo players handle their own playback — no custom overlay.
+</script>
+<script>
+document.querySelectorAll('.cine-module').forEach(function(mod){
+  var films=JSON.parse(mod.querySelector('.mod-data').textContent);
+  var iframe=mod.querySelector('.main-player iframe');
+  var tag=mod.querySelector('.pi-tag'),ttl=mod.querySelector('.pi-title'),
+      desc=mod.querySelector('.pi-desc'),cred=mod.querySelector('.pi-credits');
+  var count=mod.querySelector('.rail-count'),thumbs=mod.querySelectorAll('.thumb'),total=films.length;
+  function pad(n){return (n<10?'0':'')+n}
+  mod.querySelector('.rail').addEventListener('click',function(e){
+    var t=e.target.closest('.thumb'); if(!t) return;
+    var i=+t.dataset.i, f=films[i];
+    iframe.src='https://player.vimeo.com/video/'+f.vid+'?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1';
+    tag.innerHTML=f.tag; ttl.innerHTML=f.ttl; desc.innerHTML=f.desc; cred.innerHTML=f.cred;
+    thumbs.forEach(function(x){x.classList.remove('active')}); t.classList.add('active');
+    count.textContent=pad(i+1)+' / '+pad(total);
+  });
+});
 </script>
 </body>
 </html>
