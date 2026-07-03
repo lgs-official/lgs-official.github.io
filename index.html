@@ -76,11 +76,6 @@
   .brandmark{display:flex;align-items:center}
   .brandmark img{height:44px;width:auto;display:block;transition:height .3s}
   .topbar.solid .brandmark img{height:36px}
-  .tc-readout{font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--bone-dim);display:flex;align-items:center;gap:.5rem;margin-left:auto;margin-right:2rem}
-  .tc-readout::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--crimson-bright);animation:recBlink 1.6s ease-in-out infinite}
-  .tc-readout b{color:var(--gold);font-weight:400}
-  @keyframes recBlink{0%,100%{opacity:1}50%{opacity:.25}}
-  @media(max-width:900px){.tc-readout{display:none}}
   .navlinks{display:flex;gap:2rem}
   .navlinks a{font-family:'Courier Prime','Courier New',monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);transition:color .2s;position:relative;padding-bottom:.2rem}
   .navlinks a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
@@ -171,7 +166,6 @@
 <!-- ============ TOP BAR ============ -->
 <header class="topbar" id="topbar">
   <a href="#top" class="brandmark"><img src="logo.png" alt="LGS" /></a>
-  <span class="tc-readout" aria-hidden="true">TC <b id="tcCode">00:00:00:00</b></span>
   <nav class="navlinks">
     <a href="#reel">Reel</a>
     <a href="#work">Work</a>
@@ -371,23 +365,31 @@
   .chip:hover{border-color:var(--gold);color:var(--gold)}
   .chip.lab{color:var(--crimson-bright);border-color:rgba(230,53,64,.4)}
 
-  /* ---------- the vault — filmography index ---------- */
+  /* ---------- the vault — watchable filmography ---------- */
   .vault{margin-top:3.2rem;border-top:1px solid var(--line)}
-  .vault-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0 .6rem}
+  .vault-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0 1.2rem}
   .vault-label{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
   .vault-note{font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim)}
-  .vault-row{display:grid;grid-template-columns:2.2fr 1.2fr 1.6fr .9fr auto;gap:1rem;align-items:baseline;
-    padding:1rem .6rem;border-bottom:1px solid rgba(255,255,255,.06);
-    font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;letter-spacing:.05em;
-    transition:background .25s,transform .25s,border-color .25s}
-  .vault-row:hover{background:rgba(201,162,75,.045);border-color:rgba(201,162,75,.35);transform:translateX(6px)}
-  .v-title{color:var(--bone);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-  .v-brand{color:var(--gold-soft)}
-  .v-role{color:var(--bone-dim)}
-  .v-len{color:var(--bone-dim)}
-  .v-go{color:var(--crimson-bright);white-space:nowrap}
-  .vault-row:hover .v-go{color:var(--gold)}
-  @media(max-width:760px){.vault-row{grid-template-columns:1fr auto}.v-brand,.v-role,.v-len{display:none}}
+  .vault-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:1.1rem}
+  .vcard{cursor:pointer;border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;background:var(--black-2);
+    transition:border-color .3s,transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .vcard:hover{border-color:rgba(201,162,75,.5);transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.5)}
+  .vcard-media{position:relative;aspect-ratio:16/9;background:var(--black-3);overflow:hidden}
+  .vcard-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .vcard:hover .vcard-media img{transform:scale(1.05)}
+  .vcard-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;
+    background:rgba(10,10,11,.7);border:1px solid rgba(201,162,75,.6);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s;pointer-events:none}
+  .vplay::after{content:"";width:0;height:0;border-style:solid;border-width:7px 0 7px 12px;
+    border-color:transparent transparent transparent var(--gold);margin-left:3px}
+  .vcard:hover .vplay{background:var(--crimson);border-color:var(--crimson-bright);transform:translate(-50%,-50%) scale(1.1)}
+  .vcard:hover .vplay::after{border-left-color:#fff}
+  .vcard.playing .vplay{display:none}
+  .vcard-info{padding:.75rem .85rem .85rem;display:flex;flex-direction:column;gap:.25rem}
+  .v-title{font-family:'Courier Prime','Courier New',monospace;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bone)}
+  .v-sub{font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase}
+  @media(max-width:760px){.vault-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem}}
 
   /* ---------- contact ---------- */
   .contact{background:
@@ -570,47 +572,64 @@
 
     </div>
 
-    <!-- ============ THE VAULT — filmography index ============ -->
+    <!-- ============ THE VAULT — watchable filmography ============ -->
     <div class="vault reveal">
       <div class="vault-head">
         <span class="vault-label">The vault — more films</span>
-        <span class="vault-note">Selected additional work · full films on Vimeo</span>
+        <span class="vault-note">Tap to play · full films in 4K</span>
       </div>
-      <a class="vault-row" href="https://vimeo.com/1206850372" target="_blank" rel="noopener">
-        <span class="v-title">Veneno Family</span>
-        <span class="v-brand">French Avenue</span>
-        <span class="v-role">Producer · Director · Editor</span>
-        <span class="v-len">0:45 · 4K</span>
-        <span class="v-go">Watch ↗</span>
-      </a>
-      <a class="vault-row" href="https://vimeo.com/1206851399" target="_blank" rel="noopener">
-        <span class="v-title">Vulcan Lifestyle</span>
-        <span class="v-brand">French Avenue</span>
-        <span class="v-role">Producer · Director · Editor</span>
-        <span class="v-len">4K</span>
-        <span class="v-go">Watch ↗</span>
-      </a>
-      <a class="vault-row" href="https://vimeo.com/1206852580" target="_blank" rel="noopener">
-        <span class="v-title">Sh'Mallow Fluff</span>
-        <span class="v-brand">French Avenue</span>
-        <span class="v-role">Producer · Director · Editor</span>
-        <span class="v-len">4K</span>
-        <span class="v-go">Watch ↗</span>
-      </a>
-      <a class="vault-row" href="https://vimeo.com/1206853438" target="_blank" rel="noopener">
-        <span class="v-title">Royal Blend</span>
-        <span class="v-brand">Fragrance World</span>
-        <span class="v-role">Producer · Director · Editor</span>
-        <span class="v-len">1:11 · 4K</span>
-        <span class="v-go">Watch ↗</span>
-      </a>
-      <a class="vault-row" href="https://vimeo.com/1206855931" target="_blank" rel="noopener">
-        <span class="v-title">Chaos &amp; Atlantis</span>
-        <span class="v-brand">French Avenue</span>
-        <span class="v-role">Producer · Director · Editor</span>
-        <span class="v-len">0:47 · 4K</span>
-        <span class="v-go">Watch ↗</span>
-      </a>
+      <div class="vault-grid">
+        <div class="vcard" data-vid="1206850372">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206850372_large.jpg" alt="Veneno Family — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Veneno Family</span>
+            <span class="v-sub">French Avenue · Producer · Director · Editor · 0:45</span>
+          </div>
+        </div>
+        <div class="vcard" data-vid="1206851399">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206851399_large.jpg" alt="Vulcan Lifestyle — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Vulcan Lifestyle</span>
+            <span class="v-sub">French Avenue · Producer · Director · Editor</span>
+          </div>
+        </div>
+        <div class="vcard" data-vid="1206852580">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206852580_large.jpg" alt="Sh'Mallow Fluff — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Sh'Mallow Fluff</span>
+            <span class="v-sub">French Avenue · Producer · Director · Editor</span>
+          </div>
+        </div>
+        <div class="vcard" data-vid="1206853438">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206853438_large.jpg" alt="Royal Blend — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Royal Blend</span>
+            <span class="v-sub">Fragrance World · Producer · Director · Editor · 1:11</span>
+          </div>
+        </div>
+        <div class="vcard" data-vid="1206855931">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206855931_large.jpg" alt="Chaos & Atlantis — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Chaos &amp; Atlantis</span>
+            <span class="v-sub">French Avenue · Producer · Director · Editor · 0:47</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -813,17 +832,13 @@
   // ---- sticky bar ----
   const tb=document.getElementById('topbar');
 
-  // ---- scroll timecode (signature): page scroll ≙ a 90s film at 24fps ----
-  const tcFill=document.getElementById('tcFill'), tcCode=document.getElementById('tcCode');
-  const pad=n=>String(n).padStart(2,'0');
+  // ---- scroll progress rail ----
+  const tcFill=document.getElementById('tcFill');
   let tcTicking=false;
   function tcUpdate(){
     const max=document.documentElement.scrollHeight-innerHeight;
     const p=max>0?Math.min(scrollY/max,1):0;
     tcFill.style.width=(p*100).toFixed(2)+'%';
-    const totalFrames=Math.round(p*90*24);
-    const s=Math.floor(totalFrames/24), f=totalFrames%24;
-    tcCode.textContent=`00:${pad(Math.floor(s/60))}:${pad(s%60)}:${pad(f)}`;
     tb.classList.toggle('solid',scrollY>40);
     tcTicking=false;
   }
@@ -857,6 +872,21 @@
   if(aigen){
     new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){aigen.classList.add('flow-live');obs.disconnect()}})},{threshold:.25}).observe(aigen);
   }
+
+  // ---- vault: click-to-play facades ----
+  document.querySelectorAll('.vcard').forEach(card=>{
+    card.addEventListener('click',()=>{
+      if(card.classList.contains('playing'))return;
+      const id=card.dataset.vid, media=card.querySelector('.vcard-media');
+      const f=document.createElement('iframe');
+      f.src=`https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&badge=0&dnt=1`;
+      f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+      f.allowFullscreen=true;
+      f.title=card.querySelector('.v-title').textContent;
+      media.appendChild(f);
+      card.classList.add('playing');
+    });
+  });
 
   // The Vimeo players handle their own playback — no custom overlay.
 </script>
