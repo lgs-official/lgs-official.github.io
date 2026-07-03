@@ -18,6 +18,7 @@
     --black-3:#17171A;
     --bone:#EDE8DF;
     --bone-dim:#9A958C;
+    --ink:#0A0A0B;
     --line:rgba(201,162,75,.22);
     --maxw:1280px;
   }
@@ -36,13 +37,13 @@
   img,video{display:block;max-width:100%}
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 
-  /* ---------- film grain (signature texture) ---------- */
-  .grain{position:fixed;inset:-100%;z-index:200;pointer-events:none;opacity:.038;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation:grainShift 1.2s steps(4) infinite}
-  @keyframes grainShift{
-    0%{transform:translate(0,0)}25%{transform:translate(-2%,1.5%)}
-    50%{transform:translate(1.5%,-2%)}75%{transform:translate(-1%,-1%)}100%{transform:translate(0,0)}}
+  /* ---------- vector background — ribbon geometry (logo DNA) ---------- */
+  .bg-vectors{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .bg-vectors svg{width:100%;height:100%;display:block}
+  .bg-vectors .drift-a{animation:driftA 90s ease-in-out infinite alternate}
+  .bg-vectors .drift-b{animation:driftB 120s ease-in-out infinite alternate}
+  @keyframes driftA{from{transform:translate(0,0)}to{transform:translate(-2.5%,1.5%)}}
+  @keyframes driftB{from{transform:translate(0,0)}to{transform:translate(2%,-2%)}}
 
   /* ---------- scroll progress rail (timecode line) ---------- */
   .tc-rail{position:fixed;top:0;left:0;height:2px;width:100%;z-index:120;background:transparent;pointer-events:none}
@@ -147,7 +148,24 @@
 </head>
 <body>
 
-<div class="grain" aria-hidden="true"></div>
+<div class="bg-vectors" aria-hidden="true">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- ribbon lines — logo chevron DNA, architectural scale -->
+    <g class="drift-a" fill="none" stroke-width="1">
+      <path d="M -80 -120 L 420 480 L 372 588 L 860 1180" stroke="rgba(201,162,75,.085)"/>
+      <path d="M 10 -160 L 510 440 L 462 548 L 950 1140" stroke="rgba(201,162,75,.055)"/>
+      <path d="M 100 -200 L 600 400 L 552 508 L 1040 1100" stroke="rgba(201,162,75,.035)"/>
+    </g>
+    <g class="drift-b" fill="none" stroke-width="1">
+      <path d="M 880 -180 L 1380 420 L 1332 528 L 1820 1120" stroke="rgba(230,53,64,.075)"/>
+      <path d="M 980 -220 L 1480 380 L 1432 488 L 1920 1080" stroke="rgba(201,162,75,.045)"/>
+      <!-- lens circles — cinematography nod -->
+      <circle cx="1180" cy="250" r="210" stroke="rgba(201,162,75,.05)"/>
+      <circle cx="1180" cy="250" r="286" stroke="rgba(201,162,75,.028)"/>
+      <circle cx="260" cy="760" r="180" stroke="rgba(230,53,64,.04)"/>
+    </g>
+  </svg>
+</div>
 <div class="tc-rail" aria-hidden="true"><div class="tc-fill" id="tcFill"></div></div>
 
 <!-- ============ TOP BAR ============ -->
