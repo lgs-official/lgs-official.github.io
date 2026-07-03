@@ -365,6 +365,18 @@
   .chip:hover{border-color:var(--gold);color:var(--gold)}
   .chip.lab{color:var(--crimson-bright);border-color:rgba(230,53,64,.4)}
 
+  /* ---------- category heads ---------- */
+  .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
+  .cat-head:first-child{margin-top:0}
+  .cat-num{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;color:var(--crimson);letter-spacing:.2em}
+  .cat-title{font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;font-weight:700;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+  .cat-rule{flex:1;height:1px;background:var(--line);align-self:center}
+  .cat-note{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.1em;color:var(--bone-dim);text-transform:uppercase;white-space:nowrap}
+  .proj-feat.flip{grid-template-columns:1fr 1.5fr}
+  .proj-feat.flip .feat-video{order:2}
+  @media(max-width:860px){.proj-feat,.proj-feat.flip{grid-template-columns:1fr}.proj-feat.flip .feat-video{order:0}}
+  .cat-hidden{display:none}
+
   /* ---------- the vault — watchable filmography ---------- */
   .vault{margin-top:3.2rem;border-top:1px solid var(--line)}
   .vault-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0 1.2rem}
@@ -482,6 +494,8 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
+      <div class="cat-head reveal"><span class="cat-num">02.1</span><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+
       <article class="proj-feat reveal">
         <div class="feat-video">
           <iframe
@@ -504,54 +518,74 @@
         </div>
       </article>
 
-      <!-- PROJECT 2 — Champion fragrance trilogy (video, live embed) -->
-      <article class="proj col-7 reveal">
-        <div class="proj-media">
-          <span class="proj-tag">Fragrance World · Champion</span>
+      <article class="proj-feat flip reveal">
+        <div class="feat-video">
           <iframe
-            src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Champion — Fragrance Trilogy"
+            src="https://player.vimeo.com/video/1206869516?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="French Avenue — Awareness Brand Film"
             loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen></iframe>
         </div>
-        <div class="proj-body">
-          <h3>Champion — three ideals, one bottle.</h3>
-          <div class="meta">Producer · Director · Editor</div>
-          <p>A fragrance trilogy built on a single bottle design — three scents, three ideals of the sport, three distinct worlds art-directed around identical product geometry. Produced with Little Stories Production.</p>
+        <div class="feat-body">
+          <span class="feat-tag">French Avenue · Brand Film</span>
+          <h3>The awareness film — the house, not the bottle.</h3>
+          <p class="feat-desc">A 40-second brand awareness film for French Avenue — built to introduce the house itself: its codes, its mood, its world. Brand story over product shot, mastered in 4K.</p>
+          <div class="feat-credits">
+            <span class="feat-cr"><b>Role</b> Producer · Director · Editor</span>
+          </div>
         </div>
       </article>
 
-      <!-- PROJECT 3 — Eclair Affair & Chocolate Addict lifestyle film (FA, video, live embed) -->
-      <article class="proj col-5 reveal">
-        <div class="proj-media">
-          <span class="proj-tag">French Avenue · Lifestyle</span>
+      <article class="proj-feat reveal">
+        <div class="feat-video">
           <iframe
-            src="https://player.vimeo.com/video/1206837605?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
-            title="Eclair Affair & Chocolate Addict — Lifestyle Film"
+            src="https://player.vimeo.com/video/1206867708?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            title="Nabatieh — Brand Film"
             loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen></iframe>
         </div>
-        <div class="proj-body">
-          <h3>Eclair Affair &amp; Chocolate Addict.</h3>
-          <div class="meta">Producer · Director · Editor</div>
-          <p>A one-minute lifestyle film for two gourmand fragrances — the scents carried out of the studio and into the world they're worn in, mastered in 4K for feed-first delivery.</p>
+        <div class="feat-body">
+          <span class="feat-tag">Fragrance World · Nabatieh</span>
+          <h3>Nabatieh — a scent with an address.</h3>
+          <p class="feat-desc">A 62-second fragrance film rooted in place — origin and heritage told atmosphere-first, where the setting carries the scent story before the bottle ever appears. Mastered in 4K.</p>
+          <div class="feat-credits">
+            <span class="feat-cr"><b>Role</b> Producer · Director · Editor</span>
+          </div>
         </div>
       </article>
+
 
 
     </div>
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
     <div class="vault reveal">
-      <div class="vault-head">
-        <span class="vault-label">The vault — more films</span>
-        <span class="vault-note">Tap to play · full films in 4K</span>
-      </div>
+      <div class="cat-head"><span class="cat-num">02.2</span><span class="cat-title">Lifestyle</span><span class="cat-rule"></span><span class="cat-note">Tap any film to play</span></div>
       <div class="vault-grid">
+        <div class="vcard" data-vid="1206458771">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206458771_large.jpg" alt="Champion — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Champion — Trilogy</span>
+            <span class="v-sub">Fragrance World · Producer · Director · Editor · 0:48</span>
+          </div>
+        </div>
+        <div class="vcard" data-vid="1206837605">
+          <div class="vcard-media">
+            <img src="https://vumbnail.com/1206837605_large.jpg" alt="Eclair Affair & Chocolate Addict — film frame" loading="lazy" onerror="this.remove()" />
+            <span class="vplay" aria-hidden="true"></span>
+          </div>
+          <div class="vcard-info">
+            <span class="v-title">Eclair Affair &amp; Chocolate Addict</span>
+            <span class="v-sub">French Avenue · Producer · Director · Editor · 1:05</span>
+          </div>
+        </div>
         <div class="vcard" data-vid="1206850372">
           <div class="vcard-media">
             <img src="https://vumbnail.com/1206850372_large.jpg" alt="Veneno Family — film frame" loading="lazy" onerror="this.remove()" />
@@ -612,6 +646,21 @@
             <span class="v-sub">French Avenue · Producer · Director · Editor · 0:47</span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 02.3 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
+    <div class="vault cat-hidden" id="cat-3dcgi">
+      <div class="cat-head"><span class="cat-num">02.3</span><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span><span class="cat-note">Tap any film to play</span></div>
+      <div class="vault-grid">
+        <!-- vcard template: <div class="vcard" data-vid="VIMEO_ID"> media img vumbnail.com/ID_large.jpg + vplay + info -->
+      </div>
+    </div>
+
+    <!-- 02.4 — AI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
+    <div class="vault cat-hidden" id="cat-aifilms">
+      <div class="cat-head"><span class="cat-num">02.4</span><span class="cat-title">AI films</span><span class="cat-rule"></span><span class="cat-note">Tap any film to play</span></div>
+      <div class="vault-grid">
       </div>
     </div>
   </div>
