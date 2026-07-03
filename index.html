@@ -385,7 +385,25 @@
     border-color:transparent transparent transparent var(--gold);margin-left:3px}
   .vcard:hover .vplay{background:var(--crimson);border-color:var(--crimson-bright);transform:translate(-50%,-50%) scale(1.1)}
   .vcard:hover .vplay::after{border-left-color:#fff}
-  .vcard.playing .vplay{display:none}
+  /* ---------- lightbox screening room ---------- */
+  .lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+    background:rgba(6,6,7,.88);backdrop-filter:blur(10px);
+    opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s}
+  .lightbox.open{opacity:1;visibility:visible}
+  .lb-inner{width:min(1100px,92vw);transform:scale(.96) translateY(10px);transition:transform .35s cubic-bezier(.2,.7,.2,1);position:relative}
+  .lightbox.open .lb-inner{transform:scale(1) translateY(0)}
+  .lb-player{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.7)}
+  .lb-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .lb-caption{margin-top:.9rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+  .lb-caption .t{color:var(--bone);font-weight:700}
+  .lb-caption .s{color:var(--bone-dim)}
+  .lb-close{position:absolute;top:-2.6rem;right:0;background:none;border:1px solid var(--line);border-radius:2px;
+    color:var(--bone-dim);font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;letter-spacing:.14em;
+    padding:.4rem .8rem;cursor:pointer;text-transform:uppercase;transition:all .25s}
+  .lb-close:hover{border-color:var(--crimson-bright);color:var(--crimson-bright)}
+  body.lb-lock{overflow:hidden}
   .vcard-info{padding:.75rem .85rem .85rem;display:flex;flex-direction:column;gap:.25rem}
   .v-title{font-family:'Courier Prime','Courier New',monospace;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bone)}
   .v-sub{font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase}
@@ -793,6 +811,14 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Film player">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" aria-label="Close player">Close ✕</button>
+    <div class="lb-player" id="lbPlayer"></div>
+    <div class="lb-caption"><span class="t" id="lbTitle"></span><span class="s" id="lbSub"></span></div>
+  </div>
+</div>
+
 <script>
   // ---- sticky bar ----
   const tb=document.getElementById('topbar');
@@ -838,20 +864,36 @@
     new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){aigen.classList.add('flow-live');obs.disconnect()}})},{threshold:.25}).observe(aigen);
   }
 
-  // ---- vault: click-to-play facades ----
+  // ---- vault: lightbox screening room ----
+  const lb=document.getElementById('lightbox'), lbPlayer=document.getElementById('lbPlayer'),
+        lbTitle=document.getElementById('lbTitle'), lbSub=document.getElementById('lbSub'),
+        lbClose=document.getElementById('lbClose');
+  let lbReturnFocus=null;
+  function lbOpen(id,title,sub){
+    const f=document.createElement('iframe');
+    f.src=`https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&badge=0&dnt=1`;
+    f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+    f.allowFullscreen=true; f.title=title;
+    lbPlayer.replaceChildren(f);
+    lbTitle.textContent=title; lbSub.textContent=sub;
+    lb.classList.add('open'); document.body.classList.add('lb-lock');
+    lbClose.focus();
+  }
+  function lbShut(){
+    lb.classList.remove('open'); document.body.classList.remove('lb-lock');
+    setTimeout(()=>lbPlayer.replaceChildren(),320);
+    if(lbReturnFocus)lbReturnFocus.focus();
+  }
   document.querySelectorAll('.vcard').forEach(card=>{
-    card.addEventListener('click',()=>{
-      if(card.classList.contains('playing'))return;
-      const id=card.dataset.vid, media=card.querySelector('.vcard-media');
-      const f=document.createElement('iframe');
-      f.src=`https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&badge=0&dnt=1`;
-      f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
-      f.allowFullscreen=true;
-      f.title=card.querySelector('.v-title').textContent;
-      media.appendChild(f);
-      card.classList.add('playing');
-    });
+    card.setAttribute('tabindex','0'); card.setAttribute('role','button');
+    const go=()=>{lbReturnFocus=card;
+      lbOpen(card.dataset.vid, card.querySelector('.v-title').textContent, card.querySelector('.v-sub').textContent)};
+    card.addEventListener('click',go);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
   });
+  lbClose.addEventListener('click',lbShut);
+  lb.addEventListener('click',e=>{if(e.target===lb)lbShut()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))lbShut()});
 
   // The Vimeo players handle their own playback — no custom overlay.
 </script>
