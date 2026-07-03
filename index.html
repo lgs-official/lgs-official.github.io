@@ -382,16 +382,17 @@
 
   /* ---------- work section banner — the instrument (right-anchored panel) ---------- */
   #work{position:relative}
-  .work-banner{position:absolute;top:0;left:0;width:48%;aspect-ratio:1500/1380;overflow:hidden;z-index:0;pointer-events:none}
+  .work-banner{position:absolute;top:0;right:0;width:48%;aspect-ratio:1500/1380;overflow:hidden;z-index:0;pointer-events:none}
   .work-banner img{width:100%;height:100%;object-fit:cover;object-position:center center;
     filter:brightness(.72) saturate(.98);opacity:.92}
   .work-banner::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(270deg,var(--black) 0%,rgba(10,10,11,.4) 16%,rgba(10,10,11,0) 42%,rgba(10,10,11,.18) 100%),
+    background:linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.4) 16%,rgba(10,10,11,0) 42%,rgba(10,10,11,.18) 100%),
                linear-gradient(180deg,rgba(10,10,11,.25) 0%,rgba(10,10,11,0) 20%,rgba(10,10,11,0) 58%,rgba(10,10,11,.8) 84%,var(--black) 98%)}
   #work .wrap{position:relative;z-index:1}
-  .sec-head-banner{padding:7rem 0 3.6rem;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end}
-  .sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:46%;width:46%}
-  @media(max-width:900px){.sec-head-banner{align-items:flex-start}.sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:100%;width:100%}
+  .sec-head-banner{padding:7rem 0 4.5rem;min-height:46vw;display:flex;flex-direction:column;justify-content:center}
+  .sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:48%}
+  .sec-head-banner p{margin-top:1.4rem;font-size:1.02rem;line-height:1.75}
+  @media(max-width:900px){.sec-head-banner{min-height:0}.sec-head-banner h2,.sec-head-banner p,.sec-head-banner .num{max-width:100%}
     .work-banner{width:100%;aspect-ratio:auto;height:400px}
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
@@ -399,8 +400,8 @@
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
   .cat-head:first-child{margin-top:0}
-  .cat-num{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;color:var(--crimson);letter-spacing:.2em}
-  .cat-title{font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;font-weight:700;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+  .cat-num{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;color:var(--crimson);letter-spacing:.2em;transform:translateY(-3px)}
+  .cat-title{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:800;color:var(--bone);letter-spacing:-.01em;white-space:nowrap;line-height:1}
   .cat-rule{flex:1;height:1px;background:var(--line);align-self:center}
   .cat-note{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.1em;color:var(--bone-dim);text-transform:uppercase;white-space:nowrap}
   @media(max-width:560px){.cat-head{flex-wrap:wrap;row-gap:.3rem}.cat-note{white-space:normal;flex-basis:100%}}
@@ -496,7 +497,7 @@
     <div class="sec-head sec-head-banner reveal">
       <span class="num">02 / SELECTED WORK</span>
       <h2 class="display">Campaigns &amp; <em>films</em>.</h2>
-      <p>Hero films, launch campaigns, and out-of-home — across the Fragrance World group and beyond.</p>
+      <p>A decade behind the lens across fragrance, automotive, and luxury — producing at the pace of a hundred-plus commercials a year for the Fragrance World group and its sister houses, French Avenue and Street Origins. Hero films and launch campaigns, product and CGI object studies, AI-native brand films, and platform-first vertical cuts — every film below carried end to end as producer, director, and editor.</p>
     </div>
 
     <div class="work-grid">
