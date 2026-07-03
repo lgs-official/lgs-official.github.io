@@ -371,6 +371,24 @@
   .chip:hover{border-color:var(--gold);color:var(--gold)}
   .chip.lab{color:var(--crimson-bright);border-color:rgba(230,53,64,.4)}
 
+  /* ---------- the vault — filmography index ---------- */
+  .vault{margin-top:3.2rem;border-top:1px solid var(--line)}
+  .vault-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0 .6rem}
+  .vault-label{font-family:'Courier Prime','Courier New',monospace;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+  .vault-note{font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim)}
+  .vault-row{display:grid;grid-template-columns:2.2fr 1.2fr 1.6fr .9fr auto;gap:1rem;align-items:baseline;
+    padding:1rem .6rem;border-bottom:1px solid rgba(255,255,255,.06);
+    font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;letter-spacing:.05em;
+    transition:background .25s,transform .25s,border-color .25s}
+  .vault-row:hover{background:rgba(201,162,75,.045);border-color:rgba(201,162,75,.35);transform:translateX(6px)}
+  .v-title{color:var(--bone);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .v-brand{color:var(--gold-soft)}
+  .v-role{color:var(--bone-dim)}
+  .v-len{color:var(--bone-dim)}
+  .v-go{color:var(--crimson-bright);white-space:nowrap}
+  .vault-row:hover .v-go{color:var(--gold)}
+  @media(max-width:760px){.vault-row{grid-template-columns:1fr auto}.v-brand,.v-role,.v-len{display:none}}
+
   /* ---------- contact ---------- */
   .contact{background:
     radial-gradient(100% 100% at 50% 0%,rgba(192,32,44,.16),transparent 55%),var(--black);
@@ -550,6 +568,49 @@
         </div>
       </article>
 
+    </div>
+
+    <!-- ============ THE VAULT — filmography index ============ -->
+    <div class="vault reveal">
+      <div class="vault-head">
+        <span class="vault-label">The vault — more films</span>
+        <span class="vault-note">Selected additional work · full films on Vimeo</span>
+      </div>
+      <a class="vault-row" href="https://vimeo.com/1206850372" target="_blank" rel="noopener">
+        <span class="v-title">Veneno Family</span>
+        <span class="v-brand">French Avenue</span>
+        <span class="v-role">Producer · Director · Editor</span>
+        <span class="v-len">0:45 · 4K</span>
+        <span class="v-go">Watch ↗</span>
+      </a>
+      <a class="vault-row" href="https://vimeo.com/1206851399" target="_blank" rel="noopener">
+        <span class="v-title">Vulcan Lifestyle</span>
+        <span class="v-brand">French Avenue</span>
+        <span class="v-role">Producer · Director · Editor</span>
+        <span class="v-len">4K</span>
+        <span class="v-go">Watch ↗</span>
+      </a>
+      <a class="vault-row" href="https://vimeo.com/1206852580" target="_blank" rel="noopener">
+        <span class="v-title">Sh'Mallow Fluff</span>
+        <span class="v-brand">French Avenue</span>
+        <span class="v-role">Producer · Director · Editor</span>
+        <span class="v-len">4K</span>
+        <span class="v-go">Watch ↗</span>
+      </a>
+      <a class="vault-row" href="https://vimeo.com/1206853438" target="_blank" rel="noopener">
+        <span class="v-title">Royal Blend</span>
+        <span class="v-brand">Fragrance World</span>
+        <span class="v-role">Producer · Director · Editor</span>
+        <span class="v-len">1:11 · 4K</span>
+        <span class="v-go">Watch ↗</span>
+      </a>
+      <a class="vault-row" href="https://vimeo.com/1206855931" target="_blank" rel="noopener">
+        <span class="v-title">Chaos &amp; Atlantis</span>
+        <span class="v-brand">French Avenue</span>
+        <span class="v-role">Producer · Director · Editor</span>
+        <span class="v-len">0:47 · 4K</span>
+        <span class="v-go">Watch ↗</span>
+      </a>
     </div>
   </div>
 </section>
