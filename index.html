@@ -633,7 +633,7 @@
   .rm-ptext{font-family:'Courier Prime','Courier New',monospace;font-size:.67rem;line-height:1.75;color:var(--bone-dim)}
   .rm-lab{display:block;margin-top:.55rem;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
   .rm-chain{margin-top:2.6rem}
-  .rm-chainrow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:1rem;align-items:center}
+  .rm-chainrow{display:grid;grid-template-columns:1fr auto 1.35fr auto 1fr auto 1fr auto 1fr;gap:1rem;align-items:center}
   .rm-chainrow figure{margin:0}
   .rm-chainrow img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.12)}
   .rm-chainout{max-width:420px;margin:0 auto}
@@ -645,6 +645,7 @@
     .rm-refs .rm-lab{grid-column:1/-1}
     .rm-chainrow{grid-template-columns:1fr 1fr}
     .rm-chainrow .rm-arrow{display:none}
+    .rm-chainrow .rm-prompt{grid-column:1/-1}
   }
 
   /* ---------- video pipeline reference demo ---------- */
@@ -1265,6 +1266,12 @@
       <div class="rm-chain reveal">
         <div class="rm-chainrow">
           <figure><img src="dl-ref.jpg" alt="D'love — reference plate, locked geometry" loading="lazy" /><figcaption class="rm-lab">01 · Reference plate · locked geometry</figcaption></figure>
+          <span class="rm-arrow" aria-hidden="true">→</span>
+          <div class="rm-prompt">
+            <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
+            <span class="rm-plab">Prompt · authored like a lighting plot</span>
+            <p class="rm-ptext">“The exact D'love bottle from the reference plate planted at a low angle in a mound of desert sand — clear glass, cobalt ribbed cap, label reproduced faithfully. Behind it, dunes at sunset: low sun on the horizon, a camel caravan in silhouette, deep amber sky. Strong warm backlight through the juice, rim on the cap, shallow depth of field, 85mm, golden-hour desert editorial mood.”</p>
+          </div>
           <span class="rm-arrow" aria-hidden="true">→</span>
           <figure><img src="dl-gen.jpg" alt="D'love — AI-generated target frame" loading="lazy" /><figcaption class="rm-lab">02 · Generated target · the lighting plot</figcaption></figure>
           <span class="rm-arrow" aria-hidden="true">→</span>
