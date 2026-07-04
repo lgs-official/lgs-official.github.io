@@ -414,13 +414,15 @@
     linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 14%),
     linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 16%)}
   .z-worlds img{object-position:center 14%}
-  .z-street img{object-position:32% 10%;filter:brightness(.6) saturate(.85)}
+  .zone-panel.z-street{width:min(38vw,560px)}
+  .z-street img{object-position:8% 8%;filter:brightness(.6) saturate(.85)}
   .cat-zone.flip .cat-head{flex-direction:row-reverse}
   .cat-zone.flip .player-row{grid-template-columns:1fr 1.6fr}
   .cat-zone.flip .main-player{order:2}
   .cat-zone.flip .player-info{order:1;text-align:right}
   .cat-zone.flip .pi-credits{justify-content:flex-end}
   .cat-zone.flip .rail-wrap{margin-left:auto}
+  .cat-zone.flip .cine-module.vert .player-row{grid-template-columns:1fr minmax(240px,300px);justify-content:end}
   .z-key img{object-position:center 10%}
   .z-lifestyle img{object-position:center 12%}
   .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc,.cat-zone .cat-title,.work-grid .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.6)}
