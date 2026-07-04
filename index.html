@@ -632,7 +632,7 @@
   .rm-plab{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.55rem}
   .rm-ptext{font-family:'Courier Prime','Courier New',monospace;font-size:.67rem;line-height:1.75;color:var(--bone-dim)}
   .rm-lab{display:block;margin-top:.55rem;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
-  .rm-chain{margin:2.6rem auto 0;max-width:1000px}
+  .rm-chain{width:min(1300px,100vw - 6rem);margin:2.6rem calc((100% - min(1300px,100vw - 6rem))/2) 0}
   .rm-chainrow{display:grid;grid-template-columns:1fr auto 1.35fr auto 1fr auto 1fr auto 1fr;gap:1rem;align-items:center}
   .rm-chainrow figure{margin:0}
   .rm-chainrow figure img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.12)}
@@ -646,6 +646,7 @@
     .rm-chainrow{grid-template-columns:1fr 1fr}
     .rm-chainrow .rm-arrow{display:none}
     .rm-chainrow .rm-prompt{grid-column:1/-1}
+    .rm-chain{width:auto;margin:2.2rem 0 0}
   }
 
   /* ---------- video pipeline reference demo ---------- */
