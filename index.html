@@ -397,16 +397,17 @@
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
 
-  /* ---------- category chapter plates — full-bleed, melted, heads-first ---------- */
-  body{overflow-x:clip}
-  .cat-plate{grid-column:1/-1;position:relative;width:100vw;margin:2.6rem calc(50% - 50vw) 2rem;height:500px;overflow:hidden}
-  .cat-plate img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.66) saturate(.95)}
-  .cat-plate::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,var(--black) 0%,rgba(10,10,11,.15) 18%,rgba(10,10,11,0) 42%,rgba(10,10,11,.62) 80%,var(--black) 100%),
-               linear-gradient(90deg,rgba(10,10,11,.42) 0%,rgba(10,10,11,0) 32%,rgba(10,10,11,0) 72%,rgba(10,10,11,.35) 100%)}
-  .cat-plate .cat-plate-head{position:absolute;left:50%;transform:translateX(-50%);width:min(1152px,calc(100% - 3rem));bottom:1.9rem;z-index:2;display:flex;align-items:baseline;gap:1rem}
-  .cat-plate .cat-title{font-size:1.9rem;text-shadow:0 2px 18px rgba(0,0,0,.65)}
-  @media(max-width:760px){.cat-plate{height:280px;margin-top:2rem;margin-bottom:1.4rem}.cat-plate .cat-title{font-size:1.4rem}}
+  /* ---------- category region backgrounds — full image behind the whole block ---------- */
+  .work-grid,.cat-zone{position:relative}
+  .work-grid>*,.cat-zone>*{position:relative;z-index:1}
+  .key-bg,.zone-bg{position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:0;overflow:hidden;pointer-events:none}
+  .key-bg img,.zone-bg img{width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:brightness(.52) saturate(.92)}
+  .zone-bg.z-lifestyle img{object-position:center 22%}
+  .key-bg::after,.zone-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,var(--black) 0%,rgba(10,10,11,.42) 10%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.68) 78%,var(--black) 97%)}
+  .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc{text-shadow:0 1px 14px rgba(0,0,0,.55)}
+  .cat-zone{margin-top:2.4rem;padding:1.2rem 0 1.4rem}
+
 
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
@@ -539,10 +540,8 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="cat-plate reveal">
-        <img src="plate-key.jpg" alt="" loading="lazy" />
-        <div class="cat-plate-head"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
-      </div>
+      <div class="key-bg" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
@@ -611,11 +610,10 @@
     </div>
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
-    <div class="cat-plate reveal">
-      <img src="plate-lifestyle.jpg" alt="" loading="lazy" />
-      <div class="cat-plate-head"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
-    </div>
-    <div class="cine-module reveal" data-cat="lifestyle">
+    <div class="cat-zone">
+      <div class="zone-bg z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+      <div class="cine-module reveal" data-cat="lifestyle">
       <div class="player-row">
         <div class="main-player">
           <iframe src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
@@ -700,6 +698,7 @@
         </div>
       </div>
       <script type="application/json" class="mod-data">[{"vid": "1206458771", "tag": "Fragrance World \u00b7 Champion", "ttl": "Champion \u2014 three ideals, one bottle.", "desc": "A fragrance trilogy on a single bottle design \u2014 three scents, three ideals of the sport, three worlds art-directed around identical product geometry.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206837605", "tag": "French Avenue \u00b7 Lifestyle", "ttl": "Eclair Affair &amp; Chocolate Addict.", "desc": "A lifestyle film for two gourmand fragrances \u2014 the scents carried out of the studio and into the world they're worn in.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:05 \u00b7 4K<\/span>"}, {"vid": "1206850372", "tag": "French Avenue \u00b7 Veneno", "ttl": "Veneno Family.", "desc": "The Veneno line shot as a family portrait \u2014 one dark signature held across the full range.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206851399", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Lifestyle.", "desc": "A lifestyle cut with charge \u2014 masculine energy, movement, and product presence built for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206852580", "tag": "French Avenue \u00b7 Sh'Mallow", "ttl": "Sh'Mallow Fluff.", "desc": "The gourmand line at its most playful \u2014 sweetness translated to texture, light, and pace.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206853438", "tag": "Fragrance World \u00b7 Royal Blend", "ttl": "Royal Blend.", "desc": "An oud-forward hero piece \u2014 heritage codes and royal styling cut into a 4K launch film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:11 \u00b7 4K<\/span>"}, {"vid": "1206848764", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 the hero film.", "desc": "A product hero film \u2014 scent translated to screen with product-first framing, cut for launch.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206855931", "tag": "French Avenue \u00b7 Chaos &amp; Atlantis", "ttl": "Chaos &amp; Atlantis.", "desc": "A two-fragrance pairing built on contrast \u2014 turbulence against depth, one film holding both worlds.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206872641", "tag": "French Avenue \u00b7 Allure Cotture", "ttl": "Allure Cotture.", "desc": "A 31-second cut with couture instincts \u2014 fabric, finish, and fragrance styled as one wardrobe.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206872940", "tag": "French Avenue \u00b7 Signature", "ttl": "Signature.", "desc": "The house signature given its own film \u2014 one scent carried as an identity piece, not a product spot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206873092", "tag": "French Avenue \u00b7 Coffee Collection", "ttl": "Affogato &amp; Double Espresso.", "desc": "The Coffee Collection as a double shot \u2014 two gourmand espressos poured into one film, warmth against intensity.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:03 \u00b7 4K<\/span>"}, {"vid": "1206873598", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 Lifestyle.", "desc": "The dark signature worn out in the world \u2014 night-coded styling and volcanic-glass mood, cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206874886", "tag": "French Avenue \u00b7 El Dorado", "ttl": "El Dorado.", "desc": "The gilded one \u2014 a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:52 \u00b7 4K<\/span>"}, {"vid": "1206875442", "tag": "French Avenue \u00b7 Duo", "ttl": "Tropical Kiss &amp; Sultry Woods.", "desc": "A two-scent pairing across climates \u2014 coastline brightness against deep-timber warmth in one film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:50 \u00b7 4K<\/span>"}, {"vid": "1206875207", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix II.", "desc": "The second Aromatix film \u2014 the line extended with a new movement, same product-first discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:43 \u00b7 4K<\/span>"}, {"vid": "1206876410", "tag": "French Avenue \u00b7 Lumi\u00e8re", "ttl": "Lumi\u00e8re Elle &amp; Gar\u00e7on.", "desc": "The his-and-hers pairing \u2014 two characters, one light, a French-coded duet for the Lumi\u00e8re line.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:37 \u00b7 4K<\/span>"}]</script>
+    </div>
     </div>
 
     <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
