@@ -566,13 +566,6 @@
   .pl-t{font-family:'Fraunces',serif;font-weight:600;font-size:1.55rem;color:var(--bone);margin-bottom:.8rem}
   .pl-d{max-width:680px;font-size:.95rem;color:var(--bone-dim);line-height:1.65}
   .pl-d b{color:var(--bone)}
-  .ag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1.6rem}
-  .ag-card{display:flex;flex-direction:column;gap:.9rem;padding:1.1rem 1rem 1.2rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015);transition:border-color .25s}
-  .ag-card:hover{border-color:rgba(201,162,75,.55)}
-  .ag-card img{width:30px;height:30px;object-fit:contain;filter:brightness(0) invert(.92);opacity:.85;transition:filter .3s,opacity .3s}
-  .ag-card:hover img{filter:none;opacity:1}
-  .ag-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem;color:var(--bone)}
-  .ag-r{display:block;margin-top:.25rem;font-family:'Courier Prime','Courier New',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--bone-dim);text-transform:uppercase;line-height:1.5}
   .sq-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;margin-top:1.6rem}
   .sq-step{position:relative;padding:1rem .9rem 1.1rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.012)}
   .sq-step:not(:last-child)::after{content:"\2192";position:absolute;right:-0.62rem;top:1rem;color:var(--gold);font-size:.8rem;z-index:2}
@@ -585,15 +578,13 @@
   .tk-row{display:flex;flex-wrap:wrap;gap:.55rem}
   .lchip{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem .8rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015);transition:border-color .25s}
   .lchip:hover{border-color:rgba(201,162,75,.55)}
-  .lchip img{width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(.92);opacity:.85;transition:filter .3s,opacity .3s}
-  .lchip:hover img{filter:none;opacity:1}
-  .lchip span{font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--bone-dim);text-transform:uppercase}
+  .lchip img{width:20px;height:20px;object-fit:contain}
+    .lchip span{font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--bone-dim);text-transform:uppercase}
   .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.6rem}
   .dl-card{padding:1.2rem 1.1rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015)}
   .dl-v{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;color:var(--gold);margin-bottom:.3rem}
   .dl-l{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
   @media(max-width:860px){
-    .ag-grid{grid-template-columns:repeat(2,1fr)}
     .sq-flow{grid-template-columns:1fr 1fr}
     .sq-step:not(:last-child)::after{display:none}
     .dl-grid{grid-template-columns:repeat(2,1fr)}
@@ -606,17 +597,19 @@
   .bt-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.9rem;color:var(--bone);margin-bottom:.3rem}
   .bt-d{display:block;font-size:.8rem;color:var(--bone-dim);line-height:1.65}
   .bt-d b{color:var(--bone)}
-  .loop-k{display:block;margin-top:1.5rem;font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--bone-dim);text-transform:uppercase}
-  .loop-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:.6rem}
-  .loop-n{position:relative;text-align:center;padding:.75rem .4rem;border:1px solid rgba(201,162,75,.35);font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;background:rgba(201,162,75,.04)}
-  .loop-n:not(:last-child)::after{content:"\2192";position:absolute;right:-.62rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:.8rem;z-index:2}
   .chip-row{margin-top:1.3rem}
   .pl-quote{margin-top:1.8rem;padding-left:1.1rem;border-left:2px solid var(--gold);font-family:'Fraunces',serif;font-style:italic;font-size:1.12rem;color:var(--bone);max-width:560px}
   @media(max-width:860px){
     .bt{grid-template-columns:38px 1fr;gap:.7rem}
-    .loop-strip{grid-template-columns:1fr 1fr}
-    .loop-n:nth-child(2)::after{display:none}
   }
+
+  /* ---------- chapter plates ---------- */
+  .pl-plate{position:relative;margin-top:1.7rem;border:1px solid rgba(201,162,75,.22);background:#101012}
+  .pl-plate img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+  .pl-plate::before,.pl-plate::after{content:"";position:absolute;width:16px;height:16px;pointer-events:none}
+  .pl-plate::before{top:-1px;left:-1px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+  .pl-plate::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+  .pl-plate figcaption{position:absolute;left:0;bottom:0;background:rgba(10,10,11,.8);border-top:1px solid rgba(201,162,75,.3);border-right:1px solid rgba(201,162,75,.3);padding:.35rem .75rem;font-family:'Courier Prime','Courier New',monospace;font-size:.56rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1154,22 +1147,14 @@
       <span class="pl-k">01 · Agent Orchestration</span>
       <h3 class="pl-t">Four models. Defined roles. One director.</h3>
       <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
-      <div class="ag-grid">
-        <div class="ag-card reveal"><img src="claude-2.svg" alt="" loading="lazy" /><div><span class="ag-n">Claude</span><span class="ag-r">Creative direction &amp; orchestration — brief decomposition, shot logic, style-bible authorship, prompt architecture, agent supervision</span></div></div>
-        <div class="ag-card reveal"><img src="codex.svg" alt="" loading="lazy" /><div><span class="ag-n">ChatGPT</span><span class="ag-r">Volume ideation &amp; copy — naming, hooks, VO drafts, rapid concept spreads</span></div></div>
-        <div class="ag-card reveal"><img src="perplexity-2.svg" alt="" loading="lazy" /><div><span class="ag-n">Perplexity</span><span class="ag-r">Research &amp; verification — references, prior art, claims checked before anything reaches a client</span></div></div>
-        <div class="ag-card reveal"><img src="gemini.svg" alt="" loading="lazy" /><div><span class="ag-n">Gemini</span><span class="ag-r">Multimodal analysis — frame QC, reference deconstruction, long-context asset review</span></div></div>
-      </div>
+      <figure class="pl-plate reveal"><img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" /><figcaption>FIG. 01 · Agent Orchestration</figcaption></figure>
     </div>
 
     <div class="pl-act reveal">
       <span class="pl-k">02 · The Image Pipeline</span>
       <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
       <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
-      <span class="loop-k reveal">The reverse-match loop</span>
-      <div class="loop-strip reveal">
-        <span class="loop-n">Generate</span><span class="loop-n">Light</span><span class="loop-n">Shoot</span><span class="loop-n">Composite</span>
-      </div>
+      <figure class="pl-plate reveal"><img src="pl-image.jpg" alt="The reverse-match loop — generate, light, shoot, composite around the real bottle" loading="lazy" /><figcaption>FIG. 02 · The Reverse-Match Loop</figcaption></figure>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → concept</span><span class="bt-d">Fragrance notes decomposed into a visual world — palette, material, atmosphere, story. The scent brief becomes a lighting brief.</span></div></div>
         <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">The real bottle shot clean on white — <b>locked geometry</b> that every generation downstream must obey.</span></div></div>
@@ -1186,6 +1171,7 @@
       <span class="pl-k">03 · The Video Pipeline</span>
       <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
       <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
+      <figure class="pl-plate reveal"><img src="pl-video.jpg" alt="The video pipeline — treatment, keyframes, shot by shot, grade, master" loading="lazy" /><figcaption>FIG. 03 · The Video Pipeline</figcaption></figure>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → treatment</span><span class="bt-d">Notes decomposed into narrative — world, character, arc, tempo. Output is a <b>written treatment and beat sheet</b>, not a prompt. The film is directed on paper first.</span></div></div>
         <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">White-background bottle as geometry ground truth. <b>Per-shot keyframes</b> generated against it — every shot begins as an authored, lit still.</span></div></div>
@@ -1202,6 +1188,7 @@
       <span class="pl-k">04 · Craft Transfer &amp; 3D</span>
       <h3 class="pl-t">Teaching the machine to see like a cinematographer.</h3>
       <p class="pl-d">Generative tools have no taste and no memory — left alone, lens logic wanders, light stops being motivated, brands blur. The answer isn’t better prompts. It’s <b>architecture that encodes twelve years of set knowledge.</b></p>
+      <figure class="pl-plate reveal"><img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" /><figcaption>FIG. 04 · The Craft Stack</figcaption></figure>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">L1</span><div><span class="bt-n">Encoded craft</span><span class="bt-d"><b>340+ versioned skills</b> hard-code director and DP decisions — focal-length grammar per shot type, motivated-light rules and ratios, blocking logic, pacing, grade discipline. A generation cannot leave the system without obeying them.</span></div></div>
         <div class="bt reveal"><span class="bt-i">L2</span><div><span class="bt-n">Defined-role agents</span><span class="bt-d">The pipeline is staffed like a crew — direction, look development, continuity, and QC held by <b>separate purpose-built agents</b>, each existing to catch a specific kind of drift.</span></div></div>
