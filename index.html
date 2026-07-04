@@ -139,6 +139,22 @@
   .scrollcue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.3em;color:var(--bone-dim);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.6rem;animation:bob 2.4s ease-in-out infinite}
   .scrollcue .ln{width:1px;height:36px;background:linear-gradient(var(--gold),transparent)}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+
+  /* ---------- pre-production workflow ---------- */
+  .prepro{border-top:1px solid var(--line)}
+  .sb-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-top:2.2rem}
+  .sb-tile{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(201,162,75,.16);background:#141416}
+  .sb-tile img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:opacity .25s,transform .35s ease}
+  .sb-tile:hover img{opacity:1;transform:scale(1.045)}
+  .sb-tile:hover{border-color:rgba(201,162,75,.5)}
+  .sb-tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .sb-pg{position:absolute;right:.35rem;bottom:.3rem;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--gold);background:rgba(10,10,11,.72);padding:.1rem .3rem}
+  .sb-cap{display:block;margin-top:.8rem;text-align:right;font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.16em;color:var(--bone-dim);text-transform:uppercase}
+  .sb-filmhead{margin-top:3.4rem;text-align:center}
+  .sb-filmhead .fh-k{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.22em;color:var(--crimson);text-transform:uppercase;margin-bottom:.5rem}
+  .sb-filmhead h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;color:var(--bone)}
+  .sb-player{max-width:960px;margin:1.6rem auto 0}
+  @media(max-width:860px){.sb-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -169,6 +185,7 @@
   <nav class="navlinks">
     <a href="#reel">Reel</a>
     <a href="#work">Work</a>
+    <a href="#prepro">Process</a>
     <a href="#aigen">Pipeline</a>
     <a href="#approach">Approach</a>
     <a href="#about">About</a>
@@ -689,7 +706,7 @@
           <span class="th-t">Sh'Mallow Fluff</span>
         </button>
         <button class="thumb" data-i="5" aria-label="Play Royal Blend">
-          <span class="th-img"><img src="https://vumbnail.com/1206853438.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img src="https://vumbnail.com/1206911185.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Royal Blend</span>
         </button>
         <button class="thumb" data-i="6" aria-label="Play Aromatix — the hero film">
@@ -734,7 +751,7 @@
         </button>
         </div>
       </div>
-      <script type="application/json" class="mod-data">[{"vid": "1206458771", "tag": "Fragrance World \u00b7 Champion", "ttl": "Champion \u2014 three ideals, one bottle.", "desc": "A fragrance trilogy on a single bottle design \u2014 three scents, three ideals of the sport, three worlds art-directed around identical product geometry.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206837605", "tag": "French Avenue \u00b7 Lifestyle", "ttl": "Eclair Affair &amp; Chocolate Addict.", "desc": "A lifestyle film for two gourmand fragrances \u2014 the scents carried out of the studio and into the world they're worn in.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:05 \u00b7 4K<\/span>"}, {"vid": "1206850372", "tag": "French Avenue \u00b7 Veneno", "ttl": "Veneno Family.", "desc": "The Veneno line shot as a family portrait \u2014 one dark signature held across the full range.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206851399", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Lifestyle.", "desc": "A lifestyle cut with charge \u2014 masculine energy, movement, and product presence built for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206852580", "tag": "French Avenue \u00b7 Sh'Mallow", "ttl": "Sh'Mallow Fluff.", "desc": "The gourmand line at its most playful \u2014 sweetness translated to texture, light, and pace.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206853438", "tag": "Fragrance World \u00b7 Royal Blend", "ttl": "Royal Blend.", "desc": "An oud-forward hero piece \u2014 heritage codes and royal styling cut into a 4K launch film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:11 \u00b7 4K<\/span>"}, {"vid": "1206848764", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 the hero film.", "desc": "A product hero film \u2014 scent translated to screen with product-first framing, cut for launch.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206855931", "tag": "French Avenue \u00b7 Chaos &amp; Atlantis", "ttl": "Chaos &amp; Atlantis.", "desc": "A two-fragrance pairing built on contrast \u2014 turbulence against depth, one film holding both worlds.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206872641", "tag": "French Avenue \u00b7 Allure Cotture", "ttl": "Allure Cotture.", "desc": "A 31-second cut with couture instincts \u2014 fabric, finish, and fragrance styled as one wardrobe.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206872940", "tag": "French Avenue \u00b7 Signature", "ttl": "Signature.", "desc": "The house signature given its own film \u2014 one scent carried as an identity piece, not a product spot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206873092", "tag": "French Avenue \u00b7 Coffee Collection", "ttl": "Affogato &amp; Double Espresso.", "desc": "The Coffee Collection as a double shot \u2014 two gourmand espressos poured into one film, warmth against intensity.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:03 \u00b7 4K<\/span>"}, {"vid": "1206873598", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 Lifestyle.", "desc": "The dark signature worn out in the world \u2014 night-coded styling and volcanic-glass mood, cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206874886", "tag": "French Avenue \u00b7 El Dorado", "ttl": "El Dorado.", "desc": "The gilded one \u2014 a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:52 \u00b7 4K<\/span>"}, {"vid": "1206875442", "tag": "French Avenue \u00b7 Duo", "ttl": "Tropical Kiss &amp; Sultry Woods.", "desc": "A two-scent pairing across climates \u2014 coastline brightness against deep-timber warmth in one film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:50 \u00b7 4K<\/span>"}, {"vid": "1206875207", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix II.", "desc": "The second Aromatix film \u2014 the line extended with a new movement, same product-first discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:43 \u00b7 4K<\/span>"}, {"vid": "1206876410", "tag": "French Avenue \u00b7 Lumi\u00e8re", "ttl": "Lumi\u00e8re Elle &amp; Gar\u00e7on.", "desc": "The his-and-hers pairing \u2014 two characters, one light, a French-coded duet for the Lumi\u00e8re line.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:37 \u00b7 4K<\/span>"}]</script>
+      <script type="application/json" class="mod-data">[{"vid": "1206458771", "tag": "Fragrance World \u00b7 Champion", "ttl": "Champion \u2014 three ideals, one bottle.", "desc": "A fragrance trilogy on a single bottle design \u2014 three scents, three ideals of the sport, three worlds art-directed around identical product geometry.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206837605", "tag": "French Avenue \u00b7 Lifestyle", "ttl": "Eclair Affair &amp; Chocolate Addict.", "desc": "A lifestyle film for two gourmand fragrances \u2014 the scents carried out of the studio and into the world they're worn in.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:05 \u00b7 4K<\/span>"}, {"vid": "1206850372", "tag": "French Avenue \u00b7 Veneno", "ttl": "Veneno Family.", "desc": "The Veneno line shot as a family portrait \u2014 one dark signature held across the full range.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206851399", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Lifestyle.", "desc": "A lifestyle cut with charge \u2014 masculine energy, movement, and product presence built for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206852580", "tag": "French Avenue \u00b7 Sh'Mallow", "ttl": "Sh'Mallow Fluff.", "desc": "The gourmand line at its most playful \u2014 sweetness translated to texture, light, and pace.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206911185", "tag": "French Avenue \u00b7 Royal Blend", "ttl": "Royal Blend S\u00e9quoia.", "desc": "The anniversary thriller \u2014 a candlelit dinner played as a psychological power game, the fragrance delivering the final word.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:11 \u00b7 4K<\/span>"}, {"vid": "1206848764", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 the hero film.", "desc": "A product hero film \u2014 scent translated to screen with product-first framing, cut for launch.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206855931", "tag": "French Avenue \u00b7 Chaos &amp; Atlantis", "ttl": "Chaos &amp; Atlantis.", "desc": "A two-fragrance pairing built on contrast \u2014 turbulence against depth, one film holding both worlds.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206872641", "tag": "French Avenue \u00b7 Allure Cotture", "ttl": "Allure Cotture.", "desc": "A 31-second cut with couture instincts \u2014 fabric, finish, and fragrance styled as one wardrobe.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206872940", "tag": "French Avenue \u00b7 Signature", "ttl": "Signature.", "desc": "The house signature given its own film \u2014 one scent carried as an identity piece, not a product spot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206873092", "tag": "French Avenue \u00b7 Coffee Collection", "ttl": "Affogato &amp; Double Espresso.", "desc": "The Coffee Collection as a double shot \u2014 two gourmand espressos poured into one film, warmth against intensity.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:03 \u00b7 4K<\/span>"}, {"vid": "1206873598", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 Lifestyle.", "desc": "The dark signature worn out in the world \u2014 night-coded styling and volcanic-glass mood, cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206874886", "tag": "French Avenue \u00b7 El Dorado", "ttl": "El Dorado.", "desc": "The gilded one \u2014 a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:52 \u00b7 4K<\/span>"}, {"vid": "1206875442", "tag": "French Avenue \u00b7 Duo", "ttl": "Tropical Kiss &amp; Sultry Woods.", "desc": "A two-scent pairing across climates \u2014 coastline brightness against deep-timber warmth in one film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:50 \u00b7 4K<\/span>"}, {"vid": "1206875207", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix II.", "desc": "The second Aromatix film \u2014 the line extended with a new movement, same product-first discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:43 \u00b7 4K<\/span>"}, {"vid": "1206876410", "tag": "French Avenue \u00b7 Lumi\u00e8re", "ttl": "Lumi\u00e8re Elle &amp; Gar\u00e7on.", "desc": "The his-and-hers pairing \u2014 two characters, one light, a French-coded duet for the Lumi\u00e8re line.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:37 \u00b7 4K<\/span>"}]</script>
     </div>
     
       <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
@@ -1001,11 +1018,64 @@
   </div>
 </section>
 
+<!-- ============ PRE-PRODUCTION WORKFLOW ============ -->
+<section class="prepro" id="prepro">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">03 / PRE-PRODUCTION</span>
+      <h2 class="display">The film <em>before</em> the film.</h2>
+    </div>
+    <div class="pipe-intro reveal">
+      <p class="lead">Every film on this page started as a document. Story, screenplay, shot-by-shot boards, sound notes — with <b>AI-generated reference frames</b> standing in for photography that doesn't exist yet. One deck carries the vision out of my head and into everyone else's: <b>client sign-off, crew alignment, the post brief</b> — a single source of truth before a frame is shot.</p>
+      <p class="sub">Below: the complete pre-production deck for French Avenue's <b>Royal Blend Séquoia</b>, page by page, exactly as it went to the team — and beneath it, what came back. The distance between a written idea and a finished commercial, and how it gets crossed.</p>
+    </div>
+    <div class="sb-grid">
+        <a class="sb-tile reveal" href="sb-01.jpg" target="_blank" rel="noopener"><img src="sb-01.jpg" alt="Royal Blend Séquoia storyboard — page 1" loading="lazy" /><span class="sb-pg">01</span></a>
+        <a class="sb-tile reveal" href="sb-02.jpg" target="_blank" rel="noopener"><img src="sb-02.jpg" alt="Royal Blend Séquoia storyboard — page 2" loading="lazy" /><span class="sb-pg">02</span></a>
+        <a class="sb-tile reveal" href="sb-03.jpg" target="_blank" rel="noopener"><img src="sb-03.jpg" alt="Royal Blend Séquoia storyboard — page 3" loading="lazy" /><span class="sb-pg">03</span></a>
+        <a class="sb-tile reveal" href="sb-04.jpg" target="_blank" rel="noopener"><img src="sb-04.jpg" alt="Royal Blend Séquoia storyboard — page 4" loading="lazy" /><span class="sb-pg">04</span></a>
+        <a class="sb-tile reveal" href="sb-05.jpg" target="_blank" rel="noopener"><img src="sb-05.jpg" alt="Royal Blend Séquoia storyboard — page 5" loading="lazy" /><span class="sb-pg">05</span></a>
+        <a class="sb-tile reveal" href="sb-06.jpg" target="_blank" rel="noopener"><img src="sb-06.jpg" alt="Royal Blend Séquoia storyboard — page 6" loading="lazy" /><span class="sb-pg">06</span></a>
+        <a class="sb-tile reveal" href="sb-07.jpg" target="_blank" rel="noopener"><img src="sb-07.jpg" alt="Royal Blend Séquoia storyboard — page 7" loading="lazy" /><span class="sb-pg">07</span></a>
+        <a class="sb-tile reveal" href="sb-08.jpg" target="_blank" rel="noopener"><img src="sb-08.jpg" alt="Royal Blend Séquoia storyboard — page 8" loading="lazy" /><span class="sb-pg">08</span></a>
+        <a class="sb-tile reveal" href="sb-09.jpg" target="_blank" rel="noopener"><img src="sb-09.jpg" alt="Royal Blend Séquoia storyboard — page 9" loading="lazy" /><span class="sb-pg">09</span></a>
+        <a class="sb-tile reveal" href="sb-10.jpg" target="_blank" rel="noopener"><img src="sb-10.jpg" alt="Royal Blend Séquoia storyboard — page 10" loading="lazy" /><span class="sb-pg">10</span></a>
+        <a class="sb-tile reveal" href="sb-11.jpg" target="_blank" rel="noopener"><img src="sb-11.jpg" alt="Royal Blend Séquoia storyboard — page 11" loading="lazy" /><span class="sb-pg">11</span></a>
+        <a class="sb-tile reveal" href="sb-12.jpg" target="_blank" rel="noopener"><img src="sb-12.jpg" alt="Royal Blend Séquoia storyboard — page 12" loading="lazy" /><span class="sb-pg">12</span></a>
+        <a class="sb-tile reveal" href="sb-13.jpg" target="_blank" rel="noopener"><img src="sb-13.jpg" alt="Royal Blend Séquoia storyboard — page 13" loading="lazy" /><span class="sb-pg">13</span></a>
+        <a class="sb-tile reveal" href="sb-14.jpg" target="_blank" rel="noopener"><img src="sb-14.jpg" alt="Royal Blend Séquoia storyboard — page 14" loading="lazy" /><span class="sb-pg">14</span></a>
+        <a class="sb-tile reveal" href="sb-15.jpg" target="_blank" rel="noopener"><img src="sb-15.jpg" alt="Royal Blend Séquoia storyboard — page 15" loading="lazy" /><span class="sb-pg">15</span></a>
+        <a class="sb-tile reveal" href="sb-16.jpg" target="_blank" rel="noopener"><img src="sb-16.jpg" alt="Royal Blend Séquoia storyboard — page 16" loading="lazy" /><span class="sb-pg">16</span></a>
+        <a class="sb-tile reveal" href="sb-17.jpg" target="_blank" rel="noopener"><img src="sb-17.jpg" alt="Royal Blend Séquoia storyboard — page 17" loading="lazy" /><span class="sb-pg">17</span></a>
+        <a class="sb-tile reveal" href="sb-18.jpg" target="_blank" rel="noopener"><img src="sb-18.jpg" alt="Royal Blend Séquoia storyboard — page 18" loading="lazy" /><span class="sb-pg">18</span></a>
+        <a class="sb-tile reveal" href="sb-19.jpg" target="_blank" rel="noopener"><img src="sb-19.jpg" alt="Royal Blend Séquoia storyboard — page 19" loading="lazy" /><span class="sb-pg">19</span></a>
+        <a class="sb-tile reveal" href="sb-20.jpg" target="_blank" rel="noopener"><img src="sb-20.jpg" alt="Royal Blend Séquoia storyboard — page 20" loading="lazy" /><span class="sb-pg">20</span></a>
+        <a class="sb-tile reveal" href="sb-21.jpg" target="_blank" rel="noopener"><img src="sb-21.jpg" alt="Royal Blend Séquoia storyboard — page 21" loading="lazy" /><span class="sb-pg">21</span></a>
+        <a class="sb-tile reveal" href="sb-22.jpg" target="_blank" rel="noopener"><img src="sb-22.jpg" alt="Royal Blend Séquoia storyboard — page 22" loading="lazy" /><span class="sb-pg">22</span></a>
+        <a class="sb-tile reveal" href="sb-23.jpg" target="_blank" rel="noopener"><img src="sb-23.jpg" alt="Royal Blend Séquoia storyboard — page 23" loading="lazy" /><span class="sb-pg">23</span></a>
+        <a class="sb-tile reveal" href="sb-24.jpg" target="_blank" rel="noopener"><img src="sb-24.jpg" alt="Royal Blend Séquoia storyboard — page 24" loading="lazy" /><span class="sb-pg">24</span></a>
+        <a class="sb-tile reveal" href="sb-25.jpg" target="_blank" rel="noopener"><img src="sb-25.jpg" alt="Royal Blend Séquoia storyboard — page 25" loading="lazy" /><span class="sb-pg">25</span></a>
+    </div>
+    <span class="sb-cap reveal">Royal Blend Séquoia · storyboard deck · 25 pages · tap to enlarge</span>
+    <div class="sb-filmhead reveal">
+      <span class="fh-k">The delivered film</span>
+      <h3>Royal Blend Séquoia — from deck to screen.</h3>
+    </div>
+    <div class="main-player sb-player reveal">
+      <iframe src="https://player.vimeo.com/video/1206911185?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+        title="Royal Blend Séquoia — the delivered film" loading="lazy"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+
 <!-- ============ AI GEN PIPELINE ============ -->
 <section class="aigen" id="aigen">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">03 / AI-NATIVE PIPELINE</span>
+      <span class="num">04 / AI-NATIVE PIPELINE</span>
       <h2 class="display">Generative <em>production</em>.</h2>
     </div>
 
@@ -1114,7 +1184,7 @@
 <section class="approach" id="approach">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">04 / APPROACH</span>
+      <span class="num">05 / APPROACH</span>
       <h2 class="display">Craft, at <em>scale</em>.</h2>
     </div>
     <div class="appr-grid">
@@ -1141,7 +1211,7 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">05 / ABOUT</span>
+      <span class="num">06 / ABOUT</span>
       <h2 class="display">Who's <em>behind</em> the camera.</h2>
     </div>
     <div class="about-grid">
