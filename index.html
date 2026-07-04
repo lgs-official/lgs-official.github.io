@@ -397,15 +397,16 @@
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
 
-  /* ---------- category chapter plates — one image per category head ---------- */
-  .cat-plate{grid-column:1/-1;position:relative;height:360px;overflow:hidden;margin:2.4rem 0 1.8rem;border:1px solid rgba(201,162,75,.16)}
-  .cat-plate img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:brightness(.62) saturate(.94)}
+  /* ---------- category chapter plates — full-bleed, melted, heads-first ---------- */
+  body{overflow-x:clip}
+  .cat-plate{grid-column:1/-1;position:relative;width:100vw;margin:2.6rem calc(50% - 50vw) 2rem;height:500px;overflow:hidden}
+  .cat-plate img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.66) saturate(.95)}
   .cat-plate::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(10,10,11,.25) 0%,rgba(10,10,11,0) 35%,rgba(10,10,11,.72) 82%,rgba(10,10,11,.9) 100%),
-               linear-gradient(90deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,0) 40%)}
-  .cat-plate .cat-plate-head{position:absolute;left:2rem;right:2rem;bottom:1.6rem;z-index:2;display:flex;align-items:baseline;gap:1rem}
-  .cat-plate .cat-title{font-size:1.9rem;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-  @media(max-width:760px){.cat-plate{height:230px;margin:1.8rem 0 1.4rem}.cat-plate .cat-plate-head{left:1.1rem;right:1.1rem;bottom:1.1rem}.cat-plate .cat-title{font-size:1.4rem}}
+    background:linear-gradient(180deg,var(--black) 0%,rgba(10,10,11,.15) 18%,rgba(10,10,11,0) 42%,rgba(10,10,11,.62) 80%,var(--black) 100%),
+               linear-gradient(90deg,rgba(10,10,11,.42) 0%,rgba(10,10,11,0) 32%,rgba(10,10,11,0) 72%,rgba(10,10,11,.35) 100%)}
+  .cat-plate .cat-plate-head{position:absolute;left:50%;transform:translateX(-50%);width:min(1152px,calc(100% - 3rem));bottom:1.9rem;z-index:2;display:flex;align-items:baseline;gap:1rem}
+  .cat-plate .cat-title{font-size:1.9rem;text-shadow:0 2px 18px rgba(0,0,0,.65)}
+  @media(max-width:760px){.cat-plate{height:280px;margin-top:2rem;margin-bottom:1.4rem}.cat-plate .cat-title{font-size:1.4rem}}
 
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
@@ -610,7 +611,10 @@
     </div>
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
-    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+    <div class="cat-plate reveal">
+      <img src="plate-lifestyle.jpg" alt="" loading="lazy" />
+      <div class="cat-plate-head"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+    </div>
     <div class="cine-module reveal" data-cat="lifestyle">
       <div class="player-row">
         <div class="main-player">
