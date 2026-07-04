@@ -380,19 +380,6 @@
   @media(max-width:560px){.tri-grid{grid-template-columns:1fr}}
   .feat-half.vert .fh-video{aspect-ratio:9/16}
 
-  /* ---------- scrub — scroll-driven slate ---------- */
-  .scrub{position:relative;height:220vh;background:var(--black)}
-  .scrub-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--black)}
-  .scrub-stage{position:absolute;inset:0;will-change:transform,opacity;opacity:0}
-  .scrub-canvas{width:100%;height:100%;display:block}
-  .scrub-hud{position:absolute;top:5.2rem;left:2rem;display:flex;flex-direction:column;gap:.45rem;
-    font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--bone-dim);text-transform:uppercase;pointer-events:none}
-  .scrub-hud b{color:var(--gold);font-weight:700}
-  .scrub-action{position:absolute;left:0;right:0;bottom:14vh;text-align:center;
-    font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);color:var(--bone);opacity:0;will-change:opacity,transform;pointer-events:none}
-  .scrub-action em{color:var(--gold);font-style:italic}
-  @media (prefers-reduced-motion:reduce){.scrub{height:100vh}.scrub-stage{opacity:1}.scrub-action{opacity:1}}
-
   /* ---------- work section banner — the instrument (right-anchored panel) ---------- */
   #work{position:relative}
   .work-banner{position:absolute;top:0;right:0;width:48%;aspect-ratio:1500/1380;overflow:hidden;z-index:0;pointer-events:none}
@@ -501,17 +488,6 @@
 </style>
 
 <!-- ============ REEL ============ -->
-<!-- ============ SCRUB — the slate (scroll-driven frame sequence) ============ -->
-<section class="scrub" id="scrubClap" aria-label="Clapperboard — scroll to clap">
-  <div class="scrub-sticky">
-    <div class="scrub-stage" id="scrubStage">
-      <canvas class="scrub-canvas"></canvas>
-      <div class="scrub-hud"><span>ROLL <b>A1</b></span><span>SCENE <b>01</b></span><span>TAKE <b id="scrubTake">001</b></span></div>
-    </div>
-    <p class="scrub-action" id="scrubAction">&hellip;and <em>action</em>.</p>
-  </div>
-</section>
-
 <section class="reel" id="reel">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -1232,53 +1208,6 @@ document.querySelectorAll('.cine-module').forEach(function(mod){
     count.textContent=pad(i+1)+' / '+pad(total);
   });
 });
-</script>
-<script>
-(function(){
-  var CFG={path:'clap/f_',pad:4,ext:'.webp',count:96};
-  var section=document.getElementById('scrubClap'); if(!section) return;
-  var canvas=section.querySelector('.scrub-canvas'),ctx=canvas.getContext('2d');
-  var takeEl=document.getElementById('scrubTake'),stage=document.getElementById('scrubStage'),actionEl=document.getElementById('scrubAction');
-  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var frames=new Array(CFG.count),loaded=0,started=false,curIdx=-1,pending=false;
-  window.__scrub={idx:-1,loaded:0,count:CFG.count};
-  function src(i){return CFG.path+String(i).padStart(CFG.pad,'0')+CFG.ext}
-  function size(){var d=Math.min(devicePixelRatio||1,2);canvas.width=canvas.clientWidth*d;canvas.height=canvas.clientHeight*d;if(curIdx>=0)draw(curIdx,true)}
-  function draw(i,force){
-    if(i===curIdx&&!force)return; var img=frames[i]; if(!img||!img.complete)return;
-    curIdx=i; window.__scrub.idx=i;
-    var cw=canvas.width,ch=canvas.height,iw=img.naturalWidth,ih=img.naturalHeight;
-    var s=Math.max(cw/iw,ch/ih),dw=iw*s,dh=ih*s;
-    ctx.clearRect(0,0,cw,ch); ctx.drawImage(img,(cw-dw)/2,(ch-dh)/2,dw,dh);
-    takeEl.textContent=String(i+1).padStart(3,'0');
-  }
-  function clamp(v){return Math.min(1,Math.max(0,v))}
-  function arc(p){
-    var fin=clamp(p/0.12), fout=clamp((p-0.78)/0.2);
-    stage.style.opacity=(fin*(1-fout)).toFixed(3);
-    stage.style.transform='scale('+(0.94+0.06*fin+0.06*fout)+')';
-    actionEl.style.opacity=clamp((p-0.82)/0.12).toFixed(3);
-    actionEl.style.transform='translateY('+((1-clamp((p-0.82)/0.12))*14)+'px)';
-    return clamp((p-0.12)/0.66);
-  }
-  function progress(){var r=section.getBoundingClientRect(),t=section.offsetHeight-innerHeight;return t<=0?0:Math.min(1,Math.max(0,-r.top/t))}
-  function onScroll(){if(pending)return;pending=true;requestAnimationFrame(function(){pending=false;draw(Math.round(arc(progress())*(CFG.count-1)))})}
-  function preloadAll(){if(started)return;started=true;
-    for(var i=1;i<CFG.count;i++)(function(i){var im=new Image();
-      im.onload=function(){loaded++;window.__scrub.loaded=loaded;if(loaded===CFG.count)onScroll()};
-      im.src=src(i);frames[i]=im})(i);}
-  frames[0]=new Image();
-  frames[0].onload=function(){loaded=1;window.__scrub.loaded=1;size();draw(0,true)};
-  frames[0].src=src(0);
-  if(reduced){
-    var last=new Image();last.onload=function(){frames[CFG.count-1]=last;size();draw(CFG.count-1,true)};
-    last.src=src(CFG.count-1);
-  }else{
-    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){preloadAll();o.disconnect()}})},{rootMargin:'100% 0px'}).observe(section);
-    addEventListener('scroll',onScroll,{passive:true});
-  }
-  addEventListener('resize',size); size();
-})();
 </script>
 </body>
 </html>
