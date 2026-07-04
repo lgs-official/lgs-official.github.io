@@ -603,13 +603,24 @@
     .bt{grid-template-columns:38px 1fr;gap:.7rem}
   }
 
-  /* ---------- chapter plates ---------- */
-  .pl-plate{position:relative;margin-top:1.7rem;border:1px solid rgba(201,162,75,.22);background:#101012}
-  .pl-plate img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-  .pl-plate::before,.pl-plate::after{content:"";position:absolute;width:16px;height:16px;pointer-events:none}
-  .pl-plate::before{top:-1px;left:-1px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
-  .pl-plate::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
-  .pl-plate figcaption{position:absolute;left:0;bottom:0;background:rgba(10,10,11,.8);border-top:1px solid rgba(201,162,75,.3);border-right:1px solid rgba(201,162,75,.3);padding:.35rem .75rem;font-family:'Courier Prime','Courier New',monospace;font-size:.56rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+
+  /* ---------- chapter hero bands ---------- */
+  .pl-act{border-top:none;padding-top:0;margin-top:4.2rem}
+  .pl-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw)}
+  .pl-hero img{display:block;width:100%;height:auto;max-height:88vh;object-fit:cover}
+  .pl-hero-scrim{position:absolute;inset:0;pointer-events:none;background:
+    linear-gradient(180deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.55) 16%,rgba(10,10,11,0) 34%,rgba(10,10,11,0) 74%,var(--black) 100%),
+    linear-gradient(90deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,0) 18%,rgba(10,10,11,0) 82%,rgba(10,10,11,.5) 100%)}
+  .pl-hero-txt{position:absolute;top:2.4rem;left:50%;transform:translateX(-50%);width:min(1152px,calc(100vw - 3rem));z-index:2}
+  .pl-hero-txt .pl-t{text-shadow:0 2px 22px rgba(0,0,0,.85)}
+  .pl-hero-txt .pl-d{text-shadow:0 1px 14px rgba(0,0,0,.9)}
+  .pl-fig{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);width:min(1152px,calc(100vw - 3rem));font-family:'Courier Prime','Courier New',monospace;font-size:.56rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.9);z-index:2}
+  @media(max-width:860px){
+    .pl-hero img{min-height:420px}
+    .pl-hero-txt{top:1.4rem}
+    .pl-hero-scrim{background:
+      linear-gradient(180deg,rgba(10,10,11,.94) 0%,rgba(10,10,11,.72) 26%,rgba(10,10,11,.12) 48%,rgba(10,10,11,0) 74%,var(--black) 100%)}
+  }
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1144,17 +1155,29 @@
     </div>
 
     <div class="pl-act reveal">
-      <span class="pl-k">01 · Agent Orchestration</span>
-      <h3 class="pl-t">Four models. Defined roles. One director.</h3>
-      <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
-      <figure class="pl-plate reveal"><img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" /><figcaption>FIG. 01 · Agent Orchestration</figcaption></figure>
+      <div class="pl-hero">
+        <img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" />
+        <div class="pl-hero-scrim"></div>
+        <div class="pl-hero-txt">
+          <span class="pl-k">01 · Agent Orchestration</span>
+          <h3 class="pl-t">Four models. Defined roles. One director.</h3>
+          <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
+        </div>
+        <span class="pl-fig">FIG. 01 · AGENT ORCHESTRATION</span>
+      </div>
     </div>
 
     <div class="pl-act reveal">
-      <span class="pl-k">02 · The Image Pipeline</span>
-      <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
-      <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
-      <figure class="pl-plate reveal"><img src="pl-image.jpg" alt="The reverse-match loop — generate, light, shoot, composite around the real bottle" loading="lazy" /><figcaption>FIG. 02 · The Reverse-Match Loop</figcaption></figure>
+      <div class="pl-hero">
+        <img src="pl-image.jpg" alt="The reverse-match loop — generate, light, shoot, composite around the real bottle" loading="lazy" />
+        <div class="pl-hero-scrim"></div>
+        <div class="pl-hero-txt">
+          <span class="pl-k">02 · The Image Pipeline</span>
+          <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
+          <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
+        </div>
+        <span class="pl-fig">FIG. 02 · THE REVERSE-MATCH LOOP</span>
+      </div>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → concept</span><span class="bt-d">Fragrance notes decomposed into a visual world — palette, material, atmosphere, story. The scent brief becomes a lighting brief.</span></div></div>
         <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">The real bottle shot clean on white — <b>locked geometry</b> that every generation downstream must obey.</span></div></div>
@@ -1168,10 +1191,16 @@
     </div>
 
     <div class="pl-act reveal">
-      <span class="pl-k">03 · The Video Pipeline</span>
-      <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
-      <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
-      <figure class="pl-plate reveal"><img src="pl-video.jpg" alt="The video pipeline — treatment, keyframes, shot by shot, grade, master" loading="lazy" /><figcaption>FIG. 03 · The Video Pipeline</figcaption></figure>
+      <div class="pl-hero">
+        <img src="pl-video.jpg" alt="The video pipeline — treatment, keyframes, shot by shot, grade, master" loading="lazy" />
+        <div class="pl-hero-scrim"></div>
+        <div class="pl-hero-txt">
+          <span class="pl-k">03 · The Video Pipeline</span>
+          <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
+          <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
+        </div>
+        <span class="pl-fig">FIG. 03 · THE VIDEO PIPELINE</span>
+      </div>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → treatment</span><span class="bt-d">Notes decomposed into narrative — world, character, arc, tempo. Output is a <b>written treatment and beat sheet</b>, not a prompt. The film is directed on paper first.</span></div></div>
         <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">White-background bottle as geometry ground truth. <b>Per-shot keyframes</b> generated against it — every shot begins as an authored, lit still.</span></div></div>
@@ -1185,10 +1214,16 @@
     </div>
 
     <div class="pl-act reveal">
-      <span class="pl-k">04 · Craft Transfer &amp; 3D</span>
-      <h3 class="pl-t">Teaching the machine to see like a cinematographer.</h3>
-      <p class="pl-d">Generative tools have no taste and no memory — left alone, lens logic wanders, light stops being motivated, brands blur. The answer isn’t better prompts. It’s <b>architecture that encodes twelve years of set knowledge.</b></p>
-      <figure class="pl-plate reveal"><img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" /><figcaption>FIG. 04 · The Craft Stack</figcaption></figure>
+      <div class="pl-hero">
+        <img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" />
+        <div class="pl-hero-scrim"></div>
+        <div class="pl-hero-txt">
+          <span class="pl-k">04 · Craft Transfer &amp; 3D</span>
+          <h3 class="pl-t">Teaching the machine to see like a cinematographer.</h3>
+          <p class="pl-d">Generative tools have no taste and no memory — left alone, lens logic wanders, light stops being motivated, brands blur. The answer isn’t better prompts. It’s <b>architecture that encodes twelve years of set knowledge.</b></p>
+        </div>
+        <span class="pl-fig">FIG. 04 · THE CRAFT STACK</span>
+      </div>
       <div class="bt-flow">
         <div class="bt reveal"><span class="bt-i">L1</span><div><span class="bt-n">Encoded craft</span><span class="bt-d"><b>340+ versioned skills</b> hard-code director and DP decisions — focal-length grammar per shot type, motivated-light rules and ratios, blocking logic, pacing, grade discipline. A generation cannot leave the system without obeying them.</span></div></div>
         <div class="bt reveal"><span class="bt-i">L2</span><div><span class="bt-n">Defined-role agents</span><span class="bt-d">The pipeline is staffed like a crew — direction, look development, continuity, and QC held by <b>separate purpose-built agents</b>, each existing to catch a specific kind of drift.</span></div></div>
