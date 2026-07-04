@@ -408,6 +408,18 @@
     linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.72) 22%,rgba(10,10,11,.18) 56%,rgba(10,10,11,0) 78%),
     linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 14%),
     linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 16%)}
+  .zone-panel.side-left{right:auto;left:calc(50% - 50vw)}
+  .zone-panel.side-left::after{background:
+    linear-gradient(270deg,var(--black) 0%,rgba(10,10,11,.72) 22%,rgba(10,10,11,.18) 56%,rgba(10,10,11,0) 78%),
+    linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 14%),
+    linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 16%)}
+  .z-worlds img{object-position:center 14%}
+  .cat-zone.flip .cat-head{flex-direction:row-reverse}
+  .cat-zone.flip .player-row{grid-template-columns:1fr 1.6fr}
+  .cat-zone.flip .main-player{order:2}
+  .cat-zone.flip .player-info{order:1;text-align:right}
+  .cat-zone.flip .pi-credits{justify-content:flex-end}
+  .cat-zone.flip .rail-wrap{margin-left:auto}
   .z-key img{object-position:center 10%}
   .z-lifestyle img{object-position:center 12%}
   .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc,.cat-zone .cat-title,.work-grid .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.6)}
@@ -439,7 +451,8 @@
   .pi-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--bone);line-height:1.12;margin-top:.1rem}
   .pi-desc{font-size:.9rem;color:var(--bone-dim);line-height:1.6;margin-top:.35rem}
   .pi-credits{margin-top:.8rem;padding-top:.75rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.35rem .5rem}
-  .rail-wrap{margin-top:1.4rem}
+  .rail-wrap{margin-top:1.4rem;max-width:936px} /* 3 cards + gaps — panel stays visible right */
+  .cine-module.vert .rail-wrap{max-width:486px}
   .rail-count{display:block;text-align:right;font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--bone-dim);margin-bottom:.5rem}
   .rail{display:flex;gap:.85rem;overflow-x:auto;padding:.3rem .2rem .8rem;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:rgba(201,162,75,.4) transparent;--rsk:0deg}
   .rail::-webkit-scrollbar{height:4px}
@@ -755,7 +768,8 @@
     </div>
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
-    <div id="cat-3dcgi" class="cat-zone">
+    <div id="cat-3dcgi" class="cat-zone flip">
+      <div class="zone-panel side-left z-worlds" aria-hidden="true"><img src="plate-cgi-ai.jpg" alt="" loading="lazy" /></div>
       <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="cgi">
       <div class="player-row">
@@ -843,11 +857,9 @@
       </div>
       <script type="application/json" class="mod-data">[{"vid": "1206875151", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 full CGI.", "desc": "The Aromatix hero rebuilt entirely in 3D \u2014 product-accurate glass, liquid, and label under studio-grade CGI lighting.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206875152", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Royal Taboo.", "desc": "An Aromatix-line scent in full 3D \u2014 regal materials, dark opulence, and a camera no physical rig could fly.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:34 \u00b7 4K<\/span>"}, {"vid": "1206875153", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Carnal Desire.", "desc": "The line's most charged scent, treated in CGI \u2014 heat, texture, and slow-motion sim work built around the bottle.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:35 \u00b7 4K<\/span>"}, {"vid": "1206874549", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan \u2014 3D.", "desc": "The Vulcan bottle as pure object study \u2014 volcanic materials, ember light, and CGI physics doing the heavy lifting.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:46 \u00b7 4K<\/span>"}, {"vid": "1206874550", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Baie.", "desc": "The Vulcan flanker rendered in 3D \u2014 the line's dark DNA shifted toward berry-coded warmth.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:34 \u00b7 4K<\/span>"}, {"vid": "1206874820", "tag": "French Avenue \u00b7 Arsh", "ttl": "Arsh \u2014 3D.", "desc": "A full-3D throne piece \u2014 elevation and majesty coded into geometry, cut to a modern score.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:36 \u00b7 4K<\/span>"}, {"vid": "1206875618", "tag": "French Avenue \u00b7 Azzure Aoud", "ttl": "Azzure Aoud.", "desc": "Oud gone oceanic in CGI \u2014 deep-blue materials and eastern richness in one rendered world.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206873974", "tag": "French Avenue \u00b7 Safari Breeze", "ttl": "Safari Breeze.", "desc": "A CGI environment build \u2014 open-air savanna atmosphere wrapped around the bottle.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206876106", "tag": "French Avenue \u00b7 Jasmere", "ttl": "Jasmere.", "desc": "A floral CGI study \u2014 jasmine-coded softness in materials, light, and particle work.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 HD<\/span>"}, {"vid": "1206873794", "tag": "French Avenue \u00b7 Grow", "ttl": "Grow.", "desc": "A growth-sim concept film \u2014 botanicals built and bloomed procedurally around the product.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:46 \u00b7 4K<\/span>"}, {"vid": "1206875837", "tag": "French Avenue \u00b7 Duo", "ttl": "Ather &amp; Irida.", "desc": "A two-scent 3D pairing \u2014 air against iridescence, both worlds fully rendered.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206875040", "tag": "French Avenue \u00b7 Cocoa Morado", "ttl": "Cocoa Morado.", "desc": "Gourmand CGI \u2014 cocoa and violet as simulated materials, poured, dusted, and lit like dessert.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:38 \u00b7 4K<\/span>"}, {"vid": "1206875683", "tag": "French Avenue \u00b7 Luscious", "ttl": "Luscious.", "desc": "An 18-second CGI bite \u2014 dense gourmand texture work at snackable length.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:18 \u00b7 4K<\/span>"}, {"vid": "1206875744", "tag": "French Avenue \u00b7 Meringue", "ttl": "Meringue.", "desc": "Whipped, cracked, and rendered \u2014 the meringue scent as a CGI dessert study.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206875710", "tag": "French Avenue \u00b7 Sweet Paradise", "ttl": "Sweet Paradise.", "desc": "A 20-second CGI confection \u2014 paradise coded in sugar-bright materials.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:20 \u00b7 4K<\/span>"}, {"vid": "1206874551", "tag": "French Avenue \u00b7 Retail Campaign", "ttl": "Black Friday.", "desc": "A 21-second full-CGI retail hit \u2014 one campaign message, maximum object energy, built for paid placement.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:21 \u00b7 4K<\/span>"}]</script>
     </div>
-    </div>
+    
 
-    <!-- 02.5 — AI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
-    <div id="cat-aifilms" class="cat-zone">
-      <div class="cat-head reveal"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
+      <div class="cat-head reveal" id="cat-aifilms"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="ai">
       <div class="player-row">
         <div class="main-player">
