@@ -356,50 +356,14 @@
   .pipe-intro .sub{color:var(--bone-dim);font-size:.98rem;line-height:1.6}
 
   /* node graph */
-  .nodegraph{position:relative;margin:0 -1rem}
-  .pipe-flow{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding:1rem;scrollbar-width:thin;scrollbar-color:var(--crimson) transparent}
-  .pipe-flow::-webkit-scrollbar{height:6px}
-  .pipe-flow::-webkit-scrollbar-thumb{background:rgba(230,53,64,.4);border-radius:3px}
-  .stage{flex:1 0 200px;min-width:200px;position:relative;display:flex;flex-direction:column}
-  .stage:not(:last-child){padding-right:38px}
   /* connector arrow between stages */
-  .stage:not(:last-child)::after{content:"";position:absolute;top:54px;right:14px;width:24px;height:1px;
-    background:repeating-linear-gradient(90deg,rgba(201,162,75,.75) 0 4px,rgba(201,162,75,.08) 4px 8px);
-    background-size:8px 1px}
-  .flow-live .stage:not(:last-child)::after{animation:flowDash .7s linear infinite}
   @keyframes flowDash{from{background-position:0 0}to{background-position:8px 0}}
-  .stage:not(:last-child)::before{content:"";position:absolute;top:50px;right:12px;z-index:2;
-    width:0;height:0;border-left:7px solid var(--gold);border-top:4px solid transparent;border-bottom:4px solid transparent;opacity:.7}
   .node{border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.015);height:100%;
     display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s}
   .node:hover{border-color:rgba(201,162,75,.55);transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.45)}
-  .flow-live .node-idx{animation:idxPulse 2.8s ease-in-out infinite}
-  .flow-live .stage:nth-child(2) .node-idx{animation-delay:.35s}
-  .flow-live .stage:nth-child(3) .node-idx{animation-delay:.7s}
-  .flow-live .stage:nth-child(4) .node-idx{animation-delay:1.05s}
-  .flow-live .stage:nth-child(5) .node-idx{animation-delay:1.4s}
-  .flow-live .stage:nth-child(6) .node-idx{animation-delay:1.75s}
   @keyframes idxPulse{0%,100%{box-shadow:0 0 0 0 rgba(230,53,64,0)}18%{box-shadow:0 0 10px 1px rgba(230,53,64,.5)}36%{box-shadow:0 0 0 0 rgba(230,53,64,0)}}
-  .node-top{display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
-  .node-idx{font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;color:var(--crimson);
-    border:1px solid rgba(230,53,64,.35);border-radius:2px;padding:.12rem .4rem;letter-spacing:.05em}
-  .node-name{font-family:'Courier Prime','Courier New',monospace;font-size:.78rem;font-weight:700;
-    color:var(--bone);letter-spacing:.04em;text-transform:uppercase}
-  .node-body{padding:.9rem 1rem 1.1rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
-  .node-desc{font-size:.82rem;line-height:1.5;color:var(--bone-dim)}
-  .node-tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
-  .tool-chip{font-family:'Courier Prime','Courier New',monospace;font-size:.64rem;letter-spacing:.03em;
-    padding:.28rem .55rem;border-radius:2px;border:1px solid var(--line);color:var(--bone-dim);white-space:nowrap}
-  .tool-chip.ai{color:var(--crimson-bright);border-color:rgba(230,53,64,.4);background:rgba(230,53,64,.04)}
-  .tool-chip.craft{color:var(--gold);border-color:rgba(201,162,75,.35)}
 
   /* orchestration rail under the flow */
-  .pipe-rail{margin-top:2.2rem;border:1px dashed rgba(201,162,75,.28);border-radius:4px;
-    padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:rgba(201,162,75,.02)}
-  .pipe-rail .rail-label{font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;
-    color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
-  .pipe-rail .rail-desc{font-size:.84rem;color:var(--bone-dim);line-height:1.5}
-  .pipe-rail .rail-desc b{color:var(--bone);font-weight:600}
   @media(max-width:760px){.stage{flex:1 0 78%;min-width:78%}}
 
 
@@ -594,6 +558,64 @@
     .navlinks.open{display:flex;position:fixed;inset:0;z-index:70;background:rgba(6,6,7,.97);flex-direction:column;align-items:center;justify-content:center;gap:2.1rem}
     .navlinks.open a{font-size:.95rem;letter-spacing:.3em}
     body.nav-lock{overflow:hidden}
+  }
+
+  /* ---------- pipeline four-act story ---------- */
+  .pl-act{margin-top:3.2rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+  .pl-k{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;letter-spacing:.22em;color:var(--crimson);text-transform:uppercase;margin-bottom:.6rem}
+  .pl-t{font-family:'Fraunces',serif;font-weight:600;font-size:1.55rem;color:var(--bone);margin-bottom:.8rem}
+  .pl-d{max-width:680px;font-size:.95rem;color:var(--bone-dim);line-height:1.65}
+  .pl-d b{color:var(--bone)}
+  .ag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1.6rem}
+  .ag-card{display:flex;flex-direction:column;gap:.9rem;padding:1.1rem 1rem 1.2rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015);transition:border-color .25s}
+  .ag-card:hover{border-color:rgba(201,162,75,.55)}
+  .ag-card img{width:30px;height:30px;object-fit:contain;filter:brightness(0) invert(.92);opacity:.85;transition:filter .3s,opacity .3s}
+  .ag-card:hover img{filter:none;opacity:1}
+  .ag-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem;color:var(--bone)}
+  .ag-r{display:block;margin-top:.25rem;font-family:'Courier Prime','Courier New',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--bone-dim);text-transform:uppercase;line-height:1.5}
+  .sq-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;margin-top:1.6rem}
+  .sq-step{position:relative;padding:1rem .9rem 1.1rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.012)}
+  .sq-step:not(:last-child)::after{content:"\2192";position:absolute;right:-0.62rem;top:1rem;color:var(--gold);font-size:.8rem;z-index:2}
+  .sq-i{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.62rem;letter-spacing:.16em;color:var(--gold);margin-bottom:.45rem}
+  .sq-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.86rem;color:var(--bone);margin-bottom:.4rem}
+  .sq-d{display:block;font-size:.72rem;color:var(--bone-dim);line-height:1.5;margin-bottom:.55rem}
+  .sq-t{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.08em;color:rgba(201,162,75,.75);text-transform:uppercase;line-height:1.6}
+  .tk-group{margin-top:1.5rem}
+  .tk-l{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--bone-dim);text-transform:uppercase;margin-bottom:.6rem}
+  .tk-row{display:flex;flex-wrap:wrap;gap:.55rem}
+  .lchip{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem .8rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015);transition:border-color .25s}
+  .lchip:hover{border-color:rgba(201,162,75,.55)}
+  .lchip img{width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(.92);opacity:.85;transition:filter .3s,opacity .3s}
+  .lchip:hover img{filter:none;opacity:1}
+  .lchip span{font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--bone-dim);text-transform:uppercase}
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.6rem}
+  .dl-card{padding:1.2rem 1.1rem;border:1px solid rgba(201,162,75,.2);background:rgba(255,255,255,.015)}
+  .dl-v{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;color:var(--gold);margin-bottom:.3rem}
+  .dl-l{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
+  @media(max-width:860px){
+    .ag-grid{grid-template-columns:repeat(2,1fr)}
+    .sq-flow{grid-template-columns:1fr 1fr}
+    .sq-step:not(:last-child)::after{display:none}
+    .dl-grid{grid-template-columns:repeat(2,1fr)}
+  }
+
+  /* ---------- chapter beats + loop ---------- */
+  .bt-flow{display:grid;gap:.5rem;margin-top:1.5rem}
+  .bt{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.012)}
+  .bt-i{font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;letter-spacing:.14em;color:var(--gold);padding-top:.15rem}
+  .bt-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.9rem;color:var(--bone);margin-bottom:.3rem}
+  .bt-d{display:block;font-size:.8rem;color:var(--bone-dim);line-height:1.65}
+  .bt-d b{color:var(--bone)}
+  .loop-k{display:block;margin-top:1.5rem;font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--bone-dim);text-transform:uppercase}
+  .loop-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:.6rem}
+  .loop-n{position:relative;text-align:center;padding:.75rem .4rem;border:1px solid rgba(201,162,75,.35);font-family:'Courier Prime','Courier New',monospace;font-size:.66rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;background:rgba(201,162,75,.04)}
+  .loop-n:not(:last-child)::after{content:"\2192";position:absolute;right:-.62rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:.8rem;z-index:2}
+  .chip-row{margin-top:1.3rem}
+  .pl-quote{margin-top:1.8rem;padding-left:1.1rem;border-left:2px solid var(--gold);font-family:'Fraunces',serif;font-style:italic;font-size:1.12rem;color:var(--bone);max-width:560px}
+  @media(max-width:860px){
+    .bt{grid-template-columns:38px 1fr;gap:.7rem}
+    .loop-strip{grid-template-columns:1fr 1fr}
+    .loop-n:nth-child(2)::after{display:none}
   }
 </style>
 
@@ -1128,98 +1150,77 @@
       <p class="sub">Driven by a custom layer of <b>specialised skills and purpose-built agents</b> — a library of 340+ task-specific skills and defined-role agents, with LLM routing assigning each stage to the right model. Reusable, versioned, and orchestrated to hit broadcast quality at the speed of 100+ commercials a year.</p>
     </div>
 
-    <div class="nodegraph reveal">
-      <div class="pipe-flow">
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">01</span><span class="node-name">Concept &amp; Brief</span></div>
-            <div class="node-body">
-              <p class="node-desc">Brand brief broken into shot logic, references, and a style bible. The creative direction is locked before a single frame is generated.</p>
-              <div class="node-tools">
-                <span class="tool-chip ai">LLM Orchestration</span>
-                <span class="tool-chip craft">Style Bible</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">02</span><span class="node-name">Image Gen</span></div>
-            <div class="node-body">
-              <p class="node-desc">Hero frames, product stills, and keyframes generated to spec — product accuracy and texture held to a photo-real standard.</p>
-              <div class="node-tools">
-                <span class="tool-chip ai">Nano Banana Pro</span>
-                <span class="tool-chip ai">Firefly</span>
-                <span class="tool-chip ai">Midjourney</span>
-                <span class="tool-chip ai">Seedream</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">03</span><span class="node-name">Video Gen</span></div>
-            <div class="node-body">
-              <p class="node-desc">Keyframes driven into motion with deliberate camera language — lens, move, and pacing chosen like a real shoot, not left to chance.</p>
-              <div class="node-tools">
-                <span class="tool-chip ai">Kling 3.0</span>
-                <span class="tool-chip ai">Seedance 2.0</span>
-                <span class="tool-chip ai">Veo</span>
-                <span class="tool-chip ai">Runway</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">04</span><span class="node-name">3D &amp; CGI</span></div>
-            <div class="node-body">
-              <p class="node-desc">Product-accurate 3D, label wraps, and cinematic camera moves — driven by dedicated agents over an MCP-connected Blender and Unreal Engine setup.</p>
-              <div class="node-tools">
-                <span class="tool-chip">Blender · MCP</span>
-                <span class="tool-chip">Unreal Engine 5</span>
-                <span class="tool-chip craft">Agent-Driven</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">05</span><span class="node-name">Edit &amp; Grade</span></div>
-            <div class="node-body">
-              <p class="node-desc">Assembled, sound-designed, and graded for continuity — the AI origin disappears into a finished commercial that holds on a broadcast screen.</p>
-              <div class="node-tools">
-                <span class="tool-chip">DaVinci Resolve</span>
-                <span class="tool-chip">After Effects</span>
-                <span class="tool-chip">Premiere Pro</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="node">
-            <div class="node-top"><span class="node-idx">06</span><span class="node-name">Deliver</span></div>
-            <div class="node-body">
-              <p class="node-desc">Platform-specific cuts and aspect ratios mastered to spec — one hero film fanning out to every channel.</p>
-              <div class="node-tools">
-                <span class="tool-chip craft">16:9 · 9:16 · 1:1</span>
-                <span class="tool-chip craft">4K Master</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <div class="pl-act reveal">
+      <span class="pl-k">01 · Agent Orchestration</span>
+      <h3 class="pl-t">Four models. Defined roles. One director.</h3>
+      <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
+      <div class="ag-grid">
+        <div class="ag-card reveal"><img src="claude-2.svg" alt="" loading="lazy" /><div><span class="ag-n">Claude</span><span class="ag-r">Creative direction &amp; orchestration — brief decomposition, shot logic, style-bible authorship, prompt architecture, agent supervision</span></div></div>
+        <div class="ag-card reveal"><img src="codex.svg" alt="" loading="lazy" /><div><span class="ag-n">ChatGPT</span><span class="ag-r">Volume ideation &amp; copy — naming, hooks, VO drafts, rapid concept spreads</span></div></div>
+        <div class="ag-card reveal"><img src="perplexity-2.svg" alt="" loading="lazy" /><div><span class="ag-n">Perplexity</span><span class="ag-r">Research &amp; verification — references, prior art, claims checked before anything reaches a client</span></div></div>
+        <div class="ag-card reveal"><img src="gemini.svg" alt="" loading="lazy" /><div><span class="ag-n">Gemini</span><span class="ag-r">Multimodal analysis — frame QC, reference deconstruction, long-context asset review</span></div></div>
       </div>
+    </div>
 
-      <div class="pipe-rail reveal">
-        <span class="rail-label">Skills &amp; Agents Layer</span>
-        <p class="rail-desc"><b>340+ specialised skills</b> and <b>purpose-built agents</b> — each with a defined role — sit under the whole pipeline. <b>LLM routing</b> assigns every task to the right model; versioned prompts and reusable nodes keep output consistent across hundreds of deliverables. The craft logic — not the tool — runs the show.</p>
+    <div class="pl-act reveal">
+      <span class="pl-k">02 · The Image Pipeline</span>
+      <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
+      <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
+      <span class="loop-k reveal">The reverse-match loop</span>
+      <div class="loop-strip reveal">
+        <span class="loop-n">Generate</span><span class="loop-n">Light</span><span class="loop-n">Shoot</span><span class="loop-n">Composite</span>
+      </div>
+      <div class="bt-flow">
+        <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → concept</span><span class="bt-d">Fragrance notes decomposed into a visual world — palette, material, atmosphere, story. The scent brief becomes a lighting brief.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">The real bottle shot clean on white — <b>locked geometry</b> that every generation downstream must obey.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">03</span><div><span class="bt-n">Generation</span><span class="bt-d">Hero frame generated against the reference. Composition, environment, and lighting design are <b>authored in the prompt like a lighting plot</b> — key, fill, kicker, colour temperature.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">04</span><div><span class="bt-n">The reverse-match shoot</span><span class="bt-d">The generated frame becomes the lighting diagram. The plot is <b>physically rebuilt in studio</b> — positions, ratios, temperature — and the <b>real bottle is photographed</b> to match the AI frame’s perspective, focal length, and light.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">05</span><div><span class="bt-n">Composite</span><span class="bt-d">Photoshop: real bottle into generated world — edge integration, grain match, colour match, reflection logic.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">06</span><div><span class="bt-n">Retouch to pristine</span><span class="bt-d">Glass, liquid, and label held to catalogue standard. <b>The product is never AI-approximated — only AI-staged.</b></span></div></div>
+        <div class="bt reveal"><span class="bt-i">07</span><div><span class="bt-n">Crew, not solo</span><span class="bt-d">A directed team workflow end to end — generation, studio, composite, retouch. Directed like a shoot, because it is one.</span></div></div>
+      </div>
+      <div class="tk-row chip-row reveal"><span class="lchip"><img src="comfyui.svg" alt="" loading="lazy" /><span>ComfyUI</span></span><span class="lchip"><img src="photoshop.svg" alt="" loading="lazy" /><span>Photoshop</span></span><span class="lchip"><img src="lightroom.svg" alt="" loading="lazy" /><span>Lightroom</span></span><span class="lchip"><img src="illustrator.svg" alt="" loading="lazy" /><span>Illustrator</span></span></div>
+    </div>
+
+    <div class="pl-act reveal">
+      <span class="pl-k">03 · The Video Pipeline</span>
+      <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
+      <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
+      <div class="bt-flow">
+        <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → treatment</span><span class="bt-d">Notes decomposed into narrative — world, character, arc, tempo. Output is a <b>written treatment and beat sheet</b>, not a prompt. The film is directed on paper first.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">White-background bottle as geometry ground truth. <b>Per-shot keyframes</b> generated against it — every shot begins as an authored, lit still.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">03</span><div><span class="bt-n">Shot-by-shot generation</span><span class="bt-d">Each shot generated <b>individually</b>, image-to-video from its keyframe. Camera language specified per shot — move, focal behaviour, speed. Model chosen per job — <b>Kling 3.0 · Seedance 2.0 · Veo</b> — the way you’d choose a lens. Multiple takes reviewed as <b>dailies</b>; circle takes selected.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">04</span><div><span class="bt-n">Continuity system</span><span class="bt-d">Locked references and consistent elements hold character and product identity across shots generated hours apart. Drift is caught before the edit, not in it.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">05</span><div><span class="bt-n">Conform &amp; grade — DaVinci Resolve</span><span class="bt-d">Selects conformed to the boarded timeline. <b>Node-based grade</b>: a continuity pass first — matching shots from different generations into one photographic reality — then the look pass: film-referenced grade, grain, texture.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">06</span><div><span class="bt-n">VFX &amp; sound</span><span class="bt-d">After Effects for paint-outs, stabilisation, <b>real-bottle composites into generated footage</b>, type and atmosphere passes. Sound built in layers — ambience, foley, transitions, score — mixed in stems.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">07</span><div><span class="bt-n">Master &amp; fan-out</span><span class="bt-d">4K master delivered to <b>16:9 · 9:16 · 1:1 · 4:5</b> — re-framed per ratio, never centre-cropped, hook-first trims for platform.</span></div></div>
+      </div>
+      <div class="tk-row chip-row reveal"><span class="lchip"><span>DaVinci Resolve</span></span><span class="lchip"><img src="after-effects.svg" alt="" loading="lazy" /><span>After Effects</span></span><span class="lchip"><img src="adobe.svg" alt="" loading="lazy" /><span>Adobe CC</span></span></div>
+    </div>
+
+    <div class="pl-act reveal">
+      <span class="pl-k">04 · Craft Transfer &amp; 3D</span>
+      <h3 class="pl-t">Teaching the machine to see like a cinematographer.</h3>
+      <p class="pl-d">Generative tools have no taste and no memory — left alone, lens logic wanders, light stops being motivated, brands blur. The answer isn’t better prompts. It’s <b>architecture that encodes twelve years of set knowledge.</b></p>
+      <div class="bt-flow">
+        <div class="bt reveal"><span class="bt-i">L1</span><div><span class="bt-n">Encoded craft</span><span class="bt-d"><b>340+ versioned skills</b> hard-code director and DP decisions — focal-length grammar per shot type, motivated-light rules and ratios, blocking logic, pacing, grade discipline. A generation cannot leave the system without obeying them.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">L2</span><div><span class="bt-n">Defined-role agents</span><span class="bt-d">The pipeline is staffed like a crew — direction, look development, continuity, and QC held by <b>separate purpose-built agents</b>, each existing to catch a specific kind of drift.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">L3</span><div><span class="bt-n">Brand firewalls</span><span class="bt-d">Per-brand style bibles and reference packs keep <b>three distinct visual signatures inside one pipeline</b>. Separation enforced by the system, not by memory — with QC gates on product accuracy, continuity, and grade at every stage.</span></div></div>
+        <div class="bt reveal"><span class="bt-i">L4</span><div><span class="bt-n">The 3D frontier</span><span class="bt-d">Blender driven agent-first for <b>product-accurate builds</b> — modelling, materials, scene, animation — with Unreal for cinematic camera work. A 3D hero asset is absolute product truth: repeatable forever, every angle, zero drift. The reverse-match philosophy, industrialised.</span></div></div>
+      </div>
+      <p class="pl-quote reveal">The tools will change every six months. The craft encoded above them won’t.</p>
+      <div class="tk-row chip-row reveal"><span class="lchip"><img src="blender-2.svg" alt="" loading="lazy" /><span>Blender</span></span><span class="lchip"><img src="unreal-engine.svg" alt="" loading="lazy" /><span>Unreal Engine 5</span></span><span class="lchip"><img src="claude-code.svg" alt="" loading="lazy" /><span>Claude Code</span></span><span class="lchip"><img src="visual-studio-code.svg" alt="" loading="lazy" /><span>VS Code</span></span><span class="lchip"><img src="github.svg" alt="" loading="lazy" /><span>GitHub</span></span><span class="lchip"><img src="docker.svg" alt="" loading="lazy" /><span>Docker</span></span><span class="lchip"><img src="obsidian.svg" alt="" loading="lazy" /><span>Obsidian</span></span><span class="lchip"><img src="swift.svg" alt="" loading="lazy" /><span>Swift</span></span><span class="lchip"><img src="apple.svg" alt="" loading="lazy" /><span>Apple</span></span><span class="lchip"><img src="microsoft.svg" alt="" loading="lazy" /><span>Microsoft</span></span></div>
+    </div>
+
+    <div class="pl-act reveal">
+      <span class="pl-k">Coda · What leaves the building</span>
+      <div class="dl-grid">
+        <div class="dl-card"><span class="dl-v">4K</span><span class="dl-l">HDR-ready masters</span></div>
+        <div class="dl-card"><span class="dl-v">16:9 · 9:16 · 1:1 · 4:5</span><span class="dl-l">Platform-native cuts</span></div>
+        <div class="dl-card"><span class="dl-v">Stills</span><span class="dl-l">Key visuals &amp; campaign sets</span></div>
+        <div class="dl-card"><span class="dl-v">3D</span><span class="dl-l">Product-accurate assets</span></div>
+        <div class="dl-card"><span class="dl-v">Decks</span><span class="dl-l">Boards, treatments, pre-pro</span></div>
+        <div class="dl-card"><span class="dl-v">100+</span><span class="dl-l">Commercials a year</span></div>
       </div>
     </div>
   </div>
