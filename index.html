@@ -397,6 +397,16 @@
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
 
+  /* ---------- category chapter plates — one image per category head ---------- */
+  .cat-plate{grid-column:1/-1;position:relative;height:360px;overflow:hidden;margin:2.4rem 0 1.8rem;border:1px solid rgba(201,162,75,.16)}
+  .cat-plate img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:brightness(.62) saturate(.94)}
+  .cat-plate::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,10,11,.25) 0%,rgba(10,10,11,0) 35%,rgba(10,10,11,.72) 82%,rgba(10,10,11,.9) 100%),
+               linear-gradient(90deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,0) 40%)}
+  .cat-plate .cat-plate-head{position:absolute;left:2rem;right:2rem;bottom:1.6rem;z-index:2;display:flex;align-items:baseline;gap:1rem}
+  .cat-plate .cat-title{font-size:1.9rem;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  @media(max-width:760px){.cat-plate{height:230px;margin:1.8rem 0 1.4rem}.cat-plate .cat-plate-head{left:1.1rem;right:1.1rem;bottom:1.1rem}.cat-plate .cat-title{font-size:1.4rem}}
+
   /* ---------- category heads ---------- */
   .cat-head{grid-column:1/-1;display:flex;align-items:baseline;gap:1rem;margin:2.6rem 0 .5rem}
   .cat-head:first-child{margin-top:0}
@@ -528,7 +538,10 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+      <div class="cat-plate reveal">
+        <img src="plate-key.jpg" alt="" loading="lazy" />
+        <div class="cat-plate-head"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+      </div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
