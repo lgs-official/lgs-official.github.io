@@ -403,6 +403,7 @@
   .key-bg,.zone-bg{position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:0;overflow:hidden;pointer-events:none}
   .key-bg img,.zone-bg img{width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:brightness(.52) saturate(.92)}
   .zone-bg.z-lifestyle img{object-position:center 22%}
+  .zone-bg.z-product img{object-position:center 45%;filter:brightness(.40) saturate(.85)}
   .key-bg::after,.zone-bg::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,var(--black) 0%,rgba(10,10,11,.42) 10%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.68) 78%,var(--black) 97%)}
   .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc{text-shadow:0 1px 14px rgba(0,0,0,.55)}
@@ -717,8 +718,10 @@
     </div>
     </div>
 
-    <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
-    <div class="cine-module reveal" data-cat="product">
+    <div class="cat-zone">
+      <div class="zone-bg z-product" aria-hidden="true"><img src="plate-product.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
+      <div class="cine-module reveal" data-cat="product">
       <div class="player-row">
         <div class="main-player">
           <iframe src="https://player.vimeo.com/video/1206874064?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
@@ -747,6 +750,7 @@
         </div>
       </div>
       <script type="application/json" class="mod-data">[{"vid": "1206874064", "tag": "French Avenue \u00b7 Note Pairing", "ttl": "Amber Saffron &amp; Iris Patchouli.", "desc": "A pure product film built on the notes themselves \u2014 amber warmth against iris cool, ingredient-led framing with the bottle as hero throughout.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:41 \u00b7 4K<\/span>"}, {"vid": "1206873519", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 the product cut.", "desc": "The companion to the Obsidian lifestyle film \u2014 bottle-first this time: glass, edge, and darkness treated as a hero object study.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:39 \u00b7 4K<\/span>"}]</script>
+    </div>
     </div>
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
