@@ -591,16 +591,9 @@
   }
 
   /* ---------- chapter beats + loop ---------- */
-  .bt-flow{display:grid;gap:.5rem;margin-top:1.5rem}
-  .bt{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.012)}
-  .bt-i{font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;letter-spacing:.14em;color:var(--gold);padding-top:.15rem}
-  .bt-n{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.9rem;color:var(--bone);margin-bottom:.3rem}
-  .bt-d{display:block;font-size:.8rem;color:var(--bone-dim);line-height:1.65}
-  .bt-d b{color:var(--bone)}
   .chip-row{margin-top:1.3rem}
   .pl-quote{margin-top:1.8rem;padding-left:1.1rem;border-left:2px solid var(--gold);font-family:'Fraunces',serif;font-style:italic;font-size:1.12rem;color:var(--bone);max-width:560px}
   @media(max-width:860px){
-    .bt{grid-template-columns:38px 1fr;gap:.7rem}
   }
 
 
@@ -621,6 +614,10 @@
     .pl-hero-scrim{background:
       linear-gradient(180deg,rgba(10,10,11,.94) 0%,rgba(10,10,11,.72) 26%,rgba(10,10,11,.12) 48%,rgba(10,10,11,0) 74%,var(--black) 100%)}
   }
+
+  .pl-prose{max-width:880px;margin-top:1.7rem;font-size:.93rem;line-height:1.78;color:var(--bone-dim)}
+  .pl-prose + .pl-prose{margin-top:1rem}
+  .pl-prose b{color:var(--bone)}
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1178,15 +1175,8 @@
         </div>
         <span class="pl-fig">FIG. 02 · THE REVERSE-MATCH LOOP</span>
       </div>
-      <div class="bt-flow">
-        <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → concept</span><span class="bt-d">Fragrance notes decomposed into a visual world — palette, material, atmosphere, story. The scent brief becomes a lighting brief.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">The real bottle shot clean on white — <b>locked geometry</b> that every generation downstream must obey.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">03</span><div><span class="bt-n">Generation</span><span class="bt-d">Hero frame generated against the reference. Composition, environment, and lighting design are <b>authored in the prompt like a lighting plot</b> — key, fill, kicker, colour temperature.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">04</span><div><span class="bt-n">The reverse-match shoot</span><span class="bt-d">The generated frame becomes the lighting diagram. The plot is <b>physically rebuilt in studio</b> — positions, ratios, temperature — and the <b>real bottle is photographed</b> to match the AI frame’s perspective, focal length, and light.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">05</span><div><span class="bt-n">Composite</span><span class="bt-d">Photoshop: real bottle into generated world — edge integration, grain match, colour match, reflection logic.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">06</span><div><span class="bt-n">Retouch to pristine</span><span class="bt-d">Glass, liquid, and label held to catalogue standard. <b>The product is never AI-approximated — only AI-staged.</b></span></div></div>
-        <div class="bt reveal"><span class="bt-i">07</span><div><span class="bt-n">Crew, not solo</span><span class="bt-d">A directed team workflow end to end — generation, studio, composite, retouch. Directed like a shoot, because it is one.</span></div></div>
-      </div>
+      <p class="pl-prose reveal">Every image starts with the scent — notes decomposed into palette, material, atmosphere, story — until the brief reads like a <b>lighting plot</b>. The real bottle, shot clean on white, is locked as <b>geometry ground truth</b>, and the hero frame is generated against it with composition and light authored in the prompt: key, fill, kicker, colour temperature.</p>
+      <p class="pl-prose reveal">Then the move that defines the studio: the generated frame becomes the lighting diagram. The plot is <b>physically rebuilt in studio</b> and the <b>real bottle is photographed</b> to match the AI frame’s perspective, focal length, and light. Photoshop composites truth into the world — edge, grain, colour, reflection — and retouch holds glass, liquid, and label to catalogue standard. <b>The product is never AI-approximated, only AI-staged</b> — and none of it is solo work. It’s a directed crew, end to end.</p>
       <div class="tk-row chip-row reveal"><span class="lchip"><img src="comfyui.svg" alt="" loading="lazy" /><span>ComfyUI</span></span><span class="lchip"><img src="photoshop.svg" alt="" loading="lazy" /><span>Photoshop</span></span><span class="lchip"><img src="lightroom.svg" alt="" loading="lazy" /><span>Lightroom</span></span><span class="lchip"><img src="illustrator.svg" alt="" loading="lazy" /><span>Illustrator</span></span></div>
     </div>
 
@@ -1201,16 +1191,9 @@
         </div>
         <span class="pl-fig">FIG. 03 · THE VIDEO PIPELINE</span>
       </div>
-      <div class="bt-flow">
-        <div class="bt reveal"><span class="bt-i">01</span><div><span class="bt-n">Scent → treatment</span><span class="bt-d">Notes decomposed into narrative — world, character, arc, tempo. Output is a <b>written treatment and beat sheet</b>, not a prompt. The film is directed on paper first.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">02</span><div><span class="bt-n">Reference lock</span><span class="bt-d">White-background bottle as geometry ground truth. <b>Per-shot keyframes</b> generated against it — every shot begins as an authored, lit still.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">03</span><div><span class="bt-n">Shot-by-shot generation</span><span class="bt-d">Each shot generated <b>individually</b>, image-to-video from its keyframe. Camera language specified per shot — move, focal behaviour, speed. Model chosen per job — <b>Kling 3.0 · Seedance 2.0 · Veo</b> — the way you’d choose a lens. Multiple takes reviewed as <b>dailies</b>; circle takes selected.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">04</span><div><span class="bt-n">Continuity system</span><span class="bt-d">Locked references and consistent elements hold character and product identity across shots generated hours apart. Drift is caught before the edit, not in it.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">05</span><div><span class="bt-n">Conform &amp; grade — DaVinci Resolve</span><span class="bt-d">Selects conformed to the boarded timeline. <b>Node-based grade</b>: a continuity pass first — matching shots from different generations into one photographic reality — then the look pass: film-referenced grade, grain, texture.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">06</span><div><span class="bt-n">VFX &amp; sound</span><span class="bt-d">After Effects for paint-outs, stabilisation, <b>real-bottle composites into generated footage</b>, type and atmosphere passes. Sound built in layers — ambience, foley, transitions, score — mixed in stems.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">07</span><div><span class="bt-n">Master &amp; fan-out</span><span class="bt-d">4K master delivered to <b>16:9 · 9:16 · 1:1 · 4:5</b> — re-framed per ratio, never centre-cropped, hook-first trims for platform.</span></div></div>
-      </div>
-      <div class="tk-row chip-row reveal"><span class="lchip"><span>DaVinci Resolve</span></span><span class="lchip"><img src="after-effects.svg" alt="" loading="lazy" /><span>After Effects</span></span><span class="lchip"><img src="adobe.svg" alt="" loading="lazy" /><span>Adobe CC</span></span></div>
+      <p class="pl-prose reveal">A film begins as a <b>written treatment and beat sheet</b> — world, character, arc, tempo — directed on paper before a frame is generated. The white-background bottle anchors <b>per-shot keyframes</b>, and every shot is generated <b>individually</b>, image-to-video, camera language specified per shot, the model chosen per job — <b>Kling 3.0 · Seedance 2.0 · Veo</b> — the way you’d choose a lens. Takes are reviewed as <b>dailies</b>, circle takes selected, while locked references hold character and product identity across shots generated hours apart.</p>
+      <p class="pl-prose reveal">Selects conform to the boarded timeline in <b>DaVinci Resolve</b> for a <b>node-based grade</b> — a continuity pass first, matching shots from different generations into one photographic reality, then the look pass: film-referenced grade, grain, texture. After Effects carries paint-outs, <b>real-bottle composites into generated footage</b>, type and atmosphere; sound is built in layered <b>stems</b> — ambience, foley, transitions, score. The 4K master fans out to <b>16:9 · 9:16 · 1:1 · 4:5</b>, re-framed per ratio, never centre-cropped.</p>
+      <div class="tk-row chip-row reveal"><span class="lchip"><img src="davinci-resolve.svg" alt="" loading="lazy" /><span>DaVinci Resolve</span></span><span class="lchip"><img src="after-effects.svg" alt="" loading="lazy" /><span>After Effects</span></span><span class="lchip"><img src="adobe.svg" alt="" loading="lazy" /><span>Adobe CC</span></span></div>
     </div>
 
     <div class="pl-act reveal">
@@ -1224,12 +1207,8 @@
         </div>
         <span class="pl-fig">FIG. 04 · THE CRAFT STACK</span>
       </div>
-      <div class="bt-flow">
-        <div class="bt reveal"><span class="bt-i">L1</span><div><span class="bt-n">Encoded craft</span><span class="bt-d"><b>340+ versioned skills</b> hard-code director and DP decisions — focal-length grammar per shot type, motivated-light rules and ratios, blocking logic, pacing, grade discipline. A generation cannot leave the system without obeying them.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">L2</span><div><span class="bt-n">Defined-role agents</span><span class="bt-d">The pipeline is staffed like a crew — direction, look development, continuity, and QC held by <b>separate purpose-built agents</b>, each existing to catch a specific kind of drift.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">L3</span><div><span class="bt-n">Brand firewalls</span><span class="bt-d">Per-brand style bibles and reference packs keep <b>three distinct visual signatures inside one pipeline</b>. Separation enforced by the system, not by memory — with QC gates on product accuracy, continuity, and grade at every stage.</span></div></div>
-        <div class="bt reveal"><span class="bt-i">L4</span><div><span class="bt-n">The 3D frontier</span><span class="bt-d">Blender driven agent-first for <b>product-accurate builds</b> — modelling, materials, scene, animation — with Unreal for cinematic camera work. A 3D hero asset is absolute product truth: repeatable forever, every angle, zero drift. The reverse-match philosophy, industrialised.</span></div></div>
-      </div>
+      <p class="pl-prose reveal"><b>340+ versioned skills</b> hard-code director and DP decisions — focal-length grammar per shot type, motivated-light rules and ratios, blocking logic, pacing, grade discipline — so a generation cannot leave the system without obeying them. Above the skills sits a crew of <b>defined-role agents</b> — direction, look development, continuity, QC — each built to catch a specific kind of drift.</p>
+      <p class="pl-prose reveal"><b>Per-brand style bibles</b> keep three distinct visual signatures separated inside one pipeline — enforced by the system, not by memory, with QC gates on product accuracy, continuity, and grade at every stage. The frontier is <b>3D</b>: Blender driven agent-first for <b>product-accurate builds</b>, Unreal for cinematic camera work — a hero asset that is absolute product truth, repeatable forever, from every angle.</p>
       <p class="pl-quote reveal">The tools will change every six months. The craft encoded above them won’t.</p>
       <div class="tk-row chip-row reveal"><span class="lchip"><img src="blender-2.svg" alt="" loading="lazy" /><span>Blender</span></span><span class="lchip"><img src="unreal-engine.svg" alt="" loading="lazy" /><span>Unreal Engine 5</span></span><span class="lchip"><img src="claude-code.svg" alt="" loading="lazy" /><span>Claude Code</span></span><span class="lchip"><img src="visual-studio-code.svg" alt="" loading="lazy" /><span>VS Code</span></span><span class="lchip"><img src="github.svg" alt="" loading="lazy" /><span>GitHub</span></span><span class="lchip"><img src="docker.svg" alt="" loading="lazy" /><span>Docker</span></span><span class="lchip"><img src="obsidian.svg" alt="" loading="lazy" /><span>Obsidian</span></span><span class="lchip"><img src="swift.svg" alt="" loading="lazy" /><span>Swift</span></span><span class="lchip"><img src="apple.svg" alt="" loading="lazy" /><span>Apple</span></span><span class="lchip"><img src="microsoft.svg" alt="" loading="lazy" /><span>Microsoft</span></span></div>
     </div>
