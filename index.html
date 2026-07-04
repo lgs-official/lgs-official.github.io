@@ -620,8 +620,8 @@
   .pl-prose b{color:var(--bone)}
 
   /* ---------- reverse-match live demo ---------- */
-  .rm-demo{display:grid;grid-template-columns:.85fr auto 1.15fr auto 1.35fr;gap:1.1rem;align-items:center;margin-top:2.1rem}
-  .rm-refs{display:grid;gap:.55rem}
+  .rm-demo{display:grid;grid-template-columns:.5fr auto 1.15fr auto 1.5fr;gap:1.1rem;align-items:center;margin-top:2.1rem}
+  .rm-refs{display:grid;gap:.55rem;max-width:190px;justify-self:end}
   .rm-refs img{width:100%;display:block;border:1px solid rgba(255,255,255,.12);background:#fff}
   .rm-out img{width:100%;display:block;border:1px solid rgba(201,162,75,.38)}
   .rm-arrow{font-family:'Courier Prime','Courier New',monospace;color:var(--gold);font-size:1.6rem;line-height:1}
@@ -633,7 +633,7 @@
   @media(max-width:860px){
     .rm-demo{grid-template-columns:1fr}
     .rm-arrow{transform:rotate(90deg);justify-self:center}
-    .rm-refs{grid-template-columns:repeat(3,1fr)}
+    .rm-refs{grid-template-columns:repeat(3,1fr);max-width:none;justify-self:stretch}
     .rm-refs .rm-lab{grid-column:1/-1}
   }
 
@@ -1230,6 +1230,25 @@
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-out">
           <img src="gen-shm.jpg" alt="Sh’Mallow Fluff — generated campaign frame" loading="lazy" />
+          <span class="rm-lab">Generated campaign frame</span>
+        </div>
+      </div>
+      <div class="rm-demo reveal">
+        <div class="rm-refs">
+          <img src="ref-nec-1.jpg" alt="Nectaré Extradose — white-background reference, front" loading="lazy" />
+          <img src="ref-nec-2.jpg" alt="Nectaré Extradose — white-background reference, angle" loading="lazy" />
+          <img src="ref-nec-3.jpg" alt="Nectaré Extradose — white-background reference, profile" loading="lazy" />
+          <span class="rm-lab">White-BG references · locked geometry</span>
+        </div>
+        <span class="rm-arrow" aria-hidden="true">→</span>
+        <div class="rm-prompt">
+          <img class="rm-gem" src="gemini.svg" alt="Gemini" loading="lazy" />
+          <span class="rm-plab">Prompt · authored like a lighting plot</span>
+          <p class="rm-ptext">“Two pairs of hands pass the exact Nectaré Extradose bottle from the reference images between them — honeycomb-cell glass body, gold lattice, amber cap reproduced faithfully. Scent notes staged as set dressing: honeycomb, dipper, amber resin, gilded roses on gold velvet. Candlelight key from camera left, warm bokeh field behind, shallow depth of field, 85mm, opulent gourmand editorial mood.”</p>
+        </div>
+        <span class="rm-arrow" aria-hidden="true">→</span>
+        <div class="rm-out">
+          <img src="gen-nec.jpg" alt="Nectaré Extradose — generated campaign frame" loading="lazy" />
           <span class="rm-lab">Generated campaign frame</span>
         </div>
       </div>
