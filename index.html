@@ -618,6 +618,24 @@
   .pl-prose{max-width:880px;margin-top:1.7rem;font-size:.93rem;line-height:1.78;color:var(--bone-dim)}
   .pl-prose + .pl-prose{margin-top:1rem}
   .pl-prose b{color:var(--bone)}
+
+  /* ---------- reverse-match live demo ---------- */
+  .rm-demo{display:grid;grid-template-columns:.85fr auto 1.15fr auto 1.35fr;gap:1.1rem;align-items:center;margin-top:2.1rem}
+  .rm-refs{display:grid;gap:.55rem}
+  .rm-refs img{width:100%;display:block;border:1px solid rgba(255,255,255,.12);background:#fff}
+  .rm-out img{width:100%;display:block;border:1px solid rgba(201,162,75,.38)}
+  .rm-arrow{font-family:'Courier Prime','Courier New',monospace;color:var(--gold);font-size:1.6rem;line-height:1}
+  .rm-prompt{border:1px solid rgba(201,162,75,.28);background:rgba(255,255,255,.015);padding:1.15rem 1.1rem}
+  .rm-gem{width:26px;height:26px;display:block;margin-bottom:.65rem}
+  .rm-plab{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.55rem}
+  .rm-ptext{font-family:'Courier Prime','Courier New',monospace;font-size:.67rem;line-height:1.75;color:var(--bone-dim)}
+  .rm-lab{display:block;margin-top:.55rem;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
+  @media(max-width:860px){
+    .rm-demo{grid-template-columns:1fr}
+    .rm-arrow{transform:rotate(90deg);justify-self:center}
+    .rm-refs{grid-template-columns:repeat(3,1fr)}
+    .rm-refs .rm-lab{grid-column:1/-1}
+  }
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1177,6 +1195,25 @@
       </div>
       <p class="pl-prose reveal">Every image starts with the scent — notes decomposed into palette, material, atmosphere, story — until the brief reads like a <b>lighting plot</b>. The real bottle, shot clean on white, is locked as <b>geometry ground truth</b>, and the hero frame is generated against it with composition and light authored in the prompt: key, fill, kicker, colour temperature.</p>
       <p class="pl-prose reveal">Then the move that defines the studio: the generated frame becomes the lighting diagram. The plot is <b>physically rebuilt in studio</b> and the <b>real bottle is photographed</b> to match the AI frame’s perspective, focal length, and light. Photoshop composites truth into the world — edge, grain, colour, reflection — and retouch holds glass, liquid, and label to catalogue standard. <b>The product is never AI-approximated, only AI-staged</b> — and none of it is solo work. It’s a directed crew, end to end.</p>
+      <div class="rm-demo reveal">
+        <div class="rm-refs">
+          <img src="ref-shm-1.jpg" alt="Sh’Mallow Fluff — white-background reference, front" loading="lazy" />
+          <img src="ref-shm-2.jpg" alt="Sh’Mallow Fluff — white-background reference, angle" loading="lazy" />
+          <img src="ref-shm-3.jpg" alt="Sh’Mallow Fluff — white-background reference, profile" loading="lazy" />
+          <span class="rm-lab">White-BG references · locked geometry</span>
+        </div>
+        <span class="rm-arrow" aria-hidden="true">→</span>
+        <div class="rm-prompt">
+          <img class="rm-gem" src="gemini.svg" alt="Gemini" loading="lazy" />
+          <span class="rm-plab">Prompt · authored like a lighting plot</span>
+          <p class="rm-ptext">“A model in a deep-red satin slip dress holds the exact Sh’Mallow Fluff bottle from the reference images at chest height — coral lacquer body, ribbed coral cap, rose-gold knurled collar, label reproduced faithfully. Warm amber key from camera left, soft falloff, crimson tones, shallow depth of field, 85mm, intimate luxury editorial mood.”</p>
+        </div>
+        <span class="rm-arrow" aria-hidden="true">→</span>
+        <div class="rm-out">
+          <img src="gen-shm.jpg" alt="Sh’Mallow Fluff — generated campaign frame" loading="lazy" />
+          <span class="rm-lab">Generated campaign frame</span>
+        </div>
+      </div>
       <div class="tk-row chip-row reveal"><span class="lchip"><img src="comfyui.svg" alt="" loading="lazy" /><span>ComfyUI</span></span><span class="lchip"><img src="photoshop.svg" alt="" loading="lazy" /><span>Photoshop</span></span><span class="lchip"><img src="lightroom.svg" alt="" loading="lazy" /><span>Lightroom</span></span><span class="lchip"><img src="illustrator.svg" alt="" loading="lazy" /><span>Illustrator</span></span></div>
     </div>
 
