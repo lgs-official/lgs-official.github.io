@@ -168,6 +168,7 @@
   .lb-count{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);font-family:'Courier Prime','Courier New',monospace;font-size:.68rem;letter-spacing:.2em;color:var(--bone-dim)}
   body.lb-lock{overflow:hidden}
   @media(max-width:860px){.lb-nav{width:42px;height:62px;font-size:1.4rem}.lb-prev{left:.5rem}.lb-next{right:.5rem}}
+
 </style>
 </head>
 <body>
@@ -204,6 +205,7 @@
     <a href="#about">About</a>
     <a href="#contact" class="navcta">Contact</a>
   </nav>
+  <button class="navburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -456,7 +458,6 @@
   .z-key img{object-position:center 10%}
   .z-lifestyle img{object-position:center 12%}
   .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc,.cat-zone .cat-title,.work-grid .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.6)}
-  @media(max-width:860px){.zone-panel{width:82vw;opacity:.55}}
 
 
   /* ---------- category heads ---------- */
@@ -564,6 +565,36 @@
     html{scroll-behavior:auto}
   }
   @media(prefers-reduced-motion:reduce) and (max-width:900px){.hero-fig{opacity:.35}}
+
+  /* ---------- mobile optimization ---------- */
+  .navburger{display:none}
+  @media(max-width:860px){
+    /* flip zones collapse cleanly */
+    .cat-zone.flip .player-row{grid-template-columns:1fr}
+    .cat-zone.flip .main-player,.cat-zone.flip .player-info{order:0}
+    .cat-zone.flip .player-info{text-align:left}
+    .cat-zone.flip .pi-credits{justify-content:flex-start}
+    .cat-zone.flip .cat-head{flex-direction:row}
+    .cat-zone.flip .rail-wrap{margin-left:0}
+    .cat-zone.flip .cine-module.vert .player-row{grid-template-columns:1fr;justify-content:start}
+    .cine-module.vert .main-player{max-width:300px}
+    /* panels → cinematic top bands */
+    .zone-panel,.zone-panel.side-left{top:0;bottom:auto;left:calc(50% - 50vw);right:auto;width:100vw;height:260px;opacity:1}
+    .work-grid>.zone-panel{top:2.6rem}
+    .zone-panel img{filter:brightness(.62) saturate(.95)}
+    .zone-panel::after,.zone-panel.side-left::after{background:
+      linear-gradient(180deg,rgba(10,10,11,.35) 0%,rgba(10,10,11,.55) 45%,var(--black) 96%)}
+    .cat-zone .cat-head,.work-grid .cat-head{min-height:180px;display:flex;align-items:flex-end}
+    /* mobile nav */
+    .navburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;background:none;border:1px solid rgba(201,162,75,.45);cursor:pointer;padding:0 11px}
+    .navburger span{display:block;height:1px;background:var(--gold);transition:transform .25s,opacity .25s}
+    .navburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .navburger.open span:nth-child(2){opacity:0}
+    .navburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .navlinks.open{display:flex;position:fixed;inset:0;z-index:70;background:rgba(6,6,7,.97);flex-direction:column;align-items:center;justify-content:center;gap:2.1rem}
+    .navlinks.open a{font-size:.95rem;letter-spacing:.3em}
+    body.nav-lock{overflow:hidden}
+  }
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1458,6 +1489,21 @@ document.querySelectorAll('.cine-module').forEach(function(mod){
     var d=e.clientX-sx; sx=null;
     if(d<-40) show(i+1); else if(d>40) show(i-1);
   },{passive:true});
+})();
+</script>
+<script>
+/* mobile nav */
+(function(){
+  var b=document.querySelector('.navburger'),n=document.querySelector('.navlinks');
+  if(!b||!n) return;
+  function set(open){
+    b.classList.toggle('open',open); n.classList.toggle('open',open);
+    document.body.classList.toggle('nav-lock',open);
+    b.setAttribute('aria-expanded',open?'true':'false');
+  }
+  b.addEventListener('click',function(){ set(!n.classList.contains('open')); });
+  n.addEventListener('click',function(e){ if(e.target.tagName==='A') set(false); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'&&n.classList.contains('open')) set(false); });
 })();
 </script>
 </body>
