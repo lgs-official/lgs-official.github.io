@@ -397,19 +397,25 @@
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
 
-  /* ---------- category region backgrounds — full image behind the whole block ---------- */
+  /* ---------- category mini-heroes — image owns the right, text owns black ---------- */
   .work-grid,.cat-zone{position:relative}
-  .work-grid>*,.cat-zone>*{position:relative;z-index:1}
-  .key-bg,.zone-bg{position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:0;overflow:hidden;pointer-events:none}
-  .key-bg img,.zone-bg img{width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:brightness(.52) saturate(.92)}
-  .zone-bg.z-lifestyle img{object-position:center 22%}
-  .zone-bg.z-product img{object-position:center 45%;filter:brightness(.40) saturate(.85)}
-  .zone-bg.z-cgi img{object-position:center 18%;filter:brightness(.34) saturate(.7)}
-  .zone-bg.z-ai img{object-position:center 20%;filter:brightness(.5) saturate(.9)}
-  .key-bg::after,.zone-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,var(--black) 0%,rgba(10,10,11,.42) 10%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.68) 78%,var(--black) 97%)}
-  .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc{text-shadow:0 1px 14px rgba(0,0,0,.55)}
-  .cat-zone{margin-top:2.4rem;padding:1.2rem 0 1.4rem}
+  .cat-zone{margin-top:2.6rem}
+  .zone-hero{position:relative;min-height:330px;display:flex;align-items:flex-end;padding-bottom:1.3rem;margin-bottom:1.5rem}
+  .work-grid .zone-hero{grid-column:1/-1}
+  .zone-hero .cat-head{position:relative;z-index:1;width:100%;margin:0}
+  .zone-panel{position:absolute;top:0;bottom:0;right:calc(50% - 50vw);width:min(52vw,820px);z-index:0;overflow:hidden;pointer-events:none}
+  .zone-panel img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.8) saturate(.95)}
+  .zone-panel::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.62) 24%,rgba(10,10,11,0) 60%),
+    linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 46%),
+    linear-gradient(180deg,rgba(10,10,11,.65) 0%,rgba(10,10,11,0) 32%)}
+  .z-key img{object-position:center 12%}
+  .z-lifestyle img{object-position:center 14%}
+  .z-product img{object-position:center 40%;filter:brightness(.62) saturate(.9)}
+  .z-cgi img{object-position:center 20%;filter:brightness(.55) saturate(.85)}
+  .z-ai img{object-position:center 12%}
+  .zone-hero .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.55)}
+  @media(max-width:860px){.zone-hero{min-height:230px}.zone-panel{width:74vw}}
 
 
   /* ---------- category heads ---------- */
@@ -559,8 +565,10 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="key-bg" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
-      <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+      <div class="zone-hero">
+        <div class="zone-panel z-key" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
+        <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
+      </div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
@@ -630,8 +638,10 @@
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
     <div class="cat-zone">
-      <div class="zone-bg z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
-      <div class="cat-head reveal"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+      <div class="zone-hero">
+        <div class="zone-panel z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
+        <div class="cat-head reveal"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
+      </div>
       <div class="cine-module reveal" data-cat="lifestyle">
       <div class="player-row">
         <div class="main-player">
@@ -721,8 +731,10 @@
     </div>
 
     <div class="cat-zone">
-      <div class="zone-bg z-product" aria-hidden="true"><img src="plate-product.jpg" alt="" loading="lazy" /></div>
-      <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
+      <div class="zone-hero">
+        <div class="zone-panel z-product" aria-hidden="true"><img src="plate-product.jpg" alt="" loading="lazy" /></div>
+        <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
+      </div>
       <div class="cine-module reveal" data-cat="product">
       <div class="player-row">
         <div class="main-player">
@@ -757,8 +769,10 @@
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-3dcgi" class="cat-zone">
-      <div class="zone-bg z-cgi" aria-hidden="true"><img src="plate-cgi.jpg" alt="" loading="lazy" /></div>
-      <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
+      <div class="zone-hero">
+        <div class="zone-panel z-cgi" aria-hidden="true"><img src="plate-cgi.jpg" alt="" loading="lazy" /></div>
+        <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
+      </div>
       <div class="cine-module reveal" data-cat="cgi">
       <div class="player-row">
         <div class="main-player">
@@ -849,8 +863,10 @@
 
     <!-- 02.5 — AI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-aifilms" class="cat-zone">
-      <div class="zone-bg z-ai" aria-hidden="true"><img src="plate-ai.jpg" alt="" loading="lazy" /></div>
-      <div class="cat-head reveal"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
+      <div class="zone-hero">
+        <div class="zone-panel z-ai" aria-hidden="true"><img src="plate-ai.jpg" alt="" loading="lazy" /></div>
+        <div class="cat-head reveal"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
+      </div>
       <div class="cine-module reveal" data-cat="ai">
       <div class="player-row">
         <div class="main-player">
