@@ -663,6 +663,17 @@
   .rmv-cell img{width:100%;display:block;border:1px solid rgba(201,162,75,.28)}
   .rmv-cell figcaption{font-family:'Courier Prime','Courier New',monospace;font-size:.5rem;letter-spacing:.16em;color:var(--bone-dim);text-transform:uppercase;margin-top:.32rem}
   .rmv-boardfull .rm-lab{grid-column:1/-1;margin-top:.35rem}
+  @media (max-width:860px){
+    .sb-pg,.rm-lab,.rmv-cell figcaption,.rm-plab,.sq-t,.dl-l,.th-tag,.pl-fig{font-size:.62rem}
+  }
+  @media (max-width:860px){
+    /* backdrop-filter on .topbar makes it the containing block for the fixed
+       nav panel — inset:0 resolves to the 81px header box, links spill off-screen.
+       Explicit viewport height frees the panel without touching the glass. */
+    .navlinks.open{height:100vh;height:100dvh;min-height:100vh;overscroll-behavior:contain}
+    /* panel paints over the burger (z70) — lift the close control above it */
+    .navburger{position:relative;z-index:80}
+  }
   .rmv-outwide{max-width:780px;margin:0 auto}
   .rmv-frame{position:relative;padding-top:56.25%;border:1px solid rgba(201,162,75,.38);background:#000}
   .rmv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
