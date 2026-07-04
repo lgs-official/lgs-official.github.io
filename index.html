@@ -636,6 +636,29 @@
     .rm-refs{grid-template-columns:repeat(3,1fr)}
     .rm-refs .rm-lab{grid-column:1/-1}
   }
+
+  /* ---------- video pipeline reference demo ---------- */
+  .pl-fig--flow{position:static;left:auto;bottom:auto;transform:none;width:auto;display:block;margin-top:1.1rem;text-shadow:none}
+  .rmv{margin-top:2.1rem}
+  .rmv-row{display:grid;grid-template-columns:1.25fr auto 1fr;gap:1.1rem;align-items:center}
+  .rmv-refs{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+  .rmv-refs img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.12)}
+  .rmv-refs .rm-lab{grid-column:1/-1;margin-top:.1rem}
+  .rmv-down{display:block;text-align:center;font-family:'Courier Prime','Courier New',monospace;color:var(--gold);font-size:1.6rem;line-height:1;margin:.9rem 0}
+  .rm-mtag{display:inline-block;font-family:'Courier Prime','Courier New',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold);border:1px solid rgba(201,162,75,.38);padding:.3rem .5rem;text-transform:uppercase;margin-bottom:.65rem}
+  .rmv-boardfull{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem .5rem}
+  .rmv-cell{margin:0}
+  .rmv-cell img{width:100%;display:block;border:1px solid rgba(201,162,75,.28)}
+  .rmv-cell figcaption{font-family:'Courier Prime','Courier New',monospace;font-size:.5rem;letter-spacing:.16em;color:var(--bone-dim);text-transform:uppercase;margin-top:.32rem}
+  .rmv-boardfull .rm-lab{grid-column:1/-1;margin-top:.35rem}
+  .rmv-outwide{max-width:780px;margin:0 auto}
+  .rmv-frame{position:relative;padding-top:75%;border:1px solid rgba(201,162,75,.38);background:#000}
+  .rmv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:860px){
+    .rmv-row{grid-template-columns:1fr}
+    .rmv-row .rm-arrow{transform:rotate(90deg);justify-self:center}
+    .rmv-boardfull{grid-template-columns:repeat(2,1fr)}
+  }
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1183,15 +1206,11 @@
     </div>
 
     <div class="pl-act reveal">
-      <div class="pl-hero">
-        <img src="pl-image.jpg" alt="The reverse-match loop — generate, light, shoot, composite around the real bottle" loading="lazy" />
-        <div class="pl-hero-scrim"></div>
-        <div class="pl-hero-txt">
-          <span class="pl-k">02 · The Image Pipeline</span>
-          <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
-          <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
-        </div>
-        <span class="pl-fig">FIG. 02 · THE REVERSE-MATCH LOOP</span>
+      <div class="pl-head">
+        <span class="pl-k">02 · The Image Pipeline</span>
+        <h3 class="pl-t">The AI proposes the shot. The camera proves it.</h3>
+        <p class="pl-d">A hybrid workflow built for one non-negotiable: <b>the product is real</b>. Generation designs the world and the light — then the light is rebuilt physically and the actual bottle is shot into it.</p>
+        <span class="pl-fig pl-fig--flow">FIG. 02 · THE REVERSE-MATCH LOOP</span>
       </div>
       <p class="pl-prose reveal">Every image starts with the scent — notes decomposed into palette, material, atmosphere, story — until the brief reads like a <b>lighting plot</b>. The real bottle, shot clean on white, is locked as <b>geometry ground truth</b>, and the hero frame is generated against it with composition and light authored in the prompt: key, fill, kicker, colour temperature.</p>
       <p class="pl-prose reveal">Then the move that defines the studio: the generated frame becomes the lighting diagram. The plot is <b>physically rebuilt in studio</b> and the <b>real bottle is photographed</b> to match the AI frame’s perspective, focal length, and light. Photoshop composites truth into the world — edge, grain, colour, reflection — and retouch holds glass, liquid, and label to catalogue standard. <b>The product is never AI-approximated, only AI-staged</b> — and none of it is solo work. It’s a directed crew, end to end.</p>
@@ -1218,18 +1237,68 @@
     </div>
 
     <div class="pl-act reveal">
-      <div class="pl-hero">
-        <img src="pl-video.jpg" alt="The video pipeline — treatment, keyframes, shot by shot, grade, master" loading="lazy" />
-        <div class="pl-hero-scrim"></div>
-        <div class="pl-hero-txt">
-          <span class="pl-k">03 · The Video Pipeline</span>
-          <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
-          <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
-        </div>
-        <span class="pl-fig">FIG. 03 · THE VIDEO PIPELINE</span>
+      <div class="pl-head">
+        <span class="pl-k">03 · The Video Pipeline</span>
+        <h3 class="pl-t">Generated shot by shot. Cut like film.</h3>
+        <p class="pl-d">No single-prompt films. Coverage is planned, generated per shot, reviewed as dailies, and finished with the same post discipline as a live-action commercial.</p>
+        <span class="pl-fig pl-fig--flow">FIG. 03 · THE VIDEO PIPELINE</span>
       </div>
       <p class="pl-prose reveal">A film begins as a <b>written treatment and beat sheet</b> — world, character, arc, tempo — directed on paper before a frame is generated. The white-background bottle anchors <b>per-shot keyframes</b>, and every shot is generated <b>individually</b>, image-to-video, camera language specified per shot, the model chosen per job — <b>Kling 3.0 · Seedance 2.0 · Veo</b> — the way you’d choose a lens. Takes are reviewed as <b>dailies</b>, circle takes selected, while locked references hold character and product identity across shots generated hours apart.</p>
       <p class="pl-prose reveal">Selects conform to the boarded timeline in <b>DaVinci Resolve</b> for a <b>node-based grade</b> — a continuity pass first, matching shots from different generations into one photographic reality, then the look pass: film-referenced grade, grain, texture. After Effects carries paint-outs, <b>real-bottle composites into generated footage</b>, type and atmosphere; sound is built in layered <b>stems</b> — ambience, foley, transitions, score. The 4K master fans out to <b>16:9 · 9:16 · 1:1 · 4:5</b>, re-framed per ratio, never centre-cropped.</p>
+      <div class="rmv reveal">
+        <div class="rmv-row">
+          <div class="rmv-refs">
+            <img src="ref-vp-boy2.jpg" alt="Locked character reference — lead boy" loading="lazy" />
+            <img src="ref-vp-girl2.jpg" alt="Locked character reference — girl, brown sweater" loading="lazy" />
+            <img src="ref-vp-girl1.jpg" alt="Locked character reference — girl, ponytail" loading="lazy" />
+            <img src="ref-vp-boy1.jpg" alt="Locked character reference — boy, grey sweater" loading="lazy" />
+            <img src="ref-vp-mom.jpg" alt="Locked character reference — teacher" loading="lazy" />
+            <img src="ref-vp-teddy.jpg" alt="Locked prop reference — teddy bear" loading="lazy" />
+            <img src="ref-vp-blocks.jpg" alt="Locked prop reference — wooden blocks" loading="lazy" />
+            <img src="ref-vp-room.jpg" alt="Locked set reference — classroom" loading="lazy" />
+            <span class="rm-lab">Locked cast · props · set — consistency references</span>
+          </div>
+          <span class="rm-arrow" aria-hidden="true">→</span>
+          <div class="rm-prompt">
+            <span class="rm-mtag">Image-to-Video · Shot 6E</span>
+            <span class="rm-plab">Prompt · camera language authored per shot</span>
+            <p class="rm-ptext">“Slow 35mm push-in at the boy’s eye level: the girl from the reference set kneels and places the teddy bear gently in front of him; his hands ease down from his ears as the classroom noise falls away. Golden late-afternoon key through the window camera-left, soft warm fill, shallow depth of field, subtle handheld breathing, character and prop identity locked to the references, ultra-clean noise-free render.”</p>
+          </div>
+        </div>
+        <span class="rmv-down" aria-hidden="true">↓</span>
+        <div class="rmv-boardfull">
+          <figure class="rmv-cell"><img src="kf-1a.jpg" alt="Shot 1A — classroom establishing" loading="lazy" /><figcaption>SH 1A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-1b.jpg" alt="Shot 1B — girl drawing at her desk" loading="lazy" /><figcaption>SH 1B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-1c.jpg" alt="Shot 1C — girl and boy with blocks and book" loading="lazy" /><figcaption>SH 1C</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-2a.jpg" alt="Shot 2A — girl drawing, close" loading="lazy" /><figcaption>SH 2A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-2b.jpg" alt="Shot 2B — crayons on the desk" loading="lazy" /><figcaption>SH 2B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-3a.jpg" alt="Shot 3A — blocks on the floor" loading="lazy" /><figcaption>SH 3A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-3b.jpg" alt="Shot 3B — girl stacking blocks" loading="lazy" /><figcaption>SH 3B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-3c.jpg" alt="Shot 3C — boy reading nearby" loading="lazy" /><figcaption>SH 3C</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-4a.jpg" alt="Shot 4A — the boy builds the tower" loading="lazy" /><figcaption>SH 4A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-4b.jpg" alt="Shot 4B — concentration, close" loading="lazy" /><figcaption>SH 4B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-5a.jpg" alt="Shot 5A — the tower falls" loading="lazy" /><figcaption>SH 5A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-5b.jpg" alt="Shot 5B — the shock lands" loading="lazy" /><figcaption>SH 5B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-6a.jpg" alt="Shot 6A — hands to ears, overwhelm" loading="lazy" /><figcaption>SH 6A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-6b.jpg" alt="Shot 6B — the class notices" loading="lazy" /><figcaption>SH 6B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-6c.jpg" alt="Shot 6C — classmates gather" loading="lazy" /><figcaption>SH 6C</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-6d.jpg" alt="Shot 6D — leaning in, concern" loading="lazy" /><figcaption>SH 6D</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-6e.jpg" alt="Shot 6E — the teddy bear offered" loading="lazy" /><figcaption>SH 6E</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-7a.jpg" alt="Shot 7A — calm returns" loading="lazy" /><figcaption>SH 7A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-7b.jpg" alt="Shot 7B — the boy holds the bear" loading="lazy" /><figcaption>SH 7B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-7c.jpg" alt="Shot 7C — a first smile" loading="lazy" /><figcaption>SH 7C</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-8a.jpg" alt="Shot 8A — the class circle" loading="lazy" /><figcaption>SH 8A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-8b.jpg" alt="Shot 8B — teacher joins the circle" loading="lazy" /><figcaption>SH 8B</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-9a.jpg" alt="Shot 9A — together, resolution" loading="lazy" /><figcaption>SH 9A</figcaption></figure>
+          <figure class="rmv-cell"><img src="kf-9b.jpg" alt="Shot 9B — the room at rest" loading="lazy" /><figcaption>SH 9B</figcaption></figure>
+          <span class="rm-lab">Shot board · nine scenes, twenty-four keyframes — every frame boarded before a frame moves</span>
+        </div>
+        <span class="rmv-down" aria-hidden="true">↓</span>
+        <div class="rmv-out rmv-outwide">
+          <div class="rmv-frame"><iframe src="https://player.vimeo.com/video/1206933019?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen title="Character-locked short film — final 4K"></iframe></div>
+          <span class="rm-lab">Finished film · every shot generated individually, conformed &amp; graded</span>
+        </div>
+      </div>
       <div class="tk-row chip-row reveal"><span class="lchip"><img src="davinci-resolve.svg" alt="" loading="lazy" /><span>DaVinci Resolve</span></span><span class="lchip"><img src="after-effects.svg" alt="" loading="lazy" /><span>After Effects</span></span><span class="lchip"><img src="adobe.svg" alt="" loading="lazy" /><span>Adobe CC</span></span></div>
     </div>
 
