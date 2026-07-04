@@ -397,25 +397,21 @@
     .work-banner img{opacity:.35}
     .sec-head-banner{min-height:280px;padding-top:5rem}}
 
-  /* ---------- category mini-heroes — image owns the right, text owns black ---------- */
+  /* ---------- category side-panels — image starts at the title line, runs the section ---------- */
   .work-grid,.cat-zone{position:relative}
   .cat-zone{margin-top:2.6rem}
-  .zone-hero{position:relative;min-height:330px;display:flex;align-items:flex-end;padding-bottom:1.3rem;margin-bottom:1.5rem}
-  .work-grid .zone-hero{grid-column:1/-1}
-  .zone-hero .cat-head{position:relative;z-index:1;width:100%;margin:0}
-  .zone-panel{position:absolute;top:0;bottom:0;right:calc(50% - 50vw);width:min(52vw,820px);z-index:0;overflow:hidden;pointer-events:none}
-  .zone-panel img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.8) saturate(.95)}
+  .work-grid>*,.cat-zone>*{position:relative;z-index:1}
+  .zone-panel{position:absolute;top:0;bottom:0;right:calc(50% - 50vw);width:min(46vw,700px);z-index:0;overflow:hidden;pointer-events:none}
+  .work-grid>.zone-panel{top:2.6rem} /* grid items don't collapse the head's margin */
+  .zone-panel img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:brightness(.68) saturate(.95)}
   .zone-panel::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.62) 24%,rgba(10,10,11,0) 60%),
-    linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 46%),
-    linear-gradient(180deg,rgba(10,10,11,.65) 0%,rgba(10,10,11,0) 32%)}
-  .z-key img{object-position:center 12%}
-  .z-lifestyle img{object-position:center 14%}
-  .z-product img{object-position:center 40%;filter:brightness(.62) saturate(.9)}
-  .z-cgi img{object-position:center 20%;filter:brightness(.55) saturate(.85)}
-  .z-ai img{object-position:center 12%}
-  .zone-hero .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.55)}
-  @media(max-width:860px){.zone-hero{min-height:230px}.zone-panel{width:74vw}}
+    linear-gradient(90deg,var(--black) 0%,rgba(10,10,11,.72) 22%,rgba(10,10,11,.18) 56%,rgba(10,10,11,0) 78%),
+    linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 14%),
+    linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 16%)}
+  .z-key img{object-position:center 10%}
+  .z-lifestyle img{object-position:center 12%}
+  .work-grid .feat-body h3,.work-grid .feat-desc,.cat-zone .pi-title,.cat-zone .pi-desc,.cat-zone .cat-title,.work-grid .cat-title{text-shadow:0 1px 14px rgba(0,0,0,.6)}
+  @media(max-width:860px){.zone-panel{width:82vw;opacity:.55}}
 
 
   /* ---------- category heads ---------- */
@@ -565,10 +561,8 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="zone-hero">
-        <div class="zone-panel z-key" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
-        <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
-      </div>
+      <div class="zone-panel z-key" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
@@ -638,10 +632,8 @@
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
     <div class="cat-zone">
-      <div class="zone-hero">
-        <div class="zone-panel z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
-        <div class="cat-head reveal"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
-      </div>
+      <div class="zone-panel z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Lifestyle</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="lifestyle">
       <div class="player-row">
         <div class="main-player">
@@ -728,13 +720,8 @@
       </div>
       <script type="application/json" class="mod-data">[{"vid": "1206458771", "tag": "Fragrance World \u00b7 Champion", "ttl": "Champion \u2014 three ideals, one bottle.", "desc": "A fragrance trilogy on a single bottle design \u2014 three scents, three ideals of the sport, three worlds art-directed around identical product geometry.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206837605", "tag": "French Avenue \u00b7 Lifestyle", "ttl": "Eclair Affair &amp; Chocolate Addict.", "desc": "A lifestyle film for two gourmand fragrances \u2014 the scents carried out of the studio and into the world they're worn in.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:05 \u00b7 4K<\/span>"}, {"vid": "1206850372", "tag": "French Avenue \u00b7 Veneno", "ttl": "Veneno Family.", "desc": "The Veneno line shot as a family portrait \u2014 one dark signature held across the full range.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:45 \u00b7 4K<\/span>"}, {"vid": "1206851399", "tag": "French Avenue \u00b7 Vulcan", "ttl": "Vulcan Lifestyle.", "desc": "A lifestyle cut with charge \u2014 masculine energy, movement, and product presence built for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206852580", "tag": "French Avenue \u00b7 Sh'Mallow", "ttl": "Sh'Mallow Fluff.", "desc": "The gourmand line at its most playful \u2014 sweetness translated to texture, light, and pace.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Master<\/b> 4K<\/span>"}, {"vid": "1206853438", "tag": "Fragrance World \u00b7 Royal Blend", "ttl": "Royal Blend.", "desc": "An oud-forward hero piece \u2014 heritage codes and royal styling cut into a 4K launch film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:11 \u00b7 4K<\/span>"}, {"vid": "1206848764", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix \u2014 the hero film.", "desc": "A product hero film \u2014 scent translated to screen with product-first framing, cut for launch.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:48 \u00b7 4K<\/span>"}, {"vid": "1206855931", "tag": "French Avenue \u00b7 Chaos &amp; Atlantis", "ttl": "Chaos &amp; Atlantis.", "desc": "A two-fragrance pairing built on contrast \u2014 turbulence against depth, one film holding both worlds.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206872641", "tag": "French Avenue \u00b7 Allure Cotture", "ttl": "Allure Cotture.", "desc": "A 31-second cut with couture instincts \u2014 fabric, finish, and fragrance styled as one wardrobe.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:31 \u00b7 4K<\/span>"}, {"vid": "1206872940", "tag": "French Avenue \u00b7 Signature", "ttl": "Signature.", "desc": "The house signature given its own film \u2014 one scent carried as an identity piece, not a product spot.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206873092", "tag": "French Avenue \u00b7 Coffee Collection", "ttl": "Affogato &amp; Double Espresso.", "desc": "The Coffee Collection as a double shot \u2014 two gourmand espressos poured into one film, warmth against intensity.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:03 \u00b7 4K<\/span>"}, {"vid": "1206873598", "tag": "French Avenue \u00b7 Obsidian", "ttl": "Obsidian \u2014 Lifestyle.", "desc": "The dark signature worn out in the world \u2014 night-coded styling and volcanic-glass mood, cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:47 \u00b7 4K<\/span>"}, {"vid": "1206874886", "tag": "French Avenue \u00b7 El Dorado", "ttl": "El Dorado.", "desc": "The gilded one \u2014 a 52-second pursuit of gold, where the scent plays treasure and the film plays the map.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:52 \u00b7 4K<\/span>"}, {"vid": "1206875442", "tag": "French Avenue \u00b7 Duo", "ttl": "Tropical Kiss &amp; Sultry Woods.", "desc": "A two-scent pairing across climates \u2014 coastline brightness against deep-timber warmth in one film.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:50 \u00b7 4K<\/span>"}, {"vid": "1206875207", "tag": "French Avenue \u00b7 Aromatix", "ttl": "Aromatix II.", "desc": "The second Aromatix film \u2014 the line extended with a new movement, same product-first discipline.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:43 \u00b7 4K<\/span>"}, {"vid": "1206876410", "tag": "French Avenue \u00b7 Lumi\u00e8re", "ttl": "Lumi\u00e8re Elle &amp; Gar\u00e7on.", "desc": "The his-and-hers pairing \u2014 two characters, one light, a French-coded duet for the Lumi\u00e8re line.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:37 \u00b7 4K<\/span>"}]</script>
     </div>
-    </div>
-
-    <div class="cat-zone">
-      <div class="zone-hero">
-        <div class="zone-panel z-product" aria-hidden="true"><img src="plate-product.jpg" alt="" loading="lazy" /></div>
-        <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
-      </div>
+    
+      <div class="cat-head reveal"><span class="cat-title">Product films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="product">
       <div class="player-row">
         <div class="main-player">
@@ -769,10 +756,7 @@
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-3dcgi" class="cat-zone">
-      <div class="zone-hero">
-        <div class="zone-panel z-cgi" aria-hidden="true"><img src="plate-cgi.jpg" alt="" loading="lazy" /></div>
-        <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
-      </div>
+      <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="cgi">
       <div class="player-row">
         <div class="main-player">
@@ -863,10 +847,7 @@
 
     <!-- 02.5 — AI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-aifilms" class="cat-zone">
-      <div class="zone-hero">
-        <div class="zone-panel z-ai" aria-hidden="true"><img src="plate-ai.jpg" alt="" loading="lazy" /></div>
-        <div class="cat-head reveal"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
-      </div>
+      <div class="cat-head reveal"><span class="cat-title">AI films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="ai">
       <div class="player-row">
         <div class="main-player">
