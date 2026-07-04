@@ -414,6 +414,7 @@
     linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 14%),
     linear-gradient(0deg,var(--black) 0%,rgba(10,10,11,0) 16%)}
   .z-worlds img{object-position:center 14%}
+  .z-street img{object-position:32% 10%;filter:brightness(.6) saturate(.85)}
   .cat-zone.flip .cat-head{flex-direction:row-reverse}
   .cat-zone.flip .player-row{grid-template-columns:1fr 1.6fr}
   .cat-zone.flip .main-player{order:2}
@@ -904,8 +905,9 @@
     </div>
     </div>
 
-    <div id="cat-campaigns">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Campaign films</span><span class="cat-rule"></span></div>
+    <div id="cat-campaigns" class="cat-zone flip">
+      <div class="zone-panel side-left z-street" aria-hidden="true"><img src="plate-street.jpg" alt="" loading="lazy" /></div>
+      <div class="cat-head reveal"><span class="cat-title">Campaign films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="campaign">
       <div class="player-row">
         <div class="main-player">
@@ -944,10 +946,9 @@
       </div>
       <script type="application/json" class="mod-data">[{"vid": "1206877907", "tag": "Fragrance World \u00b7 Ramadan", "ttl": "Ramadan Kareem.", "desc": "The holy month opened at flagship scale \u2014 a 74-second cultural film leading the brand's biggest seasonal moment.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:14 \u00b7 4K<\/span>"}, {"vid": "1206878823", "tag": "French Avenue \u00b7 Ramadan", "ttl": "Ramadan Kareem \u2014 FA.", "desc": "The same moment in French Avenue's voice \u2014 one occasion, a second brand world, delivered in parallel.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 0:38 \u00b7 4K<\/span>"}, {"vid": "1206877978", "tag": "French Avenue \u00b7 Eid", "ttl": "Eid Al Fitr.", "desc": "The celebration film \u2014 Eid's warmth and gathering cut into a 69-second brand piece for the season's peak.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:09 \u00b7 4K<\/span>"}, {"vid": "1206878853", "tag": "Fragrance World \u00b7 Eid", "ttl": "Eid Al Fitr \u2014 FW.", "desc": "Fragrance World's Eid edition \u2014 the parent brand's take on the same festive brief, platform-cut for the feed.", "cred": "<span class=\"feat-cr\"><b>Role<\/b> Producer \u00b7 Director \u00b7 Editor<\/span><span class=\"feat-cr\"><b>Runtime<\/b> 1:00 \u00b7 HD<\/span>"}]</script>
     </div>
-    </div>
+    
 
-    <div id="cat-platform">
-      <div class="cat-head reveal" style="margin-top:2.6rem"><span class="cat-title">Platform films</span><span class="cat-rule"></span><span class="cat-note">Vertical · social-native</span></div>
+      <div class="cat-head reveal" id="cat-platform"><span class="cat-title">Platform films</span><span class="cat-rule"></span><span class="cat-note">Vertical · social-native</span></div>
       <div class="cine-module vert reveal" data-cat="platform">
       <div class="player-row">
         <div class="main-player">
