@@ -627,6 +627,8 @@
   .rm-arrow{font-family:'Courier Prime','Courier New',monospace;color:var(--gold);font-size:1.6rem;line-height:1}
   .rm-prompt{border:1px solid rgba(201,162,75,.28);background:rgba(255,255,255,.015);padding:1.15rem 1.1rem}
   .rm-gem{width:26px;height:26px;display:block;margin-bottom:.65rem}
+  .rm-gems{display:flex;align-items:center;gap:.55rem;margin-bottom:.65rem}
+  .rm-gems img{width:26px;height:26px;display:block}
   .rm-plab{display:block;font-family:'Courier Prime','Courier New',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.55rem}
   .rm-ptext{font-family:'Courier Prime','Courier New',monospace;font-size:.67rem;line-height:1.75;color:var(--bone-dim)}
   .rm-lab{display:block;margin-top:.55rem;font-family:'Courier Prime','Courier New',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--bone-dim);text-transform:uppercase}
@@ -1223,7 +1225,7 @@
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-prompt">
-          <img class="rm-gem" src="gemini.svg" alt="Gemini" loading="lazy" />
+          <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
           <span class="rm-plab">Prompt · authored like a lighting plot</span>
           <p class="rm-ptext">“A model in a deep-red satin slip dress holds the exact Sh’Mallow Fluff bottle from the reference images at chest height — coral lacquer body, ribbed coral cap, rose-gold knurled collar, label reproduced faithfully. Warm amber key from camera left, soft falloff, crimson tones, shallow depth of field, 85mm, intimate luxury editorial mood.”</p>
         </div>
@@ -1242,7 +1244,7 @@
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-prompt">
-          <img class="rm-gem" src="gemini.svg" alt="Gemini" loading="lazy" />
+          <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
           <span class="rm-plab">Prompt · authored like a lighting plot</span>
           <p class="rm-ptext">“Two pairs of hands pass the exact Nectaré Extradose bottle from the reference images between them — honeycomb-cell glass body, gold lattice, amber cap reproduced faithfully. Scent notes staged as set dressing: honeycomb, dipper, amber resin, gilded roses on gold velvet. Candlelight key from camera left, warm bokeh field behind, shallow depth of field, 85mm, opulent gourmand editorial mood.”</p>
         </div>
@@ -1279,6 +1281,7 @@
           </div>
           <span class="rm-arrow" aria-hidden="true">→</span>
           <div class="rm-prompt">
+            <div class="rm-gems"><img src="kling.svg" alt="Kling" loading="lazy" /><img src="bytedance.svg" alt="ByteDance" loading="lazy" /></div>
             <span class="rm-mtag">Image-to-Video · Shot 6E</span>
             <span class="rm-plab">Prompt · camera language authored per shot</span>
             <p class="rm-ptext">“Slow 35mm push-in at the boy’s eye level: the girl from the reference set kneels and places the teddy bear gently in front of him; his hands ease down from his ears as the classroom noise falls away. Golden late-afternoon key through the window camera-left, soft warm fill, shallow depth of field, subtle handheld breathing, character and prop identity locked to the references, ultra-clean noise-free render.”</p>
