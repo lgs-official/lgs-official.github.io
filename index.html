@@ -6,7 +6,7 @@
 <title>LGS — Creative Producer & Director</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&family=Anton&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --crimson:#C0202C;
@@ -716,36 +716,11 @@
     .rmv-boardfull{grid-template-columns:repeat(2,1fr)}
   }
 
-/* ===== IDENTITY SKIN B + craft overlap fix ===== */
-:root{--poster:#E13A2C;--ink-red:#160B09}
-/* craft module: text above image at ALL widths, scrim retired */
+
+/* ===== craft/agents overlay fix (bug fix, design-neutral) ===== */
 .pl-hero-txt{position:static !important;transform:none !important;width:min(1152px,calc(100vw - 3rem));margin:0 auto;padding:0 0 1.6rem}
 .pl-hero-txt .pl-t,.pl-hero-txt .pl-d{text-shadow:none}
 .pl-hero-scrim{display:none !important}
-/* poster display voice: section headers only, card titles stay Fraunces */
-.sec-head h2,#contact h2{font-family:'Anton','Arial Narrow',sans-serif;text-transform:uppercase;font-weight:400;letter-spacing:.025em;line-height:.96}
-.sec-head h2 em,#contact h2 em{font-style:normal;color:var(--gold)}
-/* chevron notch device (resume EDUCATION tab) */
-.sec-head h2::before{content:"";display:inline-block;width:.5em;height:.68em;margin-right:.32em;background:var(--gold);clip-path:polygon(0 0,100% 50%,0 100%,30% 50%);transform:translateY(.05em)}
-/* ABOUT = red field (resume page-1 flip) */
-#about{background:var(--poster);position:relative}
-#about::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");background-size:160px}
-#about > *{position:relative;z-index:1}
-#about .sec-head h2{color:var(--ink-red)}
-#about .sec-head h2 em{color:#5E0E06}
-#about .sec-head h2::before{background:var(--ink-red)}
-#about p,#about .about-lead{color:var(--ink-red)}
-#about b{color:#000}
-#about .about-grid > :first-child{background:var(--black);padding:1.5rem;border-radius:4px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
-/* duotone portrait (resume B/W law) */
-.hero-fig img{filter:grayscale(1) contrast(1.12) brightness(.96)}
-/* ticket CTAs (resume dashed coupon) */
-.btn-primary{background:transparent;border:1.5px dashed var(--crimson-bright);color:var(--crimson-bright)}
-.btn-primary:hover{background:var(--crimson-bright);color:var(--black)}
-.navcta{border-style:dashed}
-@media (max-width:760px){
-  #about .about-grid > :first-child{padding:1.1rem}
-}
 
 </style>
 
