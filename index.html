@@ -741,6 +741,17 @@
   .passion .sec-head,.pn-head{padding:0 1.25rem}
 }
 
+
+/* ===== GLOBAL GUTTER SYSTEM · 200px edge clearance ===== */
+:root{--gutter:200px}
+@media (max-width:1199px){:root{--gutter:64px}}
+@media (max-width:760px){:root{--gutter:1.25rem}}
+.wrap{max-width:none;padding-left:var(--gutter);padding-right:var(--gutter)}
+.topbar{padding-left:var(--gutter);padding-right:var(--gutter)}
+.passion .sec-head,.pn-head{padding-left:var(--gutter);padding-right:var(--gutter)}
+.pn-strip{padding-left:var(--gutter);padding-right:var(--gutter)}
+.pl-hero-txt{width:auto;max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);margin:0 0 1.6rem}
+
 </style>
 
 <!-- ============ REEL ============ -->
