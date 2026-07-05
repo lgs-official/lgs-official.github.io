@@ -6,7 +6,7 @@
 <title>LGS — Creative Producer & Director</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&family=Anton&display=swap" rel="stylesheet" />
 <style>
   :root{
     --crimson:#C0202C;
@@ -715,6 +715,38 @@
     .rmv-row .rm-arrow{transform:rotate(90deg);justify-self:center}
     .rmv-boardfull{grid-template-columns:repeat(2,1fr)}
   }
+
+/* ===== IDENTITY SKIN B + craft overlap fix ===== */
+:root{--poster:#E13A2C;--ink-red:#160B09}
+/* craft module: text above image at ALL widths, scrim retired */
+.pl-hero-txt{position:static !important;transform:none !important;width:min(1152px,calc(100vw - 3rem));margin:0 auto;padding:0 0 1.6rem}
+.pl-hero-txt .pl-t,.pl-hero-txt .pl-d{text-shadow:none}
+.pl-hero-scrim{display:none !important}
+/* poster display voice: section headers only, card titles stay Fraunces */
+.sec-head h2,#contact h2{font-family:'Anton','Arial Narrow',sans-serif;text-transform:uppercase;font-weight:400;letter-spacing:.025em;line-height:.96}
+.sec-head h2 em,#contact h2 em{font-style:normal;color:var(--gold)}
+/* chevron notch device (resume EDUCATION tab) */
+.sec-head h2::before{content:"";display:inline-block;width:.5em;height:.68em;margin-right:.32em;background:var(--gold);clip-path:polygon(0 0,100% 50%,0 100%,30% 50%);transform:translateY(.05em)}
+/* ABOUT = red field (resume page-1 flip) */
+#about{background:var(--poster);position:relative}
+#about::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");background-size:160px}
+#about > *{position:relative;z-index:1}
+#about .sec-head h2{color:var(--ink-red)}
+#about .sec-head h2 em{color:#5E0E06}
+#about .sec-head h2::before{background:var(--ink-red)}
+#about p,#about .about-lead{color:var(--ink-red)}
+#about b{color:#000}
+#about .about-grid > :first-child{background:var(--black);padding:1.5rem;border-radius:4px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+/* duotone portrait (resume B/W law) */
+.hero-fig img{filter:grayscale(1) contrast(1.12) brightness(.96)}
+/* ticket CTAs (resume dashed coupon) */
+.btn-primary{background:transparent;border:1.5px dashed var(--crimson-bright);color:var(--crimson-bright)}
+.btn-primary:hover{background:var(--crimson-bright);color:var(--black)}
+.navcta{border-style:dashed}
+@media (max-width:760px){
+  #about .about-grid > :first-child{padding:1.1rem}
+}
+
 </style>
 
 <!-- ============ REEL ============ -->
@@ -1259,12 +1291,12 @@
 
     <div class="pl-act reveal">
       <div class="pl-hero">
-        <img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" />
-        <div class="pl-hero-scrim"></div>
         <div class="pl-hero-txt">
           <h3 class="pl-t">Four models. Defined roles. One director.</h3>
           <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
         </div>
+        <img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" />
+        
         </div>
     </div>
 
@@ -1405,30 +1437,13 @@
 
     <div class="pl-act reveal">
       <div class="pl-hero">
-        <img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" />
-        <div class="pl-hero-scrim"></div>
         <div class="pl-hero-txt">
           <h3 class="pl-t">Where instinct becomes instruction.</h3>
           <p class="pl-d">Generative tools have no taste &amp; no memory. Left alone, lens logic wanders, light stops being motivated, brands blur. The answer is not better prompts, it is <b>architecture, twelve years of set knowledge</b> written into rules the machine cannot ignore.</p>
         </div>
+        <img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" />
+        
         </div>
-      <p class="pl-prose reveal"><b>340+ versioned skills</b> hard code director &amp; DP decisions, focal length grammar per shot type, motivated light rules &amp; ratios, blocking logic, pacing, grade discipline, so a generation cannot leave the system without obeying them. Above the skills sits a chain of command, <b>defined role agents</b> for direction, look development, continuity &amp; QC, each built to catch a specific kind of drift. Nothing ships that a department did not sign.</p>
-      <p class="pl-prose reveal"><b>Per-brand style bibles</b> keep three distinct visual signatures separated inside one pipeline, enforced by the system, not by memory, with QC gates on product accuracy, continuity &amp; grade at every stage. The frontier is <b>3D</b>. Blender driven agent first for <b>product accurate builds</b>, Unreal for cinematic camera work, one hero asset that is absolute product truth, repeatable forever, from every angle. Build the bottle once, believe it always.</p>
-      <p class="pl-quote reveal">The tools carry six month lifespans. The rules above them carry twelve years of set time, &amp; they are not up for renewal.</p>
-      <div class="tk-row chip-row reveal"><span class="lchip"><img src="blender-2.svg" alt="Blender" title="Blender" loading="lazy" /></span><span class="lchip"><img src="unreal-engine.svg" alt="Unreal Engine 5" title="Unreal Engine 5" loading="lazy" /></span><span class="lchip"><img src="claude-code.svg" alt="Claude Code" title="Claude Code" loading="lazy" /></span><span class="lchip"><img src="visual-studio-code.svg" alt="VS Code" title="VS Code" loading="lazy" /></span><span class="lchip"><img src="github.svg" alt="GitHub" title="GitHub" loading="lazy" /></span><span class="lchip"><img src="docker.svg" alt="Docker" title="Docker" loading="lazy" /></span><span class="lchip"><img src="obsidian.svg" alt="Obsidian" title="Obsidian" loading="lazy" /></span><span class="lchip"><img src="swift.svg" alt="Swift" title="Swift" loading="lazy" /></span><span class="lchip"><img src="apple.svg" alt="Apple" title="Apple" loading="lazy" /></span><span class="lchip"><img src="microsoft.svg" alt="Microsoft" title="Microsoft" loading="lazy" /></span></div>
-    </div>
-
-    <div class="pl-act reveal">
-      <span class="pl-k">Coda · What leaves the building</span>
-      <div class="dl-grid">
-        <div class="dl-card"><span class="dl-v">4K</span><span class="dl-l">HDR-ready masters</span></div>
-        <div class="dl-card"><span class="dl-v">16:9 · 9:16 · 1:1 · 4:5</span><span class="dl-l">Platform-native cuts</span></div>
-        <div class="dl-card"><span class="dl-v">Stills</span><span class="dl-l">Key visuals &amp; campaign sets</span></div>
-        <div class="dl-card"><span class="dl-v">3D</span><span class="dl-l">Product-accurate assets</span></div>
-        <div class="dl-card"><span class="dl-v">Decks</span><span class="dl-l">Boards, treatments, pre-pro</span></div>
-        <div class="dl-card"><span class="dl-v">20+</span><span class="dl-l">Commercials a year</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
