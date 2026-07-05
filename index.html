@@ -210,7 +210,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-grain"></div>
-  <div class="hero-fig"><img src="herofig.png" alt="LGS on set" /></div>
+  <div class="hero-fig"><img src="hero-portrait.jpg" alt="LGS — portrait" /></div>
   <div class="wrap">
     <div class="hero-slate">
       <span class="slate-tag">ROLL <b>LGS07</b></span>
@@ -751,6 +751,21 @@
 .passion .sec-head,.pn-head{padding-left:var(--gutter);padding-right:var(--gutter)}
 .pn-strip{padding-left:var(--gutter);padding-right:var(--gutter)}
 .pl-hero-txt{width:auto;max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);margin:0 0 1.6rem}
+
+
+/* ===== HERO v2: portrait left · text centered ===== */
+.hero-fig{right:auto;left:0;justify-content:flex-start}
+.hero-fig img{object-position:center left;
+  -webkit-mask-image:linear-gradient(to right,#000 0%,rgba(0,0,0,.65) 55%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 0%,rgba(0,0,0,.65) 55%,transparent 100%)}
+.hero .wrap{text-align:center}
+.hero .wrap .hero-line{margin-left:auto;margin-right:auto}
+.hero .wrap .hero-slate{justify-content:center}
+@media (max-width:760px){
+  .hero-fig{left:auto}
+  .hero-fig img{object-position:center 22%;
+    -webkit-mask-image:none;mask-image:none}
+}
 
 </style>
 
