@@ -6,6 +6,12 @@
 <script>if(location.hostname.endsWith("github.io"))location.replace("https://lgsofficial.com"+location.pathname+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LGS — Creative Producer & Director</title>
+<style>
+  /* Vimeo facade: poster until the viewer presses play */
+  .vf{position:absolute;inset:0;z-index:2;border:0;padding:0;cursor:pointer;background:#000 center/cover no-repeat}
+  .vf::after{content:"";position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8 5v14l11-7z'/%3E%3C/svg%3E") 55% 50%/30px no-repeat;border:1px solid rgba(255,255,255,.35);transition:transform .2s}
+  .vf:hover::after{transform:scale(1.08)}
+</style>
 <meta name="description" content="LGS, creative producer and director. AI film, image and campaign production." />
 <link rel="canonical" href="https://lgsofficial.com/" />
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -207,7 +213,7 @@
 
 <!-- ============ TOP BAR ============ -->
 <header class="topbar" id="topbar">
-  <a href="#top" class="brandmark"><img src="logo.png" alt="LGS" /></a>
+  <a href="#top" class="brandmark"><img decoding="async" src="logo.webp" alt="LGS" /></a>
   <nav class="navlinks">
     <a href="#reel">Showreel</a>
     <a href="#work">Films</a>
@@ -222,8 +228,8 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-grain"></div>
-  <div class="hero-fig"><img src="hero-portrait.jpg" alt="LGS — portrait" /></div>
-  <div class="hero-fig hero-fig--right"><img src="herofig.webp" alt="LGS on set" /></div>
+  <div class="hero-fig"><img decoding="async" src="hero-portrait.webp" alt="LGS — portrait" /></div>
+  <div class="hero-fig hero-fig--right"><img decoding="async" src="herofig.webp" alt="LGS on set" /></div>
   <div class="wrap">
     <div class="hero-slate">
       <span class="slate-tag">ROLL <b>LGS07</b></span>
@@ -813,7 +819,7 @@
     <!-- REEL VIDEO -->
     <div class="reel-frame frame-corners reveal" id="reelFrame">
       <iframe id="reelEmbed"
-        src="https://player.vimeo.com/video/1205462170?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+        data-src="https://player.vimeo.com/video/1205462170?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
         title="LGS — Showreel"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
         referrerpolicy="strict-origin-when-cross-origin"
@@ -831,7 +837,7 @@
 <!-- ============ WORK ============ -->
 <section id="work">
   <div class="work-banner" aria-hidden="true">
-    <img src="keybg.jpg" alt="" loading="lazy" />
+    <img decoding="async" src="keybg.webp" alt="" loading="lazy" />
   </div>
   <div class="wrap">
     <div class="sec-head sec-head-banner reveal">
@@ -842,13 +848,13 @@
     <div class="work-grid">
 
       <!-- FEATURED — French Avenue AI Brand Film (first in the wave) -->
-      <div class="zone-panel z-key" aria-hidden="true"><img src="plate-key.jpg" alt="" loading="lazy" /></div>
+      <div class="zone-panel z-key" aria-hidden="true"><img decoding="async" src="plate-key.webp" alt="" loading="lazy" /></div>
       <div class="cat-head reveal"><span class="cat-title">Key projects</span><span class="cat-rule"></span></div>
 
       <article class="proj-feat reveal">
         <div class="feat-video">
           <iframe
-            src="https://player.vimeo.com/video/1206088488?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            data-src="https://player.vimeo.com/video/1206088488?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="French Avenue — AI Brand Film"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -869,7 +875,7 @@
       <article class="proj-feat flip reveal">
         <div class="feat-video">
           <iframe
-            src="https://player.vimeo.com/video/1206869516?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            data-src="https://player.vimeo.com/video/1206869516?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="French Avenue — Awareness Brand Film"
             loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
@@ -890,7 +896,7 @@
       <article class="proj-feat reveal">
         <div class="feat-video">
           <iframe
-            src="https://player.vimeo.com/video/1206867708?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+            data-src="https://player.vimeo.com/video/1206867708?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="Nabatieh — Brand Film"
             loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
@@ -914,12 +920,12 @@
 
     <!-- ============ THE VAULT — watchable filmography ============ -->
     <div class="cat-zone">
-      <div class="zone-panel z-lifestyle" aria-hidden="true"><img src="plate-lifestyle.jpg" alt="" loading="lazy" /></div>
+      <div class="zone-panel z-lifestyle" aria-hidden="true"><img decoding="async" src="plate-lifestyle.webp" alt="" loading="lazy" /></div>
       <div class="cat-head reveal"><span class="cat-title">Lifestyle Films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="lifestyle">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206458771?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="Lifestyle — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -937,67 +943,67 @@
         <span class="rail-count">01 / 16</span>
         <div class="rail" aria-label="Lifestyle — all films">
         <button class="thumb active" data-i="0" aria-label="Play Champion! Three ideals, one bottle.">
-          <span class="th-img"><img src="https://vumbnail.com/1206458771.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206458771.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Champion! Three ideals, one bottle.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Eclair Affair &amp; Chocolate Addict, guilty on both counts.">
-          <span class="th-img"><img src="https://vumbnail.com/1206837605.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206837605.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Eclair Affair &amp; Chocolate Addict, guilty on both counts.</span>
         </button>
         <button class="thumb" data-i="2" aria-label="Play Veneno Family, pick your poison.">
-          <span class="th-img"><img src="https://vumbnail.com/1206850372.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206850372.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Veneno Family, pick your poison.</span>
         </button>
         <button class="thumb" data-i="3" aria-label="Play Vulcan, dressed in fire.">
-          <span class="th-img"><img src="https://vumbnail.com/1206851399.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206851399.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Vulcan, dressed in fire.</span>
         </button>
         <button class="thumb" data-i="4" aria-label="Play Sh'Mallow Fluff, the soft kind of trouble.">
-          <span class="th-img"><img src="https://vumbnail.com/1206852580.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206852580.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Sh'Mallow Fluff, the soft kind of trouble.</span>
         </button>
         <button class="thumb" data-i="5" aria-label="Play Royal Blend Séquoia, old enough to outlive you.">
-          <span class="th-img"><img src="https://vumbnail.com/1206911185.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206911185.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Royal Blend Séquoia, old enough to outlive you.</span>
         </button>
         <button class="thumb" data-i="6" aria-label="Play Aromatix × French Avenue, a season under the influence.">
-          <span class="th-img"><img src="https://vumbnail.com/1206848764.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206848764.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Aromatix × French Avenue, a season under the influence.</span>
         </button>
         <button class="thumb" data-i="7" aria-label="Play Chaos &amp; Atlantis, the storm &amp; the city it took.">
-          <span class="th-img"><img src="https://vumbnail.com/1206855931.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206855931.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Chaos &amp; Atlantis, the storm &amp; the city it took.</span>
         </button>
         <button class="thumb" data-i="8" aria-label="Play Allure Cotture, temptation, slow cooked.">
-          <span class="th-img"><img src="https://vumbnail.com/1206872641.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206872641.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Allure Cotture, temptation, slow cooked.</span>
         </button>
         <button class="thumb" data-i="9" aria-label="Play Signature, the logo you can hold.">
-          <span class="th-img"><img src="https://vumbnail.com/1206872940.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206872940.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Signature, the logo you can hold.</span>
         </button>
         <button class="thumb" data-i="10" aria-label="Play Affogato &amp; Double Espresso, one poured, one provoked.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873092.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873092.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Affogato &amp; Double Espresso, one poured, one provoked.</span>
         </button>
         <button class="thumb" data-i="11" aria-label="Play Obsidian, black with an edge.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873598.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873598.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Obsidian, black with an edge.</span>
         </button>
         <button class="thumb" data-i="12" aria-label="Play El Dorado, the legend has an address.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874886.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874886.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">El Dorado, the legend has an address.</span>
         </button>
         <button class="thumb" data-i="13" aria-label="Play Tropical Kiss &amp; Sultry Woods, nectar &amp; smoke.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875442.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875442.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Tropical Kiss &amp; Sultry Woods, nectar &amp; smoke.</span>
         </button>
         <button class="thumb" data-i="14" aria-label="Play Aromatix II, the influence spreads.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875207.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875207.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Aromatix II, the influence spreads.</span>
         </button>
         <button class="thumb" data-i="15" aria-label="Play Lumière Elle &amp; Garçon, love in low resolution.">
-          <span class="th-img"><img src="https://vumbnail.com/1206876410.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206876410.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Lumière Elle &amp; Garçon, love in low resolution.</span>
         </button>
         </div>
@@ -1009,7 +1015,7 @@
       <div class="cine-module reveal" data-cat="product">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206874064?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206874064?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="Product films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1027,11 +1033,11 @@
         <span class="rail-count">01 / 02</span>
         <div class="rail" aria-label="Product films — all films">
         <button class="thumb active" data-i="0" aria-label="Play Amber Saffron &amp; Iris Patchouli.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874064.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874064.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Amber Saffron &amp; Iris Patchouli.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Obsidian, darkness under the loupe.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873519.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873519.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Obsidian, darkness under the loupe.</span>
         </button>
         </div>
@@ -1042,12 +1048,12 @@
 
     <!-- 02.4 — 3D & CGI FILMS · scaffolded, flips visible when films land (remove cat-hidden) -->
     <div id="cat-3dcgi" class="cat-zone flip">
-      <div class="zone-panel side-left z-worlds" aria-hidden="true"><img src="plate-cgi-ai.jpg" alt="" loading="lazy" /></div>
+      <div class="zone-panel side-left z-worlds" aria-hidden="true"><img decoding="async" src="plate-cgi-ai.webp" alt="" loading="lazy" /></div>
       <div class="cat-head reveal"><span class="cat-title">3D &amp; CGI films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="cgi">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206875151?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206875151?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="3D & CGI films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1065,67 +1071,67 @@
         <span class="rail-count">01 / 16</span>
         <div class="rail" aria-label="3D & CGI films — all films">
         <button class="thumb active" data-i="0" aria-label="Play Aromatix, built not shot.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875151.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875151.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Aromatix, built not shot.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Royal Taboo, the throne you shouldn't want.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875152.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875152.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Royal Taboo, the throne you shouldn't want.</span>
         </button>
         <button class="thumb" data-i="2" aria-label="Play Carnal Desire, the physics of wanting.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875153.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875153.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Carnal Desire, the physics of wanting.</span>
         </button>
         <button class="thumb" data-i="3" aria-label="Play Vulcan, still warm from the forge.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874549.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874549.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Vulcan, still warm from the forge.</span>
         </button>
         <button class="thumb" data-i="4" aria-label="Play Vulcan Baie, what grows after the fire.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874550.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874550.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Vulcan Baie, what grows after the fire.</span>
         </button>
         <button class="thumb" data-i="5" aria-label="Play Arsh, the view from above everything.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874820.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874820.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Arsh, the view from above everything.</span>
         </button>
         <button class="thumb" data-i="6" aria-label="Play Azzure Aoud, the deep end of the east.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875618.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875618.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Azzure Aoud, the deep end of the east.</span>
         </button>
         <button class="thumb" data-i="7" aria-label="Play Safari Breeze, what the forest lets through.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873974.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873974.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Safari Breeze, what the forest lets through.</span>
         </button>
         <button class="thumb" data-i="8" aria-label="Play Jasmere, bloom after dark.">
-          <span class="th-img"><img src="https://vumbnail.com/1206876106.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206876106.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Jasmere, bloom after dark.</span>
         </button>
         <button class="thumb" data-i="9" aria-label="Play Grow, the forest starts underground.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873794.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873794.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Grow, the forest starts underground.</span>
         </button>
         <button class="thumb" data-i="10" aria-label="Play Ather &amp; Irida, two gods, one prism.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875837.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875837.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Ather &amp; Irida, two gods, one prism.</span>
         </button>
         <button class="thumb" data-i="11" aria-label="Play Cocoa Morado, chocolate at the violet hour.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875040.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875040.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Cocoa Morado, chocolate at the violet hour.</span>
         </button>
         <button class="thumb" data-i="12" aria-label="Play Luscious, the green inside.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875683.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875683.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Luscious, the green inside.</span>
         </button>
         <button class="thumb" data-i="13" aria-label="Play Meringue, air whipped solid.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875744.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875744.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Meringue, air whipped solid.</span>
         </button>
         <button class="thumb" data-i="14" aria-label="Play Sweet Paradise, the place sugar goes to retire.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875710.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875710.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Sweet Paradise, the place sugar goes to retire.</span>
         </button>
         <button class="thumb" data-i="15" aria-label="Play Vulcan Black Friday, the rarest heat.">
-          <span class="th-img"><img src="https://vumbnail.com/1206874551.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206874551.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Vulcan Black Friday, the rarest heat.</span>
         </button>
         </div>
@@ -1138,7 +1144,7 @@
       <div class="cine-module reveal" data-cat="ai">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206873711?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206873711?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="AI films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1156,23 +1162,23 @@
         <span class="rail-count">01 / 05</span>
         <div class="rail" aria-label="AI films — all films">
         <button class="thumb active" data-i="0" aria-label="Play Jade &amp; Jade Giallo, one stone, two lights.">
-          <span class="th-img"><img src="https://vumbnail.com/1206873711.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206873711.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Jade &amp; Jade Giallo, one stone, two lights.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Genesis, the astronomy of scent.">
-          <span class="th-img"><img src="https://vumbnail.com/1206875979.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206875979.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Genesis, the astronomy of scent.</span>
         </button>
         <button class="thumb" data-i="2" aria-label="Play Colosseum, built for the verdict.">
-          <span class="th-img"><img src="https://vumbnail.com/1206876214.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206876214.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Colosseum, built for the verdict.</span>
         </button>
         <button class="thumb" data-i="3" aria-label="Play Love in Every Note, wear the love letter.">
-          <span class="th-img"><img src="https://vumbnail.com/1206877776.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206877776.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Love in Every Note, wear the love letter.</span>
         </button>
         <button class="thumb" data-i="4" aria-label="Play The Complete Love Story, both chapters, one bundle.">
-          <span class="th-img"><img src="https://vumbnail.com/1206877818.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206877818.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">The Complete Love Story, both chapters, one bundle.</span>
         </button>
         </div>
@@ -1182,12 +1188,12 @@
     </div>
 
     <div id="cat-campaigns" class="cat-zone flip">
-      <div class="zone-panel side-left z-street" aria-hidden="true"><img src="plate-street.jpg" alt="" loading="lazy" /></div>
+      <div class="zone-panel side-left z-street" aria-hidden="true"><img decoding="async" src="plate-street.webp" alt="" loading="lazy" /></div>
       <div class="cat-head reveal"><span class="cat-title">Campaign films</span><span class="cat-rule"></span></div>
       <div class="cine-module reveal" data-cat="campaign">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206877907?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206877907?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="Campaign films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1205,19 +1211,19 @@
         <span class="rail-count">01 / 04</span>
         <div class="rail" aria-label="Campaign films — all films">
         <button class="thumb active" data-i="0" aria-label="Play Ramadan Kareem.">
-          <span class="th-img"><img src="https://vumbnail.com/1206877907.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206877907.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Ramadan Kareem.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Ramadan Kareem, one moon, every guest.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878823.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878823.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Ramadan Kareem, one moon, every guest.</span>
         </button>
         <button class="thumb" data-i="2" aria-label="Play Eid Al Fitr, the morning still smells like her.">
-          <span class="th-img"><img src="https://vumbnail.com/1206877978.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206877978.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Eid Al Fitr, the morning still smells like her.</span>
         </button>
         <button class="thumb" data-i="3" aria-label="Play Eid Al Fitr, he never needed the labels.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878853.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878853.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Eid Al Fitr, he never needed the labels.</span>
         </button>
         </div>
@@ -1230,7 +1236,7 @@
       <div class="cine-module vert reveal" data-cat="platform">
       <div class="player-row">
         <div class="main-player">
-          <iframe src="https://player.vimeo.com/video/1206878157?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+          <iframe data-src="https://player.vimeo.com/video/1206878157?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
             title="Platform films — player" loading="lazy"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1248,27 +1254,27 @@
         <span class="rail-count">01 / 06</span>
         <div class="rail" aria-label="Platform films — all films">
         <button class="thumb active" data-i="0" aria-label="Play Street Origins in Black, the street's only uniform.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878157.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878157.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins in Black, the street's only uniform.</span>
         </button>
         <button class="thumb" data-i="1" aria-label="Play Street Origins in Blue, new shade, same law.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878154.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878154.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins in Blue, new shade, same law.</span>
         </button>
         <button class="thumb" data-i="2" aria-label="Play Street Origins in Yellow, the loud one obeys too.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878095.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878095.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins in Yellow, the loud one obeys too.</span>
         </button>
         <button class="thumb" data-i="3" aria-label="Play Street Origins in Orange, warm doesn't mean soft.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878096.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878096.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins in Orange, warm doesn't mean soft.</span>
         </button>
         <button class="thumb" data-i="4" aria-label="Play Street Origins in Cyan, the cold close.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878097.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878097.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins in Cyan, the cold close.</span>
         </button>
         <button class="thumb" data-i="5" aria-label="Play Street Origins, the full lineup.">
-          <span class="th-img"><img src="https://vumbnail.com/1206878094.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
+          <span class="th-img"><img decoding="async" src="thumb-1206878094.webp" alt="" loading="lazy" onerror="this.style.display='none'"><span class="th-play" aria-hidden="true"></span></span>
           <span class="th-t">Street Origins, the full lineup.</span>
         </button>
         </div>
@@ -1290,31 +1296,31 @@
       <p class="sub">Below, the complete pre production deck for French Avenue's <b>Royal Blend Séquoia</b>, page by page, exactly as it went to the team. And beneath it, what came back. The distance between a written idea &amp; a finished commercial, &amp; how that distance gets crossed.</p>
     </div>
     <div class="sb-grid">
-        <a class="sb-tile reveal" href="sb-01.jpg" target="_blank" rel="noopener"><img src="sb-01.jpg" alt="Royal Blend Séquoia storyboard — page 1" loading="lazy" /><span class="sb-pg">01</span></a>
-        <a class="sb-tile reveal" href="sb-02.jpg" target="_blank" rel="noopener"><img src="sb-02.jpg" alt="Royal Blend Séquoia storyboard — page 2" loading="lazy" /><span class="sb-pg">02</span></a>
-        <a class="sb-tile reveal" href="sb-03.jpg" target="_blank" rel="noopener"><img src="sb-03.jpg" alt="Royal Blend Séquoia storyboard — page 3" loading="lazy" /><span class="sb-pg">03</span></a>
-        <a class="sb-tile reveal" href="sb-04.jpg" target="_blank" rel="noopener"><img src="sb-04.jpg" alt="Royal Blend Séquoia storyboard — page 4" loading="lazy" /><span class="sb-pg">04</span></a>
-        <a class="sb-tile reveal" href="sb-05.jpg" target="_blank" rel="noopener"><img src="sb-05.jpg" alt="Royal Blend Séquoia storyboard — page 5" loading="lazy" /><span class="sb-pg">05</span></a>
-        <a class="sb-tile reveal" href="sb-06.jpg" target="_blank" rel="noopener"><img src="sb-06.jpg" alt="Royal Blend Séquoia storyboard — page 6" loading="lazy" /><span class="sb-pg">06</span></a>
-        <a class="sb-tile reveal" href="sb-07.jpg" target="_blank" rel="noopener"><img src="sb-07.jpg" alt="Royal Blend Séquoia storyboard — page 7" loading="lazy" /><span class="sb-pg">07</span></a>
-        <a class="sb-tile reveal" href="sb-08.jpg" target="_blank" rel="noopener"><img src="sb-08.jpg" alt="Royal Blend Séquoia storyboard — page 8" loading="lazy" /><span class="sb-pg">08</span></a>
-        <a class="sb-tile reveal" href="sb-09.jpg" target="_blank" rel="noopener"><img src="sb-09.jpg" alt="Royal Blend Séquoia storyboard — page 9" loading="lazy" /><span class="sb-pg">09</span></a>
-        <a class="sb-tile reveal" href="sb-10.jpg" target="_blank" rel="noopener"><img src="sb-10.jpg" alt="Royal Blend Séquoia storyboard — page 10" loading="lazy" /><span class="sb-pg">10</span></a>
-        <a class="sb-tile reveal" href="sb-11.jpg" target="_blank" rel="noopener"><img src="sb-11.jpg" alt="Royal Blend Séquoia storyboard — page 11" loading="lazy" /><span class="sb-pg">11</span></a>
-        <a class="sb-tile reveal" href="sb-12.jpg" target="_blank" rel="noopener"><img src="sb-12.jpg" alt="Royal Blend Séquoia storyboard — page 12" loading="lazy" /><span class="sb-pg">12</span></a>
-        <a class="sb-tile reveal" href="sb-13.jpg" target="_blank" rel="noopener"><img src="sb-13.jpg" alt="Royal Blend Séquoia storyboard — page 13" loading="lazy" /><span class="sb-pg">13</span></a>
-        <a class="sb-tile reveal" href="sb-14.jpg" target="_blank" rel="noopener"><img src="sb-14.jpg" alt="Royal Blend Séquoia storyboard — page 14" loading="lazy" /><span class="sb-pg">14</span></a>
-        <a class="sb-tile reveal" href="sb-15.jpg" target="_blank" rel="noopener"><img src="sb-15.jpg" alt="Royal Blend Séquoia storyboard — page 15" loading="lazy" /><span class="sb-pg">15</span></a>
-        <a class="sb-tile reveal" href="sb-16.jpg" target="_blank" rel="noopener"><img src="sb-16.jpg" alt="Royal Blend Séquoia storyboard — page 16" loading="lazy" /><span class="sb-pg">16</span></a>
-        <a class="sb-tile reveal" href="sb-17.jpg" target="_blank" rel="noopener"><img src="sb-17.jpg" alt="Royal Blend Séquoia storyboard — page 17" loading="lazy" /><span class="sb-pg">17</span></a>
-        <a class="sb-tile reveal" href="sb-18.jpg" target="_blank" rel="noopener"><img src="sb-18.jpg" alt="Royal Blend Séquoia storyboard — page 18" loading="lazy" /><span class="sb-pg">18</span></a>
-        <a class="sb-tile reveal" href="sb-19.jpg" target="_blank" rel="noopener"><img src="sb-19.jpg" alt="Royal Blend Séquoia storyboard — page 19" loading="lazy" /><span class="sb-pg">19</span></a>
-        <a class="sb-tile reveal" href="sb-20.jpg" target="_blank" rel="noopener"><img src="sb-20.jpg" alt="Royal Blend Séquoia storyboard — page 20" loading="lazy" /><span class="sb-pg">20</span></a>
-        <a class="sb-tile reveal" href="sb-21.jpg" target="_blank" rel="noopener"><img src="sb-21.jpg" alt="Royal Blend Séquoia storyboard — page 21" loading="lazy" /><span class="sb-pg">21</span></a>
-        <a class="sb-tile reveal" href="sb-22.jpg" target="_blank" rel="noopener"><img src="sb-22.jpg" alt="Royal Blend Séquoia storyboard — page 22" loading="lazy" /><span class="sb-pg">22</span></a>
-        <a class="sb-tile reveal" href="sb-23.jpg" target="_blank" rel="noopener"><img src="sb-23.jpg" alt="Royal Blend Séquoia storyboard — page 23" loading="lazy" /><span class="sb-pg">23</span></a>
-        <a class="sb-tile reveal" href="sb-24.jpg" target="_blank" rel="noopener"><img src="sb-24.jpg" alt="Royal Blend Séquoia storyboard — page 24" loading="lazy" /><span class="sb-pg">24</span></a>
-        <a class="sb-tile reveal" href="sb-25.jpg" target="_blank" rel="noopener"><img src="sb-25.jpg" alt="Royal Blend Séquoia storyboard — page 25" loading="lazy" /><span class="sb-pg">25</span></a>
+        <a class="sb-tile reveal" href="sb-01.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-01.webp" alt="Royal Blend Séquoia storyboard — page 1" loading="lazy" /><span class="sb-pg">01</span></a>
+        <a class="sb-tile reveal" href="sb-02.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-02.webp" alt="Royal Blend Séquoia storyboard — page 2" loading="lazy" /><span class="sb-pg">02</span></a>
+        <a class="sb-tile reveal" href="sb-03.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-03.webp" alt="Royal Blend Séquoia storyboard — page 3" loading="lazy" /><span class="sb-pg">03</span></a>
+        <a class="sb-tile reveal" href="sb-04.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-04.webp" alt="Royal Blend Séquoia storyboard — page 4" loading="lazy" /><span class="sb-pg">04</span></a>
+        <a class="sb-tile reveal" href="sb-05.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-05.webp" alt="Royal Blend Séquoia storyboard — page 5" loading="lazy" /><span class="sb-pg">05</span></a>
+        <a class="sb-tile reveal" href="sb-06.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-06.webp" alt="Royal Blend Séquoia storyboard — page 6" loading="lazy" /><span class="sb-pg">06</span></a>
+        <a class="sb-tile reveal" href="sb-07.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-07.webp" alt="Royal Blend Séquoia storyboard — page 7" loading="lazy" /><span class="sb-pg">07</span></a>
+        <a class="sb-tile reveal" href="sb-08.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-08.webp" alt="Royal Blend Séquoia storyboard — page 8" loading="lazy" /><span class="sb-pg">08</span></a>
+        <a class="sb-tile reveal" href="sb-09.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-09.webp" alt="Royal Blend Séquoia storyboard — page 9" loading="lazy" /><span class="sb-pg">09</span></a>
+        <a class="sb-tile reveal" href="sb-10.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-10.webp" alt="Royal Blend Séquoia storyboard — page 10" loading="lazy" /><span class="sb-pg">10</span></a>
+        <a class="sb-tile reveal" href="sb-11.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-11.webp" alt="Royal Blend Séquoia storyboard — page 11" loading="lazy" /><span class="sb-pg">11</span></a>
+        <a class="sb-tile reveal" href="sb-12.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-12.webp" alt="Royal Blend Séquoia storyboard — page 12" loading="lazy" /><span class="sb-pg">12</span></a>
+        <a class="sb-tile reveal" href="sb-13.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-13.webp" alt="Royal Blend Séquoia storyboard — page 13" loading="lazy" /><span class="sb-pg">13</span></a>
+        <a class="sb-tile reveal" href="sb-14.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-14.webp" alt="Royal Blend Séquoia storyboard — page 14" loading="lazy" /><span class="sb-pg">14</span></a>
+        <a class="sb-tile reveal" href="sb-15.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-15.webp" alt="Royal Blend Séquoia storyboard — page 15" loading="lazy" /><span class="sb-pg">15</span></a>
+        <a class="sb-tile reveal" href="sb-16.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-16.webp" alt="Royal Blend Séquoia storyboard — page 16" loading="lazy" /><span class="sb-pg">16</span></a>
+        <a class="sb-tile reveal" href="sb-17.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-17.webp" alt="Royal Blend Séquoia storyboard — page 17" loading="lazy" /><span class="sb-pg">17</span></a>
+        <a class="sb-tile reveal" href="sb-18.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-18.webp" alt="Royal Blend Séquoia storyboard — page 18" loading="lazy" /><span class="sb-pg">18</span></a>
+        <a class="sb-tile reveal" href="sb-19.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-19.webp" alt="Royal Blend Séquoia storyboard — page 19" loading="lazy" /><span class="sb-pg">19</span></a>
+        <a class="sb-tile reveal" href="sb-20.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-20.webp" alt="Royal Blend Séquoia storyboard — page 20" loading="lazy" /><span class="sb-pg">20</span></a>
+        <a class="sb-tile reveal" href="sb-21.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-21.webp" alt="Royal Blend Séquoia storyboard — page 21" loading="lazy" /><span class="sb-pg">21</span></a>
+        <a class="sb-tile reveal" href="sb-22.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-22.webp" alt="Royal Blend Séquoia storyboard — page 22" loading="lazy" /><span class="sb-pg">22</span></a>
+        <a class="sb-tile reveal" href="sb-23.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-23.webp" alt="Royal Blend Séquoia storyboard — page 23" loading="lazy" /><span class="sb-pg">23</span></a>
+        <a class="sb-tile reveal" href="sb-24.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-24.webp" alt="Royal Blend Séquoia storyboard — page 24" loading="lazy" /><span class="sb-pg">24</span></a>
+        <a class="sb-tile reveal" href="sb-25.webp" target="_blank" rel="noopener"><img decoding="async" src="sb-25.webp" alt="Royal Blend Séquoia storyboard — page 25" loading="lazy" /><span class="sb-pg">25</span></a>
     </div>
     <span class="sb-cap reveal">Royal Blend Séquoia · storyboard deck · 25 pages · tap to enlarge</span>
     <div class="sb-filmhead reveal">
@@ -1322,7 +1328,7 @@
       <h3>Royal Blend Séquoia, shot on paper first.</h3>
     </div>
     <div class="main-player sb-player reveal">
-      <iframe src="https://player.vimeo.com/video/1206911185?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
+      <iframe data-src="https://player.vimeo.com/video/1206911185?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1"
         title="Royal Blend Séquoia — the delivered film" loading="lazy"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1349,7 +1355,7 @@
           <h3 class="pl-t">Four models. Defined roles. One director.</h3>
           <p class="pl-d">LLM routing run as a <b>production department</b>, not a chatbot habit. Every task is assigned by model strength, every output versioned, nothing free-floats — <b>340+ specialised skills</b> sit under the routing layer and keep hundreds of deliverables consistent.</p>
         </div>
-        <img src="pl-agents.jpg" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" />
+        <img decoding="async" src="pl-agents.webp" alt="LGS agent orchestration — Claude, ChatGPT, Perplexity, Gemini around the director" loading="lazy" />
         
         </div>
     </div>
@@ -1363,65 +1369,65 @@
       <p class="pl-prose reveal">Then the move that defines the studio. The generated frame becomes the lighting diagram. The plot is <b>rebuilt physically</b>, the <b>real bottle photographed</b> to match the AI frame's perspective, focal length &amp; light, &amp; Photoshop composites truth into the world, edge, grain, colour, reflection, with retouch holding glass, liquid &amp; label to catalogue standard. <b>The product is never AI approximated, only AI staged</b>. And none of it is solo work, it is a directed crew, end to end.</p>
       <div class="rm-demo reveal">
         <div class="rm-refs">
-          <img src="ref-shm-1.jpg" alt="Sh’Mallow Fluff — white-background reference, front" loading="lazy" />
-          <img src="ref-shm-2.jpg" alt="Sh’Mallow Fluff — white-background reference, angle" loading="lazy" />
-          <img src="ref-shm-3.jpg" alt="Sh’Mallow Fluff — white-background reference, profile" loading="lazy" />
+          <img decoding="async" src="ref-shm-1.webp" alt="Sh’Mallow Fluff — white-background reference, front" loading="lazy" />
+          <img decoding="async" src="ref-shm-2.webp" alt="Sh’Mallow Fluff — white-background reference, angle" loading="lazy" />
+          <img decoding="async" src="ref-shm-3.webp" alt="Sh’Mallow Fluff — white-background reference, profile" loading="lazy" />
           <span class="rm-lab">White-BG references · locked geometry</span>
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-prompt">
-          <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
+          <div class="rm-gems"><img decoding="async" src="gemini.svg" alt="Gemini" loading="lazy" /><img decoding="async" src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
           <span class="rm-plab">Prompt · authored like a lighting plot</span>
           <p class="rm-ptext">“A model in a deep-red satin slip dress holds the exact Sh’Mallow Fluff bottle from the reference images at chest height — coral lacquer body, ribbed coral cap, rose-gold knurled collar, label reproduced faithfully. Warm amber key from camera left, soft falloff, crimson tones, shallow depth of field, 85mm, intimate luxury editorial mood.”</p>
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-out">
-          <img src="gen-shm.jpg" alt="Sh’Mallow Fluff — generated campaign frame" loading="lazy" />
+          <img decoding="async" src="gen-shm.webp" alt="Sh’Mallow Fluff — generated campaign frame" loading="lazy" />
           <span class="rm-lab">Generated campaign frame</span>
         </div>
       </div>
       <div class="rm-demo reveal">
         <div class="rm-refs">
-          <img src="ref-nec-1.jpg" alt="Nectaré Extradose — white-background reference, front" loading="lazy" />
-          <img src="ref-nec-2.jpg" alt="Nectaré Extradose — white-background reference, angle" loading="lazy" />
-          <img src="ref-nec-3.jpg" alt="Nectaré Extradose — white-background reference, profile" loading="lazy" />
+          <img decoding="async" src="ref-nec-1.webp" alt="Nectaré Extradose — white-background reference, front" loading="lazy" />
+          <img decoding="async" src="ref-nec-2.webp" alt="Nectaré Extradose — white-background reference, angle" loading="lazy" />
+          <img decoding="async" src="ref-nec-3.webp" alt="Nectaré Extradose — white-background reference, profile" loading="lazy" />
           <span class="rm-lab">White-BG references · locked geometry</span>
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-prompt">
-          <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
+          <div class="rm-gems"><img decoding="async" src="gemini.svg" alt="Gemini" loading="lazy" /><img decoding="async" src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
           <span class="rm-plab">Prompt · authored like a lighting plot</span>
           <p class="rm-ptext">“Two pairs of hands pass the exact Nectaré Extradose bottle from the reference images between them — honeycomb-cell glass body, gold lattice, amber cap reproduced faithfully. Scent notes staged as set dressing: honeycomb, dipper, amber resin, gilded roses on gold velvet. Candlelight key from camera left, warm bokeh field behind, shallow depth of field, 85mm, opulent gourmand editorial mood.”</p>
         </div>
         <span class="rm-arrow" aria-hidden="true">→</span>
         <div class="rm-out">
-          <img src="gen-nec.jpg" alt="Nectaré Extradose — generated campaign frame" loading="lazy" />
+          <img decoding="async" src="gen-nec.webp" alt="Nectaré Extradose — generated campaign frame" loading="lazy" />
           <span class="rm-lab">Generated campaign frame</span>
         </div>
       </div>
       <div class="rm-chain reveal">
         <div class="rm-chainrow">
-          <figure><img src="dl-ref.jpg" alt="D'love — reference plate, locked geometry" loading="lazy" /><figcaption class="rm-lab">01 · Reference plate · locked geometry</figcaption></figure>
+          <figure><img decoding="async" src="dl-ref.webp" alt="D'love — reference plate, locked geometry" loading="lazy" /><figcaption class="rm-lab">01 · Reference plate · locked geometry</figcaption></figure>
           <span class="rm-arrow" aria-hidden="true">→</span>
           <div class="rm-prompt">
-            <div class="rm-gems"><img src="gemini.svg" alt="Gemini" loading="lazy" /><img src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
+            <div class="rm-gems"><img decoding="async" src="gemini.svg" alt="Gemini" loading="lazy" /><img decoding="async" src="nano-banana-google.svg" alt="Nano Banana" loading="lazy" /></div>
             <span class="rm-plab">Prompt · authored like a lighting plot</span>
             <p class="rm-ptext">“The exact D'love bottle from the reference plate planted at a low angle in a mound of desert sand — clear glass, cobalt ribbed cap, label reproduced faithfully. Behind it, dunes at sunset: low sun on the horizon, a camel caravan in silhouette, deep amber sky. Strong warm backlight through the juice, rim on the cap, shallow depth of field, 85mm, golden-hour desert editorial mood.”</p>
           </div>
           <span class="rm-arrow" aria-hidden="true">→</span>
-          <figure><img src="dl-gen.jpg" alt="D'love — AI-generated target frame" loading="lazy" /><figcaption class="rm-lab">02 · Generated target · the lighting plot</figcaption></figure>
+          <figure><img decoding="async" src="dl-gen.webp" alt="D'love — AI-generated target frame" loading="lazy" /><figcaption class="rm-lab">02 · Generated target · the lighting plot</figcaption></figure>
           <span class="rm-arrow" aria-hidden="true">→</span>
-          <figure><img src="dl-bts.jpg" alt="D'love — studio rebuild, behind the scenes" loading="lazy" /><figcaption class="rm-lab">03 · Studio rebuild · plot made physical</figcaption></figure>
+          <figure><img decoding="async" src="dl-bts.webp" alt="D'love — studio rebuild, behind the scenes" loading="lazy" /><figcaption class="rm-lab">03 · Studio rebuild · plot made physical</figcaption></figure>
           <span class="rm-arrow" aria-hidden="true">→</span>
-          <figure><img src="dl-raw.jpg" alt="D'love — camera RAW capture" loading="lazy" /><figcaption class="rm-lab">04 · Camera RAW · straight off sensor</figcaption></figure>
+          <figure><img decoding="async" src="dl-raw.webp" alt="D'love — camera RAW capture" loading="lazy" /><figcaption class="rm-lab">04 · Camera RAW · straight off sensor</figcaption></figure>
         </div>
         <span class="rmv-down" aria-hidden="true">↓</span>
         <div class="rm-chainout">
-          <img src="dl-final.jpg" alt="D'love — final composited and graded frame" loading="lazy" />
+          <img decoding="async" src="dl-final.webp" alt="D'love — final composited and graded frame" loading="lazy" />
           <span class="rm-lab">05 · Final · real bottle, composited &amp; graded</span>
         </div>
       </div>
-      <div class="tk-row chip-row reveal"><span class="lchip"><img src="higgsfield.svg" alt="Higgsfield" title="Higgsfield" loading="lazy" /></span><span class="lchip"><img src="comfyui.svg" alt="ComfyUI" title="ComfyUI" loading="lazy" /></span><span class="lchip"><img src="photoshop.svg" alt="Photoshop" title="Photoshop" loading="lazy" /></span><span class="lchip"><img src="lightroom.svg" alt="Lightroom" title="Lightroom" loading="lazy" /></span><span class="lchip"><img src="illustrator.svg" alt="Illustrator" title="Illustrator" loading="lazy" /></span></div>
+      <div class="tk-row chip-row reveal"><span class="lchip"><img decoding="async" src="higgsfield.svg" alt="Higgsfield" title="Higgsfield" loading="lazy" /></span><span class="lchip"><img decoding="async" src="comfyui.svg" alt="ComfyUI" title="ComfyUI" loading="lazy" /></span><span class="lchip"><img decoding="async" src="photoshop.svg" alt="Photoshop" title="Photoshop" loading="lazy" /></span><span class="lchip"><img decoding="async" src="lightroom.svg" alt="Lightroom" title="Lightroom" loading="lazy" /></span><span class="lchip"><img decoding="async" src="illustrator.svg" alt="Illustrator" title="Illustrator" loading="lazy" /></span></div>
     </div>
 
     <div class="pl-act reveal">
@@ -1434,19 +1440,19 @@
       <div class="rmv reveal">
         <div class="rmv-row">
           <div class="rmv-refs">
-            <img src="ref-vp-boy2.jpg" alt="Locked character reference — lead boy" loading="lazy" />
-            <img src="ref-vp-girl2.jpg" alt="Locked character reference — girl, brown sweater" loading="lazy" />
-            <img src="ref-vp-girl1.jpg" alt="Locked character reference — girl, ponytail" loading="lazy" />
-            <img src="ref-vp-boy1.jpg" alt="Locked character reference — boy, grey sweater" loading="lazy" />
-            <img src="ref-vp-mom.jpg" alt="Locked character reference — teacher" loading="lazy" />
-            <img src="ref-vp-teddy.jpg" alt="Locked prop reference — teddy bear" loading="lazy" />
-            <img src="ref-vp-blocks.jpg" alt="Locked prop reference — wooden blocks" loading="lazy" />
-            <img src="ref-vp-room.jpg" alt="Locked set reference — classroom" loading="lazy" />
+            <img decoding="async" src="ref-vp-boy2.webp" alt="Locked character reference — lead boy" loading="lazy" />
+            <img decoding="async" src="ref-vp-girl2.webp" alt="Locked character reference — girl, brown sweater" loading="lazy" />
+            <img decoding="async" src="ref-vp-girl1.webp" alt="Locked character reference — girl, ponytail" loading="lazy" />
+            <img decoding="async" src="ref-vp-boy1.webp" alt="Locked character reference — boy, grey sweater" loading="lazy" />
+            <img decoding="async" src="ref-vp-mom.webp" alt="Locked character reference — teacher" loading="lazy" />
+            <img decoding="async" src="ref-vp-teddy.webp" alt="Locked prop reference — teddy bear" loading="lazy" />
+            <img decoding="async" src="ref-vp-blocks.webp" alt="Locked prop reference — wooden blocks" loading="lazy" />
+            <img decoding="async" src="ref-vp-room.webp" alt="Locked set reference — classroom" loading="lazy" />
             <span class="rm-lab">Locked cast · props · set — consistency references</span>
           </div>
           <span class="rm-arrow" aria-hidden="true">→</span>
           <div class="rm-prompt">
-            <div class="rm-gems"><img src="kling.svg" alt="Kling" loading="lazy" /><img src="bytedance.svg" alt="ByteDance" loading="lazy" /></div>
+            <div class="rm-gems"><img decoding="async" src="kling.svg" alt="Kling" loading="lazy" /><img decoding="async" src="bytedance.svg" alt="ByteDance" loading="lazy" /></div>
             <span class="rm-mtag">Image-to-Video · Shot 6E</span>
             <span class="rm-plab">Prompt · camera language authored per shot</span>
             <p class="rm-ptext">Every shot is written like a camera note, not a wish. Lens and move first — focal length, push or hold, eye level. Then blocking: who enters, what the hands do, where the gaze lands. Then light — direction, hour, quality — the way a gaffer would hear it. Then the locks: character, prop and wardrobe identity pinned to the reference set so nothing drifts between generations. Atmosphere last, render discipline always — ultra-clean, noise-free.</p>
@@ -1454,39 +1460,39 @@
         </div>
         <span class="rmv-down" aria-hidden="true">↓</span>
         <div class="rmv-boardfull">
-          <figure class="rmv-cell"><img src="kf-1a.jpg" alt="Shot 1A — classroom establishing" loading="lazy" /><figcaption>SH 1A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-1b.jpg" alt="Shot 1B — girl drawing at her desk" loading="lazy" /><figcaption>SH 1B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-1c.jpg" alt="Shot 1C — girl and boy with blocks and book" loading="lazy" /><figcaption>SH 1C</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-2a.jpg" alt="Shot 2A — girl drawing, close" loading="lazy" /><figcaption>SH 2A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-2b.jpg" alt="Shot 2B — crayons on the desk" loading="lazy" /><figcaption>SH 2B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-3a.jpg" alt="Shot 3A — blocks on the floor" loading="lazy" /><figcaption>SH 3A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-3b.jpg" alt="Shot 3B — girl stacking blocks" loading="lazy" /><figcaption>SH 3B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-3c.jpg" alt="Shot 3C — boy reading nearby" loading="lazy" /><figcaption>SH 3C</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-4a.jpg" alt="Shot 4A — the boy builds the tower" loading="lazy" /><figcaption>SH 4A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-4b.jpg" alt="Shot 4B — concentration, close" loading="lazy" /><figcaption>SH 4B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-5a.jpg" alt="Shot 5A — the tower falls" loading="lazy" /><figcaption>SH 5A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-5b.jpg" alt="Shot 5B — the shock lands" loading="lazy" /><figcaption>SH 5B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-6a.jpg" alt="Shot 6A — hands to ears, overwhelm" loading="lazy" /><figcaption>SH 6A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-6b.jpg" alt="Shot 6B — the class notices" loading="lazy" /><figcaption>SH 6B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-6c.jpg" alt="Shot 6C — classmates gather" loading="lazy" /><figcaption>SH 6C</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-6d.jpg" alt="Shot 6D — leaning in, concern" loading="lazy" /><figcaption>SH 6D</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-6e.jpg" alt="Shot 6E — the teddy bear offered" loading="lazy" /><figcaption>SH 6E</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-7a.jpg" alt="Shot 7A — calm returns" loading="lazy" /><figcaption>SH 7A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-7b.jpg" alt="Shot 7B — the boy holds the bear" loading="lazy" /><figcaption>SH 7B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-7c.jpg" alt="Shot 7C — a first smile" loading="lazy" /><figcaption>SH 7C</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-8a.jpg" alt="Shot 8A — the class circle" loading="lazy" /><figcaption>SH 8A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-8b.jpg" alt="Shot 8B — teacher joins the circle" loading="lazy" /><figcaption>SH 8B</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-9a.jpg" alt="Shot 9A — together, resolution" loading="lazy" /><figcaption>SH 9A</figcaption></figure>
-          <figure class="rmv-cell"><img src="kf-9b.jpg" alt="Shot 9B — the room at rest" loading="lazy" /><figcaption>SH 9B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-1a.webp" alt="Shot 1A — classroom establishing" loading="lazy" /><figcaption>SH 1A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-1b.webp" alt="Shot 1B — girl drawing at her desk" loading="lazy" /><figcaption>SH 1B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-1c.webp" alt="Shot 1C — girl and boy with blocks and book" loading="lazy" /><figcaption>SH 1C</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-2a.webp" alt="Shot 2A — girl drawing, close" loading="lazy" /><figcaption>SH 2A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-2b.webp" alt="Shot 2B — crayons on the desk" loading="lazy" /><figcaption>SH 2B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-3a.webp" alt="Shot 3A — blocks on the floor" loading="lazy" /><figcaption>SH 3A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-3b.webp" alt="Shot 3B — girl stacking blocks" loading="lazy" /><figcaption>SH 3B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-3c.webp" alt="Shot 3C — boy reading nearby" loading="lazy" /><figcaption>SH 3C</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-4a.webp" alt="Shot 4A — the boy builds the tower" loading="lazy" /><figcaption>SH 4A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-4b.webp" alt="Shot 4B — concentration, close" loading="lazy" /><figcaption>SH 4B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-5a.webp" alt="Shot 5A — the tower falls" loading="lazy" /><figcaption>SH 5A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-5b.webp" alt="Shot 5B — the shock lands" loading="lazy" /><figcaption>SH 5B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-6a.webp" alt="Shot 6A — hands to ears, overwhelm" loading="lazy" /><figcaption>SH 6A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-6b.webp" alt="Shot 6B — the class notices" loading="lazy" /><figcaption>SH 6B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-6c.webp" alt="Shot 6C — classmates gather" loading="lazy" /><figcaption>SH 6C</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-6d.webp" alt="Shot 6D — leaning in, concern" loading="lazy" /><figcaption>SH 6D</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-6e.webp" alt="Shot 6E — the teddy bear offered" loading="lazy" /><figcaption>SH 6E</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-7a.webp" alt="Shot 7A — calm returns" loading="lazy" /><figcaption>SH 7A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-7b.webp" alt="Shot 7B — the boy holds the bear" loading="lazy" /><figcaption>SH 7B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-7c.webp" alt="Shot 7C — a first smile" loading="lazy" /><figcaption>SH 7C</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-8a.webp" alt="Shot 8A — the class circle" loading="lazy" /><figcaption>SH 8A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-8b.webp" alt="Shot 8B — teacher joins the circle" loading="lazy" /><figcaption>SH 8B</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-9a.webp" alt="Shot 9A — together, resolution" loading="lazy" /><figcaption>SH 9A</figcaption></figure>
+          <figure class="rmv-cell"><img decoding="async" src="kf-9b.webp" alt="Shot 9B — the room at rest" loading="lazy" /><figcaption>SH 9B</figcaption></figure>
           <span class="rm-lab">Shot board · nine scenes, twenty-four keyframes — every frame boarded before a frame moves</span>
         </div>
         <span class="rmv-down" aria-hidden="true">↓</span>
         <div class="rmv-out rmv-outwide">
-          <div class="rmv-frame"><iframe src="https://player.vimeo.com/video/1206933019?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen title="Character-locked short film — final 4K"></iframe></div>
+          <div class="rmv-frame"><iframe data-src="https://player.vimeo.com/video/1206933019?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen title="Character-locked short film — final 4K"></iframe></div>
           <span class="rm-lab">Finished film · every shot generated individually, conformed &amp; graded</span>
         </div>
       </div>
-      <div class="tk-row chip-row reveal"><span class="lchip"><img src="davinci-resolve.svg" alt="DaVinci Resolve" title="DaVinci Resolve" loading="lazy" /></span><span class="lchip"><img src="after-effects.svg" alt="After Effects" title="After Effects" loading="lazy" /></span><span class="lchip"><img src="adobe.svg" alt="Adobe CC" title="Adobe CC" loading="lazy" /></span></div>
+      <div class="tk-row chip-row reveal"><span class="lchip"><img decoding="async" src="davinci-resolve.svg" alt="DaVinci Resolve" title="DaVinci Resolve" loading="lazy" /></span><span class="lchip"><img decoding="async" src="after-effects.svg" alt="After Effects" title="After Effects" loading="lazy" /></span><span class="lchip"><img decoding="async" src="adobe.svg" alt="Adobe CC" title="Adobe CC" loading="lazy" /></span></div>
     </div>
 
     <div class="pl-act reveal">
@@ -1495,7 +1501,7 @@
           <h3 class="pl-t">Where instinct becomes instruction.</h3>
           <p class="pl-d">Generative tools have no taste &amp; no memory. Left alone, lens logic wanders, light stops being motivated, brands blur. The answer is not better prompts, it is <b>architecture, twelve years of set knowledge</b> written into rules the machine cannot ignore.</p>
         </div>
-        <img src="pl-craft.jpg" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" />
+        <img decoding="async" src="pl-craft.webp" alt="The craft stack — skills, agents, firewalls, 3D" loading="lazy" />
         
         </div>
   </div>
@@ -1537,13 +1543,13 @@
       <p class="pn-sub">Solomun at FIVE LUXE, Dubai. One night, one phone, no rig, &amp; the same rules as set, find the light, hold the frame.</p>
     </div>
     <div class="pn-strip" aria-label="Shot on iPhone gallery">
-      <figure class="pn-card reveal"><img src="passion-ip-01.jpg" alt="Solomun Dubai, blood moon visual over the main stage" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-02.jpg" alt="Solomun Dubai, crowd wide with laser logo & FIVE tower" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-03.jpg" alt="Solomun Dubai, crowd under teal & pink stage wash" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-04.jpg" alt="Solomun at the decks under pink neon" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-05.jpg" alt="Solomun Dubai, red-washed crowd & skyline" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-06.jpg" alt="Solomun Dubai, blue hour crowd with gold type" loading="lazy" /></figure>
-      <figure class="pn-card reveal"><img src="passion-ip-07.jpg" alt="Solomun Dubai poster frame, JBR towers at night" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-01.webp" alt="Solomun Dubai, blood moon visual over the main stage" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-02.webp" alt="Solomun Dubai, crowd wide with laser logo & FIVE tower" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-03.webp" alt="Solomun Dubai, crowd under teal & pink stage wash" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-04.webp" alt="Solomun at the decks under pink neon" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-05.webp" alt="Solomun Dubai, red-washed crowd & skyline" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-06.webp" alt="Solomun Dubai, blue hour crowd with gold type" loading="lazy" /></figure>
+      <figure class="pn-card reveal"><img decoding="async" src="passion-ip-07.webp" alt="Solomun Dubai poster frame, JBR towers at night" loading="lazy" /></figure>
     </div>
   </div>
 </section>
@@ -1556,7 +1562,7 @@
     <div class="about-grid">
       <div class="onset reveal">
         <div class="onset-frame">
-          <img src="onset.jpg" alt="LGS on location — director on set" />
+          <img decoding="async" src="onset.webp" alt="LGS on location — director on set" />
         </div>
         <div class="onset-cap"><span>On location</span><span><b>DIR.</b> LGS</span></div>
       </div>
@@ -1747,7 +1753,7 @@ document.querySelectorAll('.cine-module').forEach(function(mod){
   if(!tiles.length) return;
   var srcs=tiles.map(function(a){return a.getAttribute('href');});
   var lb=document.createElement('div'); lb.id='sbLB'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label','Storyboard viewer');
-  lb.innerHTML='<img alt="Storyboard page" />'
+  lb.innerHTML='<img decoding="async" alt="Storyboard page" />'
     +'<button class="lb-nav lb-prev" aria-label="Previous page">&#8249;</button>'
     +'<button class="lb-nav lb-next" aria-label="Next page">&#8250;</button>'
     +'<button class="lb-x" aria-label="Close">&#10005;</button>'
@@ -1796,6 +1802,22 @@ document.querySelectorAll('.cine-module').forEach(function(mod){
   b.addEventListener('click',function(){ set(!n.classList.contains('open')); });
   n.addEventListener('click',function(e){ if(e.target.tagName==='A') set(false); });
   addEventListener('keydown',function(e){ if(e.key==='Escape'&&n.classList.contains('open')) set(false); });
+})();
+</script>
+<script>
+/* Vimeo facade: load each player only when its poster is clicked or another script sets its src */
+(function(){
+  document.querySelectorAll('iframe[data-src*="player.vimeo.com"]').forEach(function(f){
+    var id=(f.getAttribute('data-src').match(/video\/(\d+)/)||[])[1];
+    var b=document.createElement('button');
+    b.className='vf'; b.type='button'; b.setAttribute('aria-label','Play '+(f.title||'video'));
+    b.style.backgroundImage='url(poster-'+id+'.webp)';
+    f.parentNode.insertBefore(b,f);
+    b.addEventListener('click',function(){
+      var u=f.getAttribute('data-src'); f.src=u+(u.indexOf('?')<0?'?':'&')+'autoplay=1';
+    });
+    new MutationObserver(function(){ if(f.getAttribute('src')) b.remove(); }).observe(f,{attributes:true,attributeFilter:['src']});
+  });
 })();
 </script>
 </body>
