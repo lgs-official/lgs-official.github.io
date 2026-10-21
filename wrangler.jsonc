@@ -1,0 +1,12 @@
+{
+  "name": "lgsofficial",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "lgsofficial.com", "custom_domain": true },
+    { "pattern": "www.lgsofficial.com", "custom_domain": true }
+  ]
+}
